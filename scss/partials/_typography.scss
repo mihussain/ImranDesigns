@@ -1,0 +1,140 @@
+// Typography
+//
+// We use the 62.5% reset thing to set our base typography to ~10px
+//
+// Styleguide 1.0
+
+// styleguide:ignore:start
+html, .sg-html {
+    font-size: 62.5%; /* render at ~10px for our baseline */
+    line-height: 1.4;
+}
+
+h1 { 
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+h2 {
+    margin: 0;
+    padding: 1em 0 0 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+h3 {
+    margin: 0 0 1em;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: #bcbcbc;
+    text-transform: uppercase;
+}
+
+h4, h5 {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+p, ul, ol, li {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    
+}
+// styleguide:ignore:end
+
+
+
+// Base typography
+//
+// markup:
+// <div class="sg-html">
+//      <div class="sg-type-wrapper">
+//          <h1>Heading 1</h1>
+//          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+//          
+//     </div>
+// </div>
+//
+// Styleguide 1.1
+
+
+
+$base-font-size: 16;
+
+body, .sg-type-wrapper {
+    @include relativetype(10, $base-font-size, 22);
+
+    font-family: 'Lato', sans-serif;
+}
+
+// Type Definitions
+//
+// In the style of type-setting of old, we use terms from Moveable Type to define a typographic hierarchy that doesn't impose intent of purpose or tags to be implemented. Ref: http://en.wikipedia.org/wiki/Point_(typography)#Traditional_point-size_names
+//
+// .trafalgar - top level heading
+// .double-pica - 2nd level
+// .paragon - 3rd level
+// .great-primer - 4th level
+// .long-primer - smaller than body copy
+//
+// markup:
+// <div class="sg-html">
+//     <div class="sg-type-wrapper">
+//         <p class="{$modifiers}">{$modifiers}</p>
+//     </div>
+// </div>
+//
+// Styleguide 1.2
+
+.trafalgar {
+    @media (max-width: 50em) {
+        @include relativetype($base-font-size, 38, 45);
+    }
+    @media (min-width: 50em) {
+        @include relativetype($base-font-size, 53, 62);
+    }
+}
+
+.double-pica {
+    @include relativetype($base-font-size, 30, 36);
+}
+
+.paragon {
+    @include relativetype($base-font-size, 24, 28);
+}
+
+.great-primer {
+    @include relativetype($base-font-size, 20, 28);
+}
+
+.long-primer {
+    @include relativetype($base-font-size, 12, 16);
+}
+
+
+/* case */
+.trafalgar, .double-pica, .paragon, .long-primer {
+    text-transform: uppercase;
+}
+
+
+/* tracking */
+.trafalgar, .double-pica, .paragon {
+    letter-spacing: .06em;
+}
+
+
+ /* weights */
+.trafalgar, .double-pica {
+    font-weight: normal;
+}
+
+.pica {
+    font-weight: bold;
+}

@@ -1,0 +1,128 @@
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * RESET...............From HTML5BP for consistency
+ * HELPERS.............Also from HTML5BP
+ */
+$default-text-colour: #222;
+$default-hr-colour: #ccc;
+
+
+/*------------------------------------*\
+    $RESET
+\*------------------------------------*/
+
+/* http://www.paulirish.com/2012/box-sizing-border-box-ftw */
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+button,
+input,
+select,
+textarea {
+    color: $default-text-colour;
+}
+
+html {
+    font-size: 62.5%; /* render at ~10px for our baseline */
+    line-height: 1.4;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid $default-hr-colour;
+    display: block;
+    height: 1px;
+    margin: 1em 0;
+    padding: 0;
+}
+
+audio,
+canvas,
+img,
+video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+
+
+/*------------------------------------*\
+    $HELPERS
+\*------------------------------------*/
+
+.ir {
+    *text-indent: -9999px;
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+}
+
+.ir:before {
+    content: '';
+    display: block;
+    height: 150%;
+    width: 0;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+/* group is amore sematic name for clearfix by @simplebits */
+.group:before,
+.group:after {
+    content: ' ';
+    display: table;
+}
+
+.group:after {
+    clear: both;
+}
+
+.group {
+    *zoom: 1;
+}
+
+

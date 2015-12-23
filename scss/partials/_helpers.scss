@@ -1,0 +1,60 @@
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+
+// Takes pixel values to generate 'em' font-size & unitless line-height
+//
+// $base-size - Value to use as the basis for calculating 'em' value. May be the default $base-font-size.
+// $this-size - Font-size in pixels we want the result to match
+// $line-height - Pixel-based line-height measure
+//
+@mixin relativetype ($base-size, $this-size, $line-height) {
+    font-size: ($this-size/$base-size)*1em;
+    line-height: ($line-height/$this-size);
+}
+
+
+// To be used is the 'before' pseudo element to make the container maintain a set ratio. 
+// Borrows a bit from https://gist.github.com/brianmcallister/2932463
+//
+// $ratio - Space separated values for ratio. Example: '16 9' for widescreen, '1 1' for a square
+//
+@mixin setratio ($ratio: 1 1) {
+    @if length($ratio) < 2 or length($ratio) > 2 {
+        @warn '$ratio must be a list with two values.';
+    }
+
+    content: '';
+    display: block;
+    padding-top: percentage(nth($ratio, 2) / nth($ratio, 1));
+}
+
+
+
+/*------------------------------------*\
+    $EXTENDS
+\*------------------------------------*/
+
+// Use sparingly, just for deunioning layers to improve performance in most cases
+%gpu__accelerate {
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+
+    -moz-perspective: 1000;
+    -ms-perspective: 1000;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+// Shared sprite source, call by dropping @extend %sprite in your declaration
+%sprite {
+    background-image: url('/images/sprite.png');
+}
+

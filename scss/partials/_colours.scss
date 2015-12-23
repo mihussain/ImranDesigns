@@ -1,0 +1,21 @@
+// Colour Palette
+//
+// Styleguide 2.0
+
+
+// Main palette
+//
+// $colour__main - Primary
+// $colour__secondary - Secondary
+// $colour__secondary--lighter - Paler variation of the secondary colour
+// $colour__accent - Accent
+//
+// markup: <div style="background-color: {$modifiers}" class="styleguide-color">{$modifiers}</div>
+//
+// Styleguide 2.1
+
+$color__main: #999;
+$color__text: #4c4d4f;
+$color__gradient1: #60b0da;
+$color__gradient2: #945788;
+
