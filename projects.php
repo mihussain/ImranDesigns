@@ -24,10 +24,11 @@
 			<?php endwhile; ?>
 
 			<?php $portfolio = new WP_Query(array(
-				'post_type' => 'portfolio'
+				'post_type' => 'project'
 			)); ?>
 
 			<?php while($portfolio->have_posts()) : $portfolio->the_post(); ?>
+				<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a>
 				<?php the_title(); ?>
 			<?php endwhile; ?>
 		</div>
