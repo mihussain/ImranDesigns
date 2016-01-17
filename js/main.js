@@ -43,27 +43,18 @@ jQuery(document).ready(function($) {
 		
 		var body = $(document);
 
-		console.log(body);
-
 		body.on('scroll', function(e) {
 	    	
-	    	console.log(body.scrollTop());
-			console.log();
-
-	    	console.log('yo');
 	  		if (body.scrollTop() > 157) {
-	  			console.log('yes');
-	    		$('header').addClass('small_header');
+	  			$('header').addClass('small_header');
 	    		$('.page-content').css('margin-top','215px');
 	  		} else {
-	  			console.log('no');
-	    		$('header').removeClass('small_header');
+	  			$('header').removeClass('small_header');
 	    		$('.page-content').css('margin-top','0');
 	  		}
 	  
 		});
 	}
-
 
 	if ($(window).width() >= 768) {
 		fixHeader();
@@ -76,5 +67,13 @@ jQuery(document).ready(function($) {
 		$(this).toggleClass('open');
 		$('nav').slideToggle(500);
 		$('nav').toggleClass('open');
+	});
+
+	// Scroll effects 
+
+	$(window).scroll(function () {
+	   $('.featured-image').css({
+	      'top' : ($(this).scrollTop()/10)+"px"
+	   }); 
 	});
 });

@@ -133,7 +133,7 @@ h4, h5 {
   font-weight: 400; }
 
 p, ul, ol, li {
-  margin: 0;
+  margin: 0 0 1em 0;
   font-family: 'Lato', sans-serif;
   font-weight: 300; }
 
@@ -276,7 +276,9 @@ body {
 header {
   background: #000;
   height: 60px;
-  width: 100%; }
+  width: 100%;
+  position: relative;
+  z-index: 10; }
   @media only screen and (min-width: 768px) {
     header {
       height: 215px; } }
@@ -416,8 +418,17 @@ header {
 
 .page-content {
   background: #fff;
-  height: 2000px;
-  padding-top: 1em; }
+  height: 2000px; }
+  .page-content .featured-image {
+    width: 100%;
+    height: auto;
+    position: relative; }
+  .page-content .container {
+    background: #fff;
+    padding-top: 1em;
+    width: 100%;
+    position: relative;
+    z-index: 9; }
   .page-content .banner {
     background-image: url("../images/image.png");
     background-repeat: no-repeat;
@@ -442,3 +453,21 @@ header {
         padding-left: 22px; } }
     .page-content .list .list_section li {
       margin: 0 0 .5em 0; }
+  .page-content .project_title {
+    clear: both;
+    padding-top: 1em; }
+    .page-content .project_title:after {
+      display: block;
+      content: '';
+      clear: both; }
+    .page-content .project_title h2 {
+      float: left;
+      padding: 0; }
+    .page-content .project_title .project_link {
+      background: #000;
+      padding: .6em 1em;
+      border-radius: 5px;
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      float: right; }
