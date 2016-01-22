@@ -27,15 +27,21 @@
 						<a class="project_link" href="<?php the_field('url'); ?>" target="_blank">View Project</a> 
 					</div>
 
-					<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time> <?php comments_popup_link('Leave a Comment', '1 Comment', '% Comments'); ?>
-					<?php the_content(); ?>		
-
-						
+					<?php //the_content(); ?>		
 
 					<?php
-					if( have_rows('images') ):
+					    // split content into array
+					        $content = split_content();
+					    // output first content section in column1
+					        echo '<div id="column1">', array_shift($content), '</div>';
+					?>						
 
-					    while ( have_rows('images') ) : the_row(); 
+					<?php
+					if( have_rows('images') ): ?>
+
+						<div class="image_section">
+
+					    <?php while ( have_rows('images') ) : the_row(); 
 
 							$image = get_sub_field('image');
 							if( !empty($image) ): 
@@ -63,16 +69,24 @@
 								<?php if( $caption ): ?>
 										<p class="wp-caption-text"><?php echo $caption; ?></p>
 									</div>
-
 								<?php endif; ?>
 							<?php endif; ?>
-					<?php
-					    endwhile;
+						<?php endwhile; ?>
+						
+						</div>
 
-					else :
+					<?php else :
 					    // no rows found
 					endif;
 					?>
+
+					<?php
+						// output remaining content sections in column2
+					    echo '<div id="column2">', implode($content), '</div>';
+					?>
+
+
+					<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time>
 
 					<?php if ( get_the_author_meta( 'description' ) ) : ?>
 					<?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?>

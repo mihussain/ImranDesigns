@@ -408,12 +408,12 @@ header {
       header.small_header #logo {
         font-size: 20px;
         float: left;
-        margin: .8em 0;
+        margin: .8em 1em 0;
         padding: 0; } }
     @media only screen and (min-width: 768px) {
       header.small_header nav ul {
         float: right;
-        margin: 1.17em 0;
+        margin: 1.17em 1em 0;
         padding: 0; } }
 
 .page-content {
@@ -422,7 +422,9 @@ header {
   .page-content .featured-image {
     width: 100%;
     height: auto;
-    position: relative; }
+    position: relative;
+    max-height: 280px;
+    margin-top: -1.250em; }
   .page-content .container {
     background: #fff;
     padding-top: 1em;
@@ -471,3 +473,6 @@ header {
       text-decoration: none;
       display: block;
       float: right; }
+  .page-content .image_section {
+    background: #999;
+    padding: 20px; }
