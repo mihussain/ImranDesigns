@@ -40,12 +40,20 @@ h4, h5 {
     font-weight: 400;
 }
 
-p, ul, ol, li {
+p {
     margin: 0 0 1em 0;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
+    line-height: 1.5;
     
 }
+
+ul, ol, li {
+    margin: 0 0 .3em 0;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;   
+}
+
 // styleguide:ignore:end
 
 

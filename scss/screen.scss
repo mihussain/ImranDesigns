@@ -239,7 +239,6 @@ header {
 
 .page-content {
     background: #fff;
-    height: 2000px;
     //padding-top: 1em;
 
     @include respond-to(medium) {
@@ -251,12 +250,10 @@ header {
         height: auto;
         position: relative;
         max-height: 280px;
-        margin-top: -1.250em;
     }
 
     .container {
         background: #fff;
-        padding-top: 1em;
         width: 100%;
         position: relative;
         z-index: 9;
@@ -312,21 +309,103 @@ header {
         h2 {
             float: left;
             padding: 0;
+            margin-bottom: .4em;
         }
+    }
 
-        .project_link {
-            background: #000;
-            padding: .6em 1em;
-            border-radius: 5px;
-            color: #fff;
-            text-decoration: none;
-            display: block;
-            float: right;
-        }
+     .project_link {
+        background: #000;
+        padding: .6em 1em;
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+        display: block;
     }
 
     .image_section {
         background: $color__main;
         padding: 20px;
+        margin-bottom: 1em;
+    }
+}
+
+article {
+
+    clear: both;
+    position: relative;
+
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    
+    .left {
+
+        width: 100%;
+
+        @include respond-to(large) {
+            width: 65%;
+            float: left;
+            margin-right: 5%;
+        }
+    }
+
+    .sidebar{ 
+
+        background: #f1f1f1;
+        width: 100%;
+
+        @include respond-to(large) {
+            width: 30%;
+            float: left;
+            padding: 1.250em;
+            position: absolute;
+            right: 0;
+            height: 100%;
+        }
+
+        .heading{
+            margin-top: 1.5em;
+            display: block;
+            width: 100%;
+            margin-bottom: 0.5em;
+        }
+
+        .features {
+            padding-left: 18px;
+            clear: both;
+
+            &:after {
+                display: block;
+                clear: both;
+                content: '';
+            }
+
+            li {
+                font-size: .9em;
+                float: left;
+                width: 50%; 
+
+            }
+        }
+    }
+}
+
+.fixed_test {
+    @include respond-to(large) {
+        position: fixed;
+        top: 80px;
+        width: 320px;
+    }
+}
+
+.fixed {
+    @include respond-to(large) {
+        position: fixed;
+        top: 45px;
+        background-color: #fff;
+
     }
 }

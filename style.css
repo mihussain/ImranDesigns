@@ -132,8 +132,14 @@ h4, h5 {
   font-family: 'Lato', sans-serif;
   font-weight: 400; }
 
-p, ul, ol, li {
+p {
   margin: 0 0 1em 0;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  line-height: 1.5; }
+
+ul, ol, li {
+  margin: 0 0 .3em 0;
   font-family: 'Lato', sans-serif;
   font-weight: 300; }
 
@@ -417,17 +423,14 @@ header {
         padding: 0; } }
 
 .page-content {
-  background: #fff;
-  height: 2000px; }
+  background: #fff; }
   .page-content .featured-image {
     width: 100%;
     height: auto;
     position: relative;
-    max-height: 280px;
-    margin-top: -1.250em; }
+    max-height: 280px; }
   .page-content .container {
     background: #fff;
-    padding-top: 1em;
     width: 100%;
     position: relative;
     z-index: 9; }
@@ -464,15 +467,71 @@ header {
       clear: both; }
     .page-content .project_title h2 {
       float: left;
-      padding: 0; }
-    .page-content .project_title .project_link {
-      background: #000;
-      padding: .6em 1em;
-      border-radius: 5px;
-      color: #fff;
-      text-decoration: none;
-      display: block;
-      float: right; }
+      padding: 0;
+      margin-bottom: .4em; }
+  .page-content .project_link {
+    background: #000;
+    padding: .6em 1em;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    display: block; }
   .page-content .image_section {
     background: #999;
-    padding: 20px; }
+    padding: 20px;
+    margin-bottom: 1em; }
+
+article {
+  clear: both;
+  position: relative; }
+  article:after {
+    content: '';
+    display: block;
+    clear: both; }
+  article .left {
+    width: 100%; }
+    @media only screen and (min-width: 1024px) {
+      article .left {
+        width: 65%;
+        float: left;
+        margin-right: 5%; } }
+  article .sidebar {
+    background: #f1f1f1;
+    width: 100%; }
+    @media only screen and (min-width: 1024px) {
+      article .sidebar {
+        width: 30%;
+        float: left;
+        padding: 1.250em;
+        position: absolute;
+        right: 0;
+        height: 100%; } }
+    article .sidebar .heading {
+      margin-top: 1.5em;
+      display: block;
+      width: 100%;
+      margin-bottom: 0.5em; }
+    article .sidebar .features {
+      padding-left: 18px;
+      clear: both; }
+      article .sidebar .features:after {
+        display: block;
+        clear: both;
+        content: ''; }
+      article .sidebar .features li {
+        font-size: .9em;
+        float: left;
+        width: 50%; }
+
+@media only screen and (min-width: 1024px) {
+  .fixed_test {
+    position: fixed;
+    top: 80px;
+    width: 320px; } }
+
+@media only screen and (min-width: 1024px) {
+  .fixed {
+    position: fixed;
+    top: 45px;
+    background-color: #fff; } }

@@ -45,14 +45,22 @@ jQuery(document).ready(function($) {
 
 		body.on('scroll', function(e) {
 	    	
-	  		if (body.scrollTop() > 157) {
+	  		if (body.scrollTop() > 188) {
 	  			$('header').addClass('small_header');
 	    		$('.page-content').css('margin-top','215px');
 	  		} else {
 	  			$('header').removeClass('small_header');
 	    		$('.page-content').css('margin-top','0');
 	  		}
+
+	  		console.log(body.scrollTop());
 	  
+	  		if (body.scrollTop() >= 390) {
+	  			$('.right > div').addClass('fixed_test');
+
+	  		} else {
+	  			$('.right > div').removeClass('fixed_test');
+	  		}
 		});
 	}
 
@@ -72,8 +80,8 @@ jQuery(document).ready(function($) {
 	// Scroll effects 
 
 	$(window).scroll(function () {
-	   $('.featured-image').css({
-	      'top' : ($(this).scrollTop()/10)+"px"
+	   $('.container').css({
+	      'top' : ($(this).scrollTop()/-5)+"px"
 	   }); 
 	});
 });
