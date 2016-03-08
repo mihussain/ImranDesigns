@@ -56,10 +56,13 @@ jQuery(document).ready(function($) {
 	  		console.log(body.scrollTop());
 	  
 	  		if (body.scrollTop() >= 390) {
-	  			$('.right > div').addClass('fixed_test');
+	  			$('.sidebar > div').addClass('fixed_test');
+	  			
+	  			var new_width = $('.sidebar').width();
+				$('.fixed_test').width(new_width); 
 
 	  		} else {
-	  			$('.right > div').removeClass('fixed_test');
+	  			$('.sidebar > div').removeClass('fixed_test');
 	  		}
 		});
 	}

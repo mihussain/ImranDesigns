@@ -5,6 +5,9 @@
 // Styleguide 1.0
 
 // styleguide:ignore:start
+@import 'partials/variables';
+@import 'partials/colours';
+
 html, .sg-html {
     font-size: 62.5%; /* render at ~10px for our baseline */
     line-height: 1.4;
@@ -44,7 +47,11 @@ p {
     margin: 0 0 1em 0;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    line-height: 1.5;
+    line-height: 1.8;
+
+    @include respond-to(large) {
+        line-height: 1.5;
+    }
     
 }
 
@@ -52,6 +59,20 @@ ul, ol, li {
     margin: 0 0 .3em 0;
     font-family: 'Lato', sans-serif;
     font-weight: 300;   
+}
+
+article a{
+    color: $color__link;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:visited {
+        color: $color__link_visited;
+    }
+
+    &:hover, &:active {
+        color: $color__link_hover;
+    }
 }
 
 // styleguide:ignore:end

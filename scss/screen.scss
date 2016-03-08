@@ -321,6 +321,12 @@ header {
         text-transform: uppercase;
         text-align: center;
         display: block;
+        width: 200px;
+        margin: 0 auto;
+
+        @include respond-to(large) {
+            width: 100%;
+        }
     }
 
     .image_section {
@@ -353,14 +359,16 @@ article {
     }
 
     .sidebar{ 
-
-        background: #f1f1f1;
+        background: $color__main;
+        padding: 1.250em;
         width: 100%;
+        margin-top: 1em;
 
         @include respond-to(large) {
+            margin-top: 0;
             width: 30%;
             float: left;
-            padding: 1.250em;
+            
             position: absolute;
             right: 0;
             height: 100%;
@@ -388,7 +396,41 @@ article {
                 float: left;
                 width: 50%; 
 
+                @include respond-to(medium) {
+                    width: 33%;
+                }
+
+                @include respond-to(large) {
+                    width: 50%;
+                }
+
             }
+        }
+
+        .categories {
+            padding: 0;
+            clear: both;
+            list-style-type: none;
+
+            &:after {
+                display: block;
+                clear: both;
+                content: '';
+            }
+
+            li {
+                font-size: .9em;
+                float: left;
+                margin-right: .5em;
+
+                &:last-child {
+                    margin: 0;
+                }
+            }
+        }
+
+        .url_link {
+            word-break: break-all;
         }
     }
 }
@@ -397,7 +439,6 @@ article {
     @include respond-to(large) {
         position: fixed;
         top: 80px;
-        width: 320px;
     }
 }
 

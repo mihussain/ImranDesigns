@@ -86,7 +86,7 @@
 						?>
 
 
-						<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time>
+						<!--<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time>-->
 
 						<?php if ( get_the_author_meta( 'description' ) ) : ?>
 						<?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?>
@@ -117,10 +117,41 @@
 							<?php endif; ?>
 
 							<span class="heading">Category:</span>
-							<p>category</p>
+
+								<?php
+								 $args = array(
+									'show_option_all'    => '',
+									'orderby'            => 'name',
+									'order'              => 'ASC',
+									'style'              => 'list',
+									'show_count'         => 0,
+									'hide_empty'         => 0,
+									'use_desc_for_title' => 1,
+									'child_of'           => 0,
+									'feed'               => '',
+									'feed_type'          => '',
+									'feed_image'         => '',
+									'exclude'            => '',
+									'exclude_tree'       => '',
+									'include'            => '',
+									'hierarchical'       => o,
+									'title_li'           => __( '' ),
+									'show_option_none'   => __( '' ),
+									'number'             => null,
+									'echo'               => 1,
+									'depth'              => 0,
+									'current_category'   => 0,
+									'pad_counts'         => 0,
+									'taxonomy'           => 'category',
+									'walker'             => null
+								    );
+								?>
+
+
+							<ul class="categories"><?php wp_list_categories($args); ?></ul>
 
 							<span class="heading">URL:</span>
-							<a href="<?php the_field('url'); ?>" target="_blank"><?php the_field('url'); ?></a>
+							<a class="url_link" href="<?php the_field('url'); ?>" target="_blank"><?php the_field('url'); ?></a>
 
 						</div>
 					</div>

@@ -136,12 +136,24 @@ p {
   margin: 0 0 1em 0;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
-  line-height: 1.5; }
+  line-height: 1.8; }
+  @media only screen and (min-width: 1024px) {
+    p {
+      line-height: 1.5; } }
 
 ul, ol, li {
   margin: 0 0 .3em 0;
   font-family: 'Lato', sans-serif;
   font-weight: 300; }
+
+article a {
+  color: #f7701e;
+  font-weight: bold;
+  text-decoration: none; }
+  article a:visited {
+    color: #9f4916; }
+  article a:hover, article a:active {
+    color: #4e240b; }
 
 body, .sg-type-wrapper {
   font-size: 1.6em;
@@ -476,9 +488,14 @@ header {
     text-decoration: none;
     text-transform: uppercase;
     text-align: center;
-    display: block; }
+    display: block;
+    width: 200px;
+    margin: 0 auto; }
+    @media only screen and (min-width: 1024px) {
+      .page-content .project_link {
+        width: 100%; } }
   .page-content .image_section {
-    background: #999;
+    background: #EFEFEF;
     padding: 20px;
     margin-bottom: 1em; }
 
@@ -497,13 +514,15 @@ article {
         float: left;
         margin-right: 5%; } }
   article .sidebar {
-    background: #f1f1f1;
-    width: 100%; }
+    background: #EFEFEF;
+    padding: 1.250em;
+    width: 100%;
+    margin-top: 1em; }
     @media only screen and (min-width: 1024px) {
       article .sidebar {
+        margin-top: 0;
         width: 30%;
         float: left;
-        padding: 1.250em;
         position: absolute;
         right: 0;
         height: 100%; } }
@@ -523,12 +542,33 @@ article {
         font-size: .9em;
         float: left;
         width: 50%; }
+        @media only screen and (min-width: 768px) {
+          article .sidebar .features li {
+            width: 33%; } }
+        @media only screen and (min-width: 1024px) {
+          article .sidebar .features li {
+            width: 50%; } }
+    article .sidebar .categories {
+      padding: 0;
+      clear: both;
+      list-style-type: none; }
+      article .sidebar .categories:after {
+        display: block;
+        clear: both;
+        content: ''; }
+      article .sidebar .categories li {
+        font-size: .9em;
+        float: left;
+        margin-right: .5em; }
+        article .sidebar .categories li:last-child {
+          margin: 0; }
+    article .sidebar .url_link {
+      word-break: break-all; }
 
 @media only screen and (min-width: 1024px) {
   .fixed_test {
     position: fixed;
-    top: 80px;
-    width: 320px; } }
+    top: 80px; } }
 
 @media only screen and (min-width: 1024px) {
   .fixed {
