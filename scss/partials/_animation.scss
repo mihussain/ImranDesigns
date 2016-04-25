@@ -1,8 +1,4 @@
 header {
-    // -webkit-transition: height 0.2s;
-    // -moz-transition: height 0.2s;
-    // transition: height 0.2s;
-
     #logo, nav {
         @include respond-to(medium) {
             -webkit-animation: fade-in-header 1s 1; /* Safari 4+ */
@@ -11,7 +7,6 @@ header {
             animation:         fade-in-header 1s 1; /* IE 10+, Fx 29+ */
         }
     }
-
 }
 
 .small_header {
@@ -22,7 +17,6 @@ header {
             -o-animation:      fade-in-small-header 1s 1; /* Opera 12+ */
             animation:         fade-in-small-header 1s 1; /* IE 10+, Fx 29+ */
         }
-
     }
 }
 
@@ -61,3 +55,10 @@ header {
   100%  { opacity: 1; }
 }
 
+@mixin easeAnimation {
+    -webkit-transition: all .6s ease;
+    -moz-transition:    all .6s ease;
+    -o-transition:      all .6s ease;
+    -ms-transition:     all .6s ease;
+    transition:         all .6s ease;
+}

@@ -26,8 +26,10 @@
 	======================================================================================================================== */
 
 	add_theme_support('post-thumbnails');
-	
-	// register_nav_menus(array('primary' => 'Primary Navigation'));
+
+	add_image_size( 'portfolio-thumb', 600, 600, true ); //
+	add_image_size( 'sidebar-thumb', 120, 120, true ); // Hard Crop Mode
+	add_image_size( 'featured-image', 1024, 768, true ); // 
 
 	/* ========================================================================================================================
 	
@@ -67,6 +69,12 @@
 
 		wp_register_script( 'transit', get_template_directory_uri().'/js/vendor/jquery.transit.min.js', array( 'jquery' ), '', true );
 		wp_enqueue_script( 'transit' );
+
+		wp_register_script( 'ease', get_template_directory_uri().'/js/vendor/jquery.easing.min.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( 'ease' );
+
+		wp_register_script( 'mixitup', get_template_directory_uri().'/js/vendor/jquery.mixitup.min.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( 'mixitup' );
 
 		wp_register_script( 'site', get_template_directory_uri().'/js/main.js', array( 'jquery' ), '', true );
 		wp_enqueue_script( 'site' );
@@ -156,3 +164,9 @@
 	    }
 	}
 	add_action( 'pre_get_posts', 'na_parse_request' );
+
+	/* ========================================================================================================================
+	
+	Share Icons
+	
+	======================================================================================================================== */

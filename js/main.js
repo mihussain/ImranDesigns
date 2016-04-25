@@ -45,17 +45,15 @@ jQuery(document).ready(function($) {
 
 		body.on('scroll', function(e) {
 	    	
-	  		if (body.scrollTop() > 188) {
+	  		if (body.scrollTop() > 155) {
 	  			$('header').addClass('small_header');
 	    		$('.page-content').css('margin-top','215px');
 	  		} else {
 	  			$('header').removeClass('small_header');
 	    		$('.page-content').css('margin-top','0');
 	  		}
-
-	  		console.log(body.scrollTop());
 	  
-	  		if (body.scrollTop() >= 390) {
+	  		if (body.scrollTop() >= 228) {
 	  			$('.sidebar > div').addClass('fixed_test');
 	  			
 	  			var new_width = $('.sidebar').width();
@@ -66,25 +64,66 @@ jQuery(document).ready(function($) {
 	  		}
 		});
 	}
-
-	if ($(window).width() >= 768) {
-		fixHeader();
-	} else {
-		$('header').addClass('small_header');
-		$('.page-content').css('margin-top','60px');
-	}
+	
+	$(window).on("resize", function () {
+		if ($(window).width() >= 768) {
+			fixHeader();
+		} else {
+			$('header').addClass('small_header');
+			$('.page-content').css('margin-top','60px');
+		}
+	}).resize();
 
 	$('#nav-icon').click(function(){
+	
+		var menuHeight = $(window).height();
+
+		$('.menu > ul').height(menuHeight);
 		$(this).toggleClass('open');
-		$('nav').slideToggle(500);
 		$('nav').toggleClass('open');
 	});
 
 	// Scroll effects 
 
 	$(window).scroll(function () {
-	   $('.container').css({
-	      'top' : ($(this).scrollTop()/-5)+"px"
-	   }); 
+	   	$('.container').css({
+	    	'margin-top' : ($(this).scrollTop()/-1)+"px"
+	   	}); 
+
+	    $('.home .part_1_image').css({
+	      	'margin-top' : ($(this).scrollTop()/-4)+"px"
+	   	});
+
+	   	$('.home .part_2_image').css({
+	      	'margin-top' : ($(this).scrollTop()/-8)+"px"
+	   	}); 
 	});
-});
+
+	// portfolio filter
+	var filterList = {
+		init: function () {
+			// MixItUp plugin
+			$('.portfolio').mixItUp({
+				selectors: {
+					target: '.project',
+					filter: '.filter'
+				},
+				load: {
+					sort: 'random'
+				},
+				animation: {
+					enable: true,
+					effects: 'fade',
+					easing: 'easeInOutCubic'
+				},
+				controls: {
+					activeClass: 'active'
+				}
+			});				
+		},
+	};
+	
+	// Run the show!
+	filterList.init();
+	
+});		

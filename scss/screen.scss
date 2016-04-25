@@ -4,6 +4,7 @@
 @import 'partials/colours';
 @import 'partials/variables';
 @import 'partials/animation';
+@import 'partials/portfolio';
 
 img {
     border: 0;
@@ -86,15 +87,16 @@ header {
         }
 
         ul {
-            background: #1c1c1c;
+            background: #000000;
             display: block;
             list-style-type: none;
             margin: 0;
             padding: 0;
-            text-align: center;
+            text-align: left;
 
             @include respond-to(medium) {
                 background: none;
+                text-align: center;
             }
 
             li {
@@ -106,15 +108,17 @@ header {
                 }
 
                 a{
-                    color: #676767;
+                    color: #ffffff;
                     font-weight: 300;
                     display: block;
-                    padding: 10px 0;
+                    padding: 0.625em 1.1em;
                     text-decoration: none;
+                    border-bottom: 1px solid #1D1D1D;
 
                     @include respond-to(medium) {
+                        color: #676767;
                         display: inline;
-                        padding: 0 10px;
+                        padding: 0 0.625em;
                         border-bottom: none;
                     }
 
@@ -245,11 +249,20 @@ header {
         //padding-top: 215px;
     }
 
-    .featured-image {
-        width: 100%;
-        height: auto;
-        position: relative;
-        max-height: 280px;
+    .featured_image_container {
+
+        max-height: 250px;
+        overflow: hidden;
+
+         @include respond-to(large) {
+            max-height: 300px;
+         }
+
+        .featured-image {
+            width: 100%;
+            height: auto;
+            position: relative;
+        }
     }
 
     .container {
@@ -449,4 +462,126 @@ article {
         background-color: #fff;
 
     }
+}
+
+.home {
+    .part_1 {
+        position: relative;
+        overflow: hidden;
+
+        &.bg_image {
+            padding: 4em 0;
+            background: -webkit-linear-gradient(left top, red, yellow); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(bottom right, red, yellow); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(bottom right, red, yellow); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(to bottom right, red, yellow); /* Standard syntax */
+
+            h2 {
+                color: #fff;
+            }
+
+            p {
+                color: #fff;
+
+                @include respond-to(medium) {
+                    width: 40%;
+                }
+            }
+        }
+
+        .central_container {
+            position: relative;
+            z-index: 2;
+        }
+
+        &_image {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            width: 300%;
+
+            opacity: .6;
+
+            @include respond-to(medium) {
+                width: 200%;
+            }            
+
+            @include respond-to(medium) {
+                width: 100%;
+            }
+        }
+    }
+
+    .portfolio {
+        background: #fff;
+        z-index: 6;
+        position: relative;
+
+        &.bg_image {
+            padding: 1em 0 4em 0;
+        }
+    }
+
+    .part_2 {
+        position: relative;
+        overflow: hidden;
+
+        &.bg_image {
+            padding: 4em 0;
+            background: -webkit-linear-gradient(left top, brown, black); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(bottom right, brown, black); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(bottom right, brown, black); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(to bottom right, brown, black); /* Standard syntax */
+
+            h2, p, li {
+                color: #fff;
+            }
+        }
+
+        .central_container {
+            position: relative;
+            z-index: 2;
+
+            .list {
+                clear: both;
+                margin-bottom: 1em;
+
+                &:after {
+                    content: '';
+                    display: block;
+                    clear: both;
+                }
+
+                ul {
+                    float: left;
+                    width: 31%;
+                    padding-left: 20px;
+                }
+            }
+        }
+
+        &_image {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            width: 100%;
+            opacity: .6;
+        }
+    }
+
+    .part_3 {
+        position: relative;
+        overflow: hidden;
+
+        &.bg_image {
+            padding: 4em 0;
+        }
+    }
+}
+
+footer {
+    min-height: 200px;
+    background-color: #000;
 }

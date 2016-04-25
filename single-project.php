@@ -15,8 +15,10 @@
 	<section class="page-content">
 		
 		<?php if (has_post_thumbnail( $post->ID ) ): ?>
-			<?php $featuredImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); ?>
-		  	<img class="featured-image" src="<?php echo $featuredImage[0]; ?>" />
+			<div class="featured_image_container">
+				<?php $featuredImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'featured-image' ); ?>
+		  		<img class="featured-image" src="<?php echo $featuredImage[0]; ?>" />
+		  	</div>
 		<?php endif; ?>
 
 		<div class="container">
@@ -24,16 +26,15 @@
 				<article>
 					<div class="left">
 						<div class="project_title">
+							<div class="breadcrumb"><a href="<?php echo bloginfo('url'); ?>">Home</a> / <a href="<?php echo bloginfo('url'); ?>/portfolio">Portfolio</a></div>
 							<h2><?php the_title(); ?></h2> 
 						</div>
 
-						<?php //the_content(); ?>		
-
 						<?php
 						    // split content into array
-						        $content = split_content();
+						    $content = split_content();
 						    // output first content section in column1
-						        echo '<div id="column1">', array_shift($content), '</div>';
+						    echo '<div id="column1">', array_shift($content), '</div>';
 						?>						
 
 						<?php
@@ -117,42 +118,12 @@
 							<?php endif; ?>
 
 							<span class="heading">Category:</span>
+							<?php the_category(', '); ?>
 
-								<?php
-								 $args = array(
-									'show_option_all'    => '',
-									'orderby'            => 'name',
-									'order'              => 'ASC',
-									'style'              => 'list',
-									'show_count'         => 0,
-									'hide_empty'         => 0,
-									'use_desc_for_title' => 1,
-									'child_of'           => 0,
-									'feed'               => '',
-									'feed_type'          => '',
-									'feed_image'         => '',
-									'exclude'            => '',
-									'exclude_tree'       => '',
-									'include'            => '',
-									'hierarchical'       => o,
-									'title_li'           => __( '' ),
-									'show_option_none'   => __( '' ),
-									'number'             => null,
-									'echo'               => 1,
-									'depth'              => 0,
-									'current_category'   => 0,
-									'pad_counts'         => 0,
-									'taxonomy'           => 'category',
-									'walker'             => null
-								    );
-								?>
-
-
-							<ul class="categories"><?php wp_list_categories($args); ?></ul>
-
-							<span class="heading">URL:</span>
-							<a class="url_link" href="<?php the_field('url'); ?>" target="_blank"><?php the_field('url'); ?></a>
-
+							<?php if (get_field('url')) : ?>
+								<span class="heading">URL:</span>
+								<a class="url_link" href="<?php the_field('url'); ?>" target="_blank"><?php the_field('url'); ?></a>
+							<?php endif; ?>
 						</div>
 					</div>
 

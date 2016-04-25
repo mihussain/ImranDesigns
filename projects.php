@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Project Page
+ * Template Name: Portfolio Page
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -27,10 +27,40 @@
 				'post_type' => 'project'
 			)); ?>
 
-			<?php while($portfolio->have_posts()) : $portfolio->the_post(); ?>
-				<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a>
-				<?php the_title(); ?>
-			<?php endwhile; ?>
+			<ul id="filters">
+			  	<?php
+			  		echo "<li><span class='filter active' data-filter='all'>All</span></li>";
+			  		foreach (get_categories() as $category){
+			    		echo "<li>";
+			    		echo "<span class='filter' data-filter='.$category->category_nicename'>";
+			    		echo $category->name;
+			    		echo "</span>";
+			    		echo "</li>";
+			  		} 
+			  	?>
+			</ul>
+
+			<div class="portfolio">
+				<?php while($portfolio->have_posts()) : $portfolio->the_post(); ?>
+
+					<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark">
+						<div class="project mix <?php foreach((get_the_category()) as $category) { echo $category->category_nicename . ' '; } ?>">
+							<div class="project-wrapper">
+								<?php if (has_post_thumbnail( $post->ID ) ): ?>
+									<div class="thumbnail_image_container">
+										<?php $thumbImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'portfolio-thumb' ); ?>
+								  		<img class="thumbnail-image" src="<?php echo $thumbImage[0]; ?>" />
+								  		<div class="label">
+								  			<div class="label-text"><?php the_title(); ?></div>
+								  			<div class="label-bg"></div>
+								  		</div>
+								  	</div>
+								<?php endif; ?>
+				  			</div>
+						</div>
+					</a>
+				<?php endwhile; ?>
+			</div>
 		</div>
 	</section>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>
