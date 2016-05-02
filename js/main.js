@@ -47,10 +47,10 @@ jQuery(document).ready(function($) {
 	    	
 	  		if (body.scrollTop() > 155) {
 	  			$('header').addClass('small_header');
-	    		$('.page-content').css('margin-top','215px');
+	    		$('.page-content').css('top','215px');
 	  		} else {
 	  			$('header').removeClass('small_header');
-	    		$('.page-content').css('margin-top','0');
+	    		$('.page-content').css('top','0');
 	  		}
 	  
 	  		if (body.scrollTop() >= 228) {
@@ -70,7 +70,7 @@ jQuery(document).ready(function($) {
 			fixHeader();
 		} else {
 			$('header').addClass('small_header');
-			$('.page-content').css('margin-top','60px');
+			$('.page-content').css('top','60px');
 		}
 	}).resize();
 
@@ -83,21 +83,45 @@ jQuery(document).ready(function($) {
 		$('nav').toggleClass('open');
 	});
 
-	// Scroll effects 
+	//Scroll effects
 
-	$(window).scroll(function () {
-	   	$('.container').css({
-	    	'margin-top' : ($(this).scrollTop()/-1)+"px"
-	   	}); 
+	// shim layer with setTimeout fallback
+	window.requestAnimFrame = (function(){
+	  	return  window.requestAnimationFrame       ||
+	        	window.webkitRequestAnimationFrame ||
+	          	window.mozRequestAnimationFrame    ||
+	          	function( callback ){
+	            	window.setTimeout(callback, 1000 / 60);
+	          	};
+	})();
 
-	    $('.home .part_1_image').css({
-	      	'margin-top' : ($(this).scrollTop()/-4)+"px"
-	   	});
+	var scrollticker; // - don't need to set this in every scroll
 
-	   	$('.home .part_2_image').css({
-	      	'margin-top' : ($(this).scrollTop()/-8)+"px"
-	   	}); 
+	$(window).scroll(function() {
+	
+		// Clear Timeout if one is pending
+		if(scrollticker) { window.clearTimeout(scrollticker); scrollticker = null; }
+		  
+		// Set Timeout
+		scrollticker = window.setTimeout(function(){
+    		requestAnimFrame(scrollEvents);
+		}, 15); // Timeout in msec
 	});
+
+	function scrollEvents() {
+
+	 	$('.container').css({
+	 	   	'transform' : 'translateY(' + ($(this).scrollTop()/-2) + 'px)'
+	 	}); 
+
+	 	$('.home .part_1_image').css({
+	 	  	'transform' : 'translateY(' + ($(this).scrollTop()/-4)+ 'px)'
+	 	});
+			
+	 	$('.home .part_2_image').css({
+	 	  	'transform' : 'translateY(' + ($(this).scrollTop()/-8)+ 'px)'
+	 	});	    
+	 }
 
 	// portfolio filter
 	var filterList = {

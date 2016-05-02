@@ -1,0 +1,34 @@
+.blog {
+
+	h2 {
+		margin-bottom: 1em;
+	}
+
+	ol.news {
+		list-style: none;
+		padding: 0;
+
+		li {
+			article {
+				padding-bottom: .5em;
+				margin-bottom: 1.5em;
+				border-bottom: 1px solid #ccc;
+
+				.post-meta {
+					font-size: 11px;
+				}
+
+				.post-content {
+					margin-top: 1em;
+				}
+			}
+
+			&:last-child{
+					article {
+						border-bottom: 0;
+					}
+				}
+		}
+	}
+
+}

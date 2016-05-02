@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Home Page
+ * Template Name: HomePage
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -48,8 +48,9 @@
 
 			<div class="portfolio <?php if (get_field('background_images')): ?>bg_image<?php endif; ?>">
 				<div class="central_container"> 
-					<h2>Recent Work.</h2>
-					<?php while($portfolio->have_posts()) : $portfolio->the_post(); ?>
+					<h2>My Recent Work.</h2>
+					
+					<?php $i = 0; while($portfolio->have_posts() && $i < 4 ) : $portfolio->the_post(); ?>
 
 						<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark">
 							<div class="project mix <?php foreach((get_the_category()) as $category) { echo $category->category_nicename . ' '; } ?>">
@@ -67,7 +68,7 @@
 					  			</div>
 							</div>
 						</a>
-					<?php endwhile; ?>
+					<?php $i++; endwhile; ?>
 				</div>
 			</div>
 
@@ -88,5 +89,5 @@
 				</div>
 			</div>
 			<?php endwhile; ?>
-	</section>
-<?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>
+	<?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>
+</section>

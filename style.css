@@ -350,14 +350,15 @@ body, .sg-type-wrapper {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
-  width: 98%;
-  margin: 1%;
+  width: 50%;
+  margin: 0;
   display: none;
   float: left;
   overflow: hidden; }
   @media only screen and (min-width: 768px) {
     .portfolio .project {
-      width: 48%; } }
+      width: 23%;
+      margin: 1%; } }
   @media only screen and (min-width: 1024px) {
     .portfolio .project {
       width: 23%; } }
@@ -415,7 +416,7 @@ body, .sg-type-wrapper {
     display: block;
     font-size: 9px; }
 
-.Websites .label-bg {
+.websites .label-bg {
   background: red;
   background: -webkit-linear-gradient(left top, red, yellow);
   /* For Safari 5.1 to 6.0 */
@@ -439,8 +440,16 @@ body, .sg-type-wrapper {
   /* Standard syntax */
   opacity: .6; }
 
-.Print .label-bg {
+.print .label-bg {
   background: lime;
+  background: -webkit-linear-gradient(left top, orange, purple);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, orange, purple);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, orange, purple);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, orange, purple);
+  /* Standard syntax */
   opacity: .6; }
 
 #filters {
@@ -463,6 +472,23 @@ body, .sg-type-wrapper {
         background: #e95a44;
         color: #fff; }
 
+.blog h2 {
+  margin-bottom: 1em; }
+
+.blog ol.news {
+  list-style: none;
+  padding: 0; }
+  .blog ol.news li article {
+    padding-bottom: .5em;
+    margin-bottom: 1.5em;
+    border-bottom: 1px solid #ccc; }
+    .blog ol.news li article .post-meta {
+      font-size: 11px; }
+    .blog ol.news li article .post-content {
+      margin-top: 1em; }
+  .blog ol.news li:last-child article {
+    border-bottom: 0; }
+
 img {
   border: 0; }
 
@@ -470,6 +496,13 @@ body {
   background: #fff;
   margin: 0;
   padding: 0; }
+
+body, html {
+  height: 100%; }
+
+#main-container {
+  min-height: 100%;
+  position: relative; }
 
 .central_container {
   margin: 0 auto;
@@ -630,10 +663,12 @@ header {
         padding: 0; } }
 
 .page-content {
+  position: relative;
   background: #fff; }
   .page-content .featured_image_container {
     max-height: 250px;
-    overflow: hidden; }
+    overflow: hidden;
+    position: relative; }
     @media only screen and (min-width: 1024px) {
       .page-content .featured_image_container {
         max-height: 300px; } }
@@ -776,93 +811,137 @@ article {
     top: 45px;
     background-color: #fff; } }
 
-.home .part_1 {
-  position: relative;
-  overflow: hidden; }
-  .home .part_1.bg_image {
-    padding: 4em 0;
-    background: -webkit-linear-gradient(left top, red, yellow);
-    /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(bottom right, red, yellow);
-    /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(bottom right, red, yellow);
-    /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to bottom right, red, yellow);
-    /* Standard syntax */ }
-    .home .part_1.bg_image h2 {
-      color: #fff; }
-    .home .part_1.bg_image p {
-      color: #fff; }
+.home {
+  display: block; }
+  .home .part_1 {
+    position: relative;
+    overflow: hidden; }
+    .home .part_1.bg_image {
+      padding: 4em 0;
+      background: -webkit-linear-gradient(left top, red, yellow);
+      /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(bottom right, red, yellow);
+      /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(bottom right, red, yellow);
+      /* For Firefox 3.6 to 15 */
+      background: linear-gradient(to bottom right, red, yellow);
+      /* Standard syntax */ }
+      .home .part_1.bg_image h2 {
+        color: #fff; }
+      .home .part_1.bg_image p {
+        color: #fff; }
+        @media only screen and (min-width: 768px) {
+          .home .part_1.bg_image p {
+            width: 40%; } }
+    .home .part_1 .central_container {
+      position: relative;
+      z-index: 2; }
+    .home .part_1_image {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      width: 300%;
+      opacity: .6; }
       @media only screen and (min-width: 768px) {
-        .home .part_1.bg_image p {
-          width: 40%; } }
-  .home .part_1 .central_container {
+        .home .part_1_image {
+          width: 200%; } }
+      @media only screen and (min-width: 1024px) {
+        .home .part_1_image {
+          width: 100%; } }
+  .home .portfolio {
+    background: #fff;
+    z-index: 6;
+    position: relative; }
+    .home .portfolio.bg_image {
+      padding: 1em 0 4em 0; }
+  .home .part_2 {
     position: relative;
-    z-index: 2; }
-  .home .part_1_image {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    width: 300%;
-    opacity: .6; }
-    @media only screen and (min-width: 768px) {
-      .home .part_1_image {
-        width: 200%; } }
-    @media only screen and (min-width: 768px) {
-      .home .part_1_image {
-        width: 100%; } }
-
-.home .portfolio {
-  background: #fff;
-  z-index: 6;
-  position: relative; }
-  .home .portfolio.bg_image {
-    padding: 1em 0 4em 0; }
-
-.home .part_2 {
-  position: relative;
-  overflow: hidden; }
-  .home .part_2.bg_image {
-    padding: 4em 0;
-    background: -webkit-linear-gradient(left top, brown, black);
-    /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(bottom right, brown, black);
-    /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(bottom right, brown, black);
-    /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to bottom right, brown, black);
-    /* Standard syntax */ }
-    .home .part_2.bg_image h2, .home .part_2.bg_image p, .home .part_2.bg_image li {
-      color: #fff; }
-  .home .part_2 .central_container {
-    position: relative;
-    z-index: 2; }
-    .home .part_2 .central_container .list {
+    overflow: hidden; }
+    .home .part_2.bg_image {
+      padding: 4em 0;
+      background: -webkit-linear-gradient(left top, brown, black);
+      /* For Safari 5.1 to 6.0 */
+      background: -o-linear-gradient(bottom right, brown, black);
+      /* For Opera 11.1 to 12.0 */
+      background: -moz-linear-gradient(bottom right, brown, black);
+      /* For Firefox 3.6 to 15 */
+      background: linear-gradient(to bottom right, brown, black);
+      /* Standard syntax */ }
+      .home .part_2.bg_image h2, .home .part_2.bg_image p, .home .part_2.bg_image li {
+        color: #fff; }
+    .home .part_2 .list {
       clear: both;
       margin-bottom: 1em; }
-      .home .part_2 .central_container .list:after {
-        content: '';
-        display: block;
-        clear: both; }
-      .home .part_2 .central_container .list ul {
-        float: left;
-        width: 31%;
+      .home .part_2 .list ul {
+        clear: both;
         padding-left: 20px; }
-  .home .part_2_image {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    width: 100%;
-    opacity: .6; }
-
-.home .part_3 {
-  position: relative;
-  overflow: hidden; }
-  .home .part_3.bg_image {
-    padding: 4em 0; }
+        .home .part_2 .list ul:after {
+          display: block;
+          clear: both;
+          content: ''; }
+        .home .part_2 .list ul li {
+          width: 100%; }
+          @media only screen and (min-width: 768px) {
+            .home .part_2 .list ul li {
+              float: left;
+              width: 50%; } }
+          @media only screen and (min-width: 1024px) {
+            .home .part_2 .list ul li {
+              float: left;
+              width: 33%; } }
+    .home .part_2 .central_container {
+      position: relative;
+      z-index: 2; }
+    .home .part_2_image {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      width: 100%;
+      opacity: .6; }
+  .home .part_3 {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 2em; }
+    .home .part_3.bg_image {
+      padding: 4em 0; }
 
 footer {
+  position: relative;
   min-height: 200px;
-  background-color: #000; }
+  background-color: #000;
+  color: #fff; }
+  footer .col_container {
+    clear: both;
+    padding: 2em; }
+    footer .col_container:after {
+      content: '';
+      display: block;
+      clear: both; }
+    footer .col_container .col_1 {
+      width: 33%;
+      float: left; }
+      footer .col_container .col_1 .logo {
+        font-family: 'Lato', sans-serif;
+        font-weight: 100;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration: none; }
+      footer .col_container .col_1 p {
+        color: rgba(255, 255, 255, 0.4);
+        font-size: 12px; }
+    footer .col_container .col_2 {
+      width: 33%;
+      float: left; }
+    footer .col_container .col_3 {
+      width: 33%;
+      float: left; }
+  footer .small {
+    position: absolute;
+    bottom: 8px;
+    text-align: center;
+    width: 100%;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4); }

@@ -70,9 +70,6 @@
 		wp_register_script( 'transit', get_template_directory_uri().'/js/vendor/jquery.transit.min.js', array( 'jquery' ), '', true );
 		wp_enqueue_script( 'transit' );
 
-		wp_register_script( 'ease', get_template_directory_uri().'/js/vendor/jquery.easing.min.js', array( 'jquery' ), '', true );
-		wp_enqueue_script( 'ease' );
-
 		wp_register_script( 'mixitup', get_template_directory_uri().'/js/vendor/jquery.mixitup.min.js', array( 'jquery' ), '', true );
 		wp_enqueue_script( 'mixitup' );
 
@@ -167,6 +164,12 @@
 
 	/* ========================================================================================================================
 	
-	Share Icons
+	Change excerpt to show 'read more' link
 	
 	======================================================================================================================== */
+
+   function new_excerpt_more($more) {
+   global $post;
+   return '… <a href="'. get_permalink($post->ID) . '">' . 'Read More &raquo;' . '</a>';
+   }
+   add_filter('excerpt_more', 'new_excerpt_more');

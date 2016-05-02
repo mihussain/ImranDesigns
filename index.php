@@ -17,14 +17,18 @@
 	<section class="page-content">
 		<div class="central_container"> 
 			<?php if ( have_posts() ): ?>
-			<h2>Latest Posts</h2>	
-			<ol>
+			<h2>Latest News</h2>	
+			<ol class="news">
 			<?php while ( have_posts() ) : the_post(); ?>
 				<li>
 					<article>
-						<h2><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-						<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time> <?php comments_popup_link('Leave a Comment', '1 Comment', '% Comments'); ?>
-						<?php the_content(); ?>
+						<h3><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
+						<div class="post-meta">
+							<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time> <?php comments_popup_link('Leave a Comment', '1 Comment', '% Comments'); ?>
+						</div>
+						<div class="post-content">
+							<?php the_excerpt(); ?>
+						</div>
 					</article>
 				</li>
 			<?php endwhile; ?>
@@ -33,5 +37,5 @@
 			<h2>No posts to display</h2>
 			<?php endif; ?>
 		</div>
+		<?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer') ); ?>
 	</section>
-<?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer') ); ?>
