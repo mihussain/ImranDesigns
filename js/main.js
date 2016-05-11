@@ -53,7 +53,7 @@ jQuery(document).ready(function($) {
 	    		$('.page-content').css('top','0');
 	  		}
 	  
-	  		if (body.scrollTop() >= 228) {
+	  		if (body.scrollTop() >= 455) {
 	  			$('.sidebar > div').addClass('fixed_test');
 	  			
 	  			var new_width = $('.sidebar').width();
@@ -110,8 +110,8 @@ jQuery(document).ready(function($) {
 
 	function scrollEvents() {
 
-	 	$('.container').css({
-	 	   	'transform' : 'translateY(' + ($(this).scrollTop()/-2) + 'px)'
+	 	$('.single-project .featured-image').css({
+	 	   	'transform' : 'translateY(' + ($(this).scrollTop()/-4) + 'px)'
 	 	}); 
 
 	 	$('.home .part_1_image').css({
