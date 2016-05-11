@@ -524,7 +524,7 @@ header {
   z-index: 10; }
   @media only screen and (min-width: 768px) {
     header {
-      height: 215px; } }
+      height: 185px; } }
   header h1 {
     margin: 0; }
   header #logo {
@@ -540,7 +540,7 @@ header {
       header #logo {
         float: none;
         text-align: center;
-        padding: 1em 0 0 0;
+        padding: .6em 0 0 0;
         margin: 0;
         font-size: 50px; } }
     @media only screen and (min-width: 1024px) {
@@ -671,7 +671,16 @@ header {
     position: relative; }
     @media only screen and (min-width: 1024px) {
       .page-content .featured_image_container {
-        max-height: 300px; } }
+        max-height: 300px;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+0,0+100 */
+        background: -moz-linear-gradient(top, black 0%, transparent 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, black 0%, transparent 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, black 0%, transparent 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 );
+        /* IE6-9 */ } }
     .page-content .featured_image_container .featured-image {
       width: 100%;
       height: auto;

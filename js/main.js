@@ -45,15 +45,15 @@ jQuery(document).ready(function($) {
 
 		body.on('scroll', function(e) {
 	    	
-	  		if (body.scrollTop() > 155) {
+	  		if (body.scrollTop() > 123) {
 	  			$('header').addClass('small_header');
-	    		$('.page-content').css('top','215px');
+	    		$('.page-content').css('top','185px');
 	  		} else {
 	  			$('header').removeClass('small_header');
 	    		$('.page-content').css('top','0');
 	  		}
 	  
-	  		if (body.scrollTop() >= 455) {
+	  		if (body.scrollTop() >= 425) {
 	  			$('.sidebar > div').addClass('fixed_test');
 	  			
 	  			var new_width = $('.sidebar').width();
