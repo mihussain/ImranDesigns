@@ -48,9 +48,9 @@
 
 			<div class="portfolio <?php if (get_field('background_images')): ?>bg_image<?php endif; ?>">
 				<div class="central_container"> 
-					<h2>My Recent Work.</h2>
 					
-					<?php $i = 0; while($portfolio->have_posts() && $i < 4 ) : $portfolio->the_post(); ?>
+					
+					<?php $i = 0; while($portfolio->have_posts() && $i < 12 ) : $portfolio->the_post(); ?>
 
 						<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark">
 							<div class="project mix <?php foreach((get_the_category()) as $category) { echo $category->category_nicename . ' '; } ?>">
@@ -89,5 +89,5 @@
 				</div>
 			</div>
 			<?php endwhile; ?>
-	<?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>
-</section>
+	</section>
+<?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>

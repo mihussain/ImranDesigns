@@ -109,7 +109,7 @@ html, .sg-html {
 
 h1 {
   font-family: 'Lato', sans-serif;
-  font-weight: 100;
+  font-weight: 300;
   text-transform: uppercase; }
 
 h2 {
@@ -117,15 +117,13 @@ h2 {
   padding: 1em 0 0 0;
   font-family: 'Lato', sans-serif;
   font-size: 30px;
-  font-weight: 700;
-  text-transform: uppercase; }
+  font-weight: 700; }
 
 h3 {
   margin: 0 0 1em;
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  color: #bcbcbc;
-  text-transform: uppercase; }
+  color: #bcbcbc; }
 
 h4, h5 {
   margin: 0;
@@ -147,13 +145,13 @@ ul, ol, li {
   font-weight: 300; }
 
 article a {
-  color: #f7701e;
+  color: #0074b7;
   font-weight: bold;
   text-decoration: none; }
   article a:visited {
-    color: #9f4916; }
+    color: #00629b; }
   article a:hover, article a:active {
-    color: #4e240b; }
+    color: #2a9adb; }
 
 body, .sg-type-wrapper {
   font-size: 1.6em;
@@ -357,11 +355,12 @@ body, .sg-type-wrapper {
   overflow: hidden; }
   @media only screen and (min-width: 768px) {
     .portfolio .project {
-      width: 23%;
-      margin: 1%; } }
+      width: 32.3%;
+      margin-right: 1%;
+      margin-bottom: 1%; } }
   @media only screen and (min-width: 1024px) {
     .portfolio .project {
-      width: 23%; } }
+      width: 24%; } }
   .portfolio .project:hover {
     -webkit-transition: all .6s ease;
     -moz-transition: all .6s ease;
@@ -378,10 +377,24 @@ body, .sg-type-wrapper {
       -o-transform: scale(1.5);
       /* Opera */
       transform: scale(1.5); }
+      @media only screen and (min-width: 1024px) {
+        .portfolio .project:hover img {
+          filter: blur(6px);
+          -webkit-filter: blur(6px); } }
+    .portfolio .project:hover .label-bg {
+      background: rgba(0, 0, 0, 0.5); }
+    @media only screen and (min-width: 1024px) {
+      .portfolio .project:hover .label-text {
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        -ms-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+        opacity: 1; } }
   .portfolio .project .project-wrapper {
     overflow: hidden;
     position: relative !important;
-    background: #666;
+    background: #fff;
     cursor: pointer; }
   .portfolio .project img {
     max-width: 100%;
@@ -401,59 +414,26 @@ body, .sg-type-wrapper {
   .portfolio .project .label-bg {
     height: 100%;
     width: 100%;
-    -webkit-box-shadow: inset 0px 0px 85px 14px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: inset 0px 0px 85px 14px rgba(0, 0, 0, 0.75);
-    box-shadow: inset 0px 0px 85px 14px rgba(0, 0, 0, 0.75); }
+    background: rgba(0, 0, 0, 0.5); }
+    @media only screen and (min-width: 1024px) {
+      .portfolio .project .label-bg {
+        background: none; } }
   .portfolio .project .label-text {
     color: #fff;
     position: absolute;
     z-index: 5;
     bottom: 0;
-    padding: 10px;
-    font-size: 1.5em;
-    text-shadow: 2px 2px rgba(0, 0, 0, 0.6); }
+    padding: 15px;
+    font-size: 1.3em; }
+    @media only screen and (min-width: 1024px) {
+      .portfolio .project .label-text {
+        opacity: 0; } }
   .portfolio .project .text-category {
     display: block;
     font-size: 9px; }
 
-.websites .label-bg {
-  background: red;
-  background: -webkit-linear-gradient(left top, red, yellow);
-  /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, red, yellow);
-  /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, red, yellow);
-  /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, red, yellow);
-  /* Standard syntax */
-  opacity: .6; }
-
-.testing .label-bg {
-  background: #0064ff;
-  background: -webkit-linear-gradient(left top, blue, green);
-  /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, blue, green);
-  /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, blue, green);
-  /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, blue, green);
-  /* Standard syntax */
-  opacity: .6; }
-
-.print .label-bg {
-  background: lime;
-  background: -webkit-linear-gradient(left top, orange, purple);
-  /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, orange, purple);
-  /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, orange, purple);
-  /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, orange, purple);
-  /* Standard syntax */
-  opacity: .6; }
-
 #filters {
-  margin: 1%;
+  margin: 1% 0;
   padding: 0;
   list-style: none; }
   #filters:after {
@@ -461,15 +441,25 @@ body, .sg-type-wrapper {
     display: block;
     clear: both; }
   #filters li {
-    float: left; }
+    float: left;
+    margin-right: 5px; }
+    #filters li:last-child {
+      margin: 0; }
     #filters li span {
       display: block;
       padding: 5px 20px;
       text-decoration: none;
-      color: #666;
-      cursor: pointer; }
+      color: #4c4d4f;
+      cursor: pointer;
+      border: 1px solid #e6e6e6;
+      margin: 0; }
       #filters li span.active {
-        background: #e95a44;
+        background: #0074b7;
+        border-color: #0074b7;
+        color: #fff; }
+      #filters li span:hover {
+        background: #2a9adb;
+        border-color: #2a9adb;
         color: #fff; }
 
 .blog h2 {
@@ -492,21 +482,40 @@ body, .sg-type-wrapper {
 img {
   border: 0; }
 
+html, body {
+  height: 100%; }
+
 body {
   background: #fff;
   margin: 0;
-  padding: 0; }
-
-body, html {
-  height: 100%; }
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  min-height: 100%; }
 
 #main-container {
-  min-height: 100%;
-  position: relative; }
+  position: relative;
+  min-height: 100%; }
+
+.central_container_header {
+  margin: 0 auto;
+  clear: both;
+  width: 90%; }
+  .central_container_header:after {
+    content: '';
+    display: block;
+    clear: both; }
+  @media only screen and (min-width: 768px) {
+    .central_container_header {
+      position: relative; } }
+  @media only screen and (min-width: 1024px) {
+    .central_container_header {
+      max-width: 1200px; } }
 
 .central_container {
   margin: 0 auto;
   clear: both;
+  position: relative;
   width: 90%; }
   .central_container:after {
     content: '';
@@ -517,38 +526,41 @@ body, html {
       max-width: 1200px; } }
 
 header {
-  background: #000;
+  background: #e6e6e6;
+  position: fixed;
   height: 60px;
   width: 100%;
-  position: relative;
-  z-index: 10; }
-  @media only screen and (min-width: 768px) {
-    header {
-      height: 185px; } }
+  z-index: 11; }
+  @media only screen and (min-width: 1024px) {
+    .single-project header {
+      background: rgba(255, 255, 255, 0.7); }
+      .single-project header.solid {
+        background: #e6e6e6; } }
   header h1 {
     margin: 0; }
   header #logo {
     display: block;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: 300;
     float: left;
-    margin: .8em 0;
+    margin: .5em 0;
     padding: 0;
-    color: #fff;
-    margin-left: .8em;
+    color: #000;
     text-decoration: none; }
-    @media only screen and (min-width: 768px) {
-      header #logo {
-        float: none;
-        text-align: center;
-        padding: .6em 0 0 0;
-        margin: 0;
-        font-size: 50px; } }
-    @media only screen and (min-width: 1024px) {
-      header #logo {
-        font-size: 60px; } }
+    header #logo span {
+      font-weight: 100;
+      margin-left: -2px; }
   header nav {
     display: none;
-    clear: both; }
+    clear: both;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 60px; }
+    @media only screen and (min-width: 768px) {
+      header nav {
+        top: 18px;
+        left: auto; } }
     header nav.open {
       display: block; }
     @media only screen and (min-width: 768px) {
@@ -610,7 +622,7 @@ header {
       position: absolute;
       height: 1px;
       width: 100%;
-      background: #fff;
+      background: #000;
       opacity: 1;
       left: 0;
       -webkit-transform: rotate(0deg);
@@ -663,30 +675,36 @@ header {
         padding: 0; } }
 
 .page-content {
-  position: relative;
-  background: #fff; }
+  background: #fff;
+  padding-top: 60px;
+  padding-bottom: 200px; }
+  .single-project .page-content {
+    padding-bottom: 260px; }
   .page-content .featured_image_container {
-    max-height: 250px;
-    overflow: hidden;
-    position: relative; }
+    max-height: 160px;
+    overflow: hidden; }
+    @media only screen and (min-width: 768px) {
+      .page-content .featured_image_container {
+        max-height: 240px; } }
     @media only screen and (min-width: 1024px) {
       .page-content .featured_image_container {
-        max-height: 300px;
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+0,0+100 */
-        background: -moz-linear-gradient(top, black 0%, transparent 100%);
-        /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, black 0%, transparent 100%);
-        /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom, black 0%, transparent 100%);
-        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 );
-        /* IE6-9 */ } }
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        max-height: none; } }
     .page-content .featured_image_container .featured-image {
+      top: 0;
       width: 100%;
       height: auto;
-      position: relative; }
+      transform: scale(1.1); }
+      @media only screen and (min-width: 1024px) {
+        .page-content .featured_image_container .featured-image {
+          position: absolute;
+          -webkit-filter: blur(35px);
+          opacity: .5; } }
   .page-content .container {
-    background: #fff;
     width: 100%;
     position: relative;
     z-index: 9; }
@@ -734,18 +752,46 @@ header {
     text-align: center;
     display: block;
     width: 200px;
-    margin: 0 auto; }
+    margin: 0 auto;
+    border-radius: 5px; }
     @media only screen and (min-width: 1024px) {
       .page-content .project_link {
         width: 100%; } }
   .page-content .image_section {
-    background: #EFEFEF;
-    padding: 20px;
-    margin-bottom: 1em; }
+    border: 1px solid #e6e6e6;
+    padding: 5px;
+    margin-bottom: 1em;
+    clear: both; }
+    .page-content .image_section:after {
+      display: block;
+      content: '';
+      clear: both; }
+    .page-content .image_section a {
+      display: block;
+      float: left;
+      width: 32.3%;
+      margin: .5%; }
+      @media only screen and (min-width: 768px) {
+        .page-content .image_section a {
+          width: 24%; } }
+      @media only screen and (min-width: 1024px) {
+        .page-content .image_section a {
+          width: 19%; } }
+      .page-content .image_section a img {
+        width: 100%;
+        height: auto; }
 
 article {
   clear: both;
-  position: relative; }
+  position: relative;
+  background: #ffffff; }
+  @media only screen and (min-width: 1024px) {
+    article {
+      background: none;
+      border-radius: 5px;
+      overflow: hidden; }
+      .single-project article {
+        margin-top: 80px; } }
   article:after {
     content: '';
     display: block;
@@ -754,14 +800,29 @@ article {
     width: 100%; }
     @media only screen and (min-width: 1024px) {
       article .left {
-        width: 65%;
+        width: 70%;
         float: left;
-        margin-right: 5%; } }
+        background: rgba(255, 255, 255, 0.9); } }
+    article .left .article-featured-image {
+      display: none; }
+      @media only screen and (min-width: 1024px) {
+        article .left .article-featured-image {
+          max-height: 200px;
+          overflow: hidden;
+          display: block; } }
+      article .left .article-featured-image img {
+        width: 100%;
+        height: auto; }
+    @media only screen and (min-width: 1024px) {
+      article .left .copy {
+        padding: 0 20px; } }
   article .sidebar {
-    background: #EFEFEF;
-    padding: 1.250em;
+    background: rgba(255, 255, 255, 0.5);
     width: 100%;
     margin-top: 1em; }
+    @media only screen and (min-width: 1024px) {
+      article .sidebar {
+        padding: 1.250em; } }
     @media only screen and (min-width: 1024px) {
       article .sidebar {
         margin-top: 0;
@@ -769,7 +830,22 @@ article {
         float: left;
         position: absolute;
         right: 0;
-        height: 100%; } }
+        height: 100%; }
+        article .sidebar.fixed_test {
+          position: fixed;
+          top: 80px;
+          transform: translateX(-17%); } }
+    article .sidebar .details {
+      margin-top: 1em;
+      border: 1px solid #e6e6e6;
+      padding: 1em; }
+      article .sidebar .details .heading:first-child {
+        margin-top: 0; }
+      @media only screen and (min-width: 1024px) {
+        article .sidebar .details {
+          border: none;
+          margin-top: 2em;
+          padding: 0; } }
     article .sidebar .heading {
       margin-top: 1.5em;
       display: block;
@@ -809,22 +885,23 @@ article {
     article .sidebar .url_link {
       word-break: break-all; }
 
-@media only screen and (min-width: 1024px) {
-  .fixed_test {
-    position: fixed;
-    top: 80px; } }
-
-@media only screen and (min-width: 1024px) {
-  .fixed {
-    position: fixed;
-    top: 45px;
-    background-color: #fff; } }
+.no-scroll {
+  overflow: hidden; }
 
 .home {
   display: block; }
   .home .part_1 {
+    padding-top: 3em;
     position: relative;
     overflow: hidden; }
+    @media only screen and (min-width: 1024px) {
+      .home .part_1 {
+        padding-top: 5em; } }
+    .home .part_1 h2, .home .part_1 h3, .home .part_1 .intro-text {
+      text-align: center; }
+    @media only screen and (min-width: 1024px) {
+      .home .part_1 h3 {
+        margin-bottom: 3em; } }
     .home .part_1.bg_image {
       padding: 4em 0;
       background: -webkit-linear-gradient(left top, red, yellow);
@@ -835,8 +912,12 @@ article {
       /* For Firefox 3.6 to 15 */
       background: linear-gradient(to bottom right, red, yellow);
       /* Standard syntax */ }
+      .home .part_1.bg_image h2, .home .part_1.bg_image h3, .home .part_1.bg_image .intro-text {
+        text-align: left; }
       .home .part_1.bg_image h2 {
         color: #fff; }
+      .home .part_1.bg_image h3 {
+        margin-bottom: 0; }
       .home .part_1.bg_image p {
         color: #fff; }
         @media only screen and (min-width: 768px) {
@@ -917,10 +998,13 @@ article {
       padding: 4em 0; }
 
 footer {
-  position: relative;
+  position: absolute;
   min-height: 200px;
-  background-color: #000;
-  color: #fff; }
+  background-color: #848484;
+  color: #fff;
+  bottom: 0;
+  width: 100%;
+  z-index: 9; }
   footer .col_container {
     clear: both;
     padding: 2em; }
@@ -954,3 +1038,27 @@ footer {
     width: 100%;
     font-size: 11px;
     color: rgba(255, 255, 255, 0.4); }
+
+/* Modal */
+.modal {
+  display: none;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  overflow: hidden; }
+  .modal .modal_window {
+    position: relative;
+    top: 100px;
+    max-height: 600px;
+    overflow: scroll;
+    height: 100%; }
+    .modal .modal_window img#modal_img {
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      max-width: 100%;
+      max-height: 100%; }

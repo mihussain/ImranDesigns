@@ -62,3 +62,11 @@ header {
     -ms-transition:     all .6s ease;
     transition:         all .6s ease;
 }
+
+@mixin opacityAnimation {
+    -webkit-transition: opacity 1s ease;
+    -moz-transition:    opacity 1s ease;
+    -o-transition:      opacity 1s ease;
+    -ms-transition:     opacity 1s ease;
+    transition:         opacity 1s ease;
+}

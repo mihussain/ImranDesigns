@@ -9,6 +9,7 @@
     }
 
 	.project {
+		
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		-o-box-sizing: border-box;
@@ -19,12 +20,13 @@
 		overflow:hidden;
 
 		@include respond-to(medium) {
-			width: 23%;
-			margin: 1%;
+			width: 32.3%;
+			margin-right: 1%;
+			margin-bottom: 1%;
 		}
 
 		@include respond-to(large) {
-			width: 23%;
+			width: 24%;
 		}
 
 		&:hover {
@@ -36,13 +38,29 @@
         		-ms-transform:scale(1.5); /* IE 9 */
         		-o-transform:scale(1.5); /* Opera */
          		transform:scale(1.5);
+
+         		@include respond-to(large) {
+         			filter: blur(6px);
+         			-webkit-filter: blur(6px);
+         		}
+			}
+
+			.label-bg {
+				background: rgba(0, 0, 0, .5);
+			}
+
+			.label-text {
+				@include respond-to(large) {
+					@include opacityAnimation;
+					opacity: 1;
+				}
 			}
 		}
 	
 		.project-wrapper {
 			overflow:hidden;
 			position: relative !important;
-			background: #666;
+			background: #fff;
 			cursor:pointer;
 		}
 
@@ -65,9 +83,15 @@
 		.label-bg {		
 			height: 100%;
 			width: 100%;
-			-webkit-box-shadow: inset 0px 0px 85px 14px rgba(0,0,0,0.75);
-			-moz-box-shadow: inset 0px 0px 85px 14px rgba(0,0,0,0.75);
-			box-shadow: inset 0px 0px 85px 14px rgba(0,0,0,0.75);
+			background: rgba(0, 0, 0, .5);
+
+			@include respond-to(large) {
+				background: none;
+			}
+
+			// -webkit-box-shadow: inset 0px 0px 85px 14px rgba(0,0,0,0.75);
+			// -moz-box-shadow: inset 0px 0px 85px 14px rgba(0,0,0,0.75);
+			// box-shadow: inset 0px 0px 85px 14px rgba(0,0,0,0.75);
 		}
 	
 		.label-text {
@@ -75,9 +99,14 @@
 			position: absolute;
 			z-index:5;
 			bottom: 0; 
-			padding:10px;
-			font-size: 1.5em;
-			text-shadow: 2px 2px rgba(0,0,0,.6);
+			padding: 15px;
+			font-size: 1.3em;
+
+
+
+			@include respond-to(large) {
+				opacity: 0;
+			}
 		}
 			
 		.text-category {
@@ -87,42 +116,42 @@
 	}
 }
 
-.websites {
-	.label-bg {
-		background: $color__websites;
-		background: -webkit-linear-gradient(left top, red, yellow); /* For Safari 5.1 to 6.0 */
-  		background: -o-linear-gradient(bottom right, red, yellow); /* For Opera 11.1 to 12.0 */
-  		background: -moz-linear-gradient(bottom right, red, yellow); /* For Firefox 3.6 to 15 */
-  		background: linear-gradient(to bottom right, red, yellow); /* Standard syntax */
-  		opacity: .6;
-	}
-}
+// .websites {
+// 	.label-bg {
+// 		background: $color__websites;
+// 		background: -webkit-linear-gradient(left top, red, yellow); /* For Safari 5.1 to 6.0 */
+//   		background: -o-linear-gradient(bottom right, red, yellow); /* For Opera 11.1 to 12.0 */
+//   		background: -moz-linear-gradient(bottom right, red, yellow); /* For Firefox 3.6 to 15 */
+//   		background: linear-gradient(to bottom right, red, yellow); /* Standard syntax */
+//   		opacity: .6;
+// 	}
+// }
 
-.testing {
-	.label-bg  {
-		background: $color__test;
-		background: -webkit-linear-gradient(left top, blue, green); /* For Safari 5.1 to 6.0 */
-  		background: -o-linear-gradient(bottom right, blue, green); /* For Opera 11.1 to 12.0 */
-  		background: -moz-linear-gradient(bottom right, blue, green); /* For Firefox 3.6 to 15 */
-  		background: linear-gradient(to bottom right, blue, green); /* Standard syntax */
-		opacity: .6;
-	}	
-}
+// .testing {
+// 	.label-bg  {
+// 		background: $color__test;
+// 		background: -webkit-linear-gradient(left top, blue, green); /* For Safari 5.1 to 6.0 */
+//   		background: -o-linear-gradient(bottom right, blue, green); For Opera 11.1 to 12.0
+//   		background: -moz-linear-gradient(bottom right, blue, green); /* For Firefox 3.6 to 15 */
+//   		background: linear-gradient(to bottom right, blue, green); /* Standard syntax */
+// 		opacity: .6;
+// 	}	
+// }
 
-.print {
-	.label-bg  {
-		background: $color__print;
-		background: -webkit-linear-gradient(left top, orange, purple); /* For Safari 5.1 to 6.0 */
-  		background: -o-linear-gradient(bottom right, orange, purple); /* For Opera 11.1 to 12.0 */
-  		background: -moz-linear-gradient(bottom right, orange, purple); /* For Firefox 3.6 to 15 */
-  		background: linear-gradient(to bottom right, orange, purple); /* Standard syntax */
-		opacity: .6;
-	}	
-}
+// .print {
+// 	.label-bg  {
+// 		background: $color__print;
+// 		background: -webkit-linear-gradient(left top, orange, purple); /* For Safari 5.1 to 6.0 */
+//   		background: -o-linear-gradient(bottom right, orange, purple); /* For Opera 11.1 to 12.0 */
+//   		background: -moz-linear-gradient(bottom right, orange, purple); /* For Firefox 3.6 to 15 */
+//   		background: linear-gradient(to bottom right, orange, purple); /* Standard syntax */
+// 		opacity: .6;
+// 	}	
+// }
 
 // Filters 
 #filters {
-	margin:1%;
+	margin:1% 0;
 	padding:0;
 	list-style:none;
 
@@ -134,17 +163,31 @@
 	
 	li {
 		float:left;
+		margin-right: 5px;
+
+		&:last-child {
+			margin: 0;
+		}
 	
 		span {
 			display: block;
 			padding:5px 20px;		
 			text-decoration:none;
-			color:#666;
+			color: $color__text;
 			cursor: pointer;
+			border: 1px solid #e6e6e6;
+			margin: 0;
 		
 			&.active {
-				background: #e95a44;
-				color:#fff;
+				background: $color__link;
+				border-color:  $color__link;
+				color: #fff;
+			}
+
+			&:hover {
+				background: $color__link_hover;
+				border-color: $color__link_hover;
+				color: #fff;
 			}
 		}
 	}
