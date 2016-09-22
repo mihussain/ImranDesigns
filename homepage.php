@@ -52,22 +52,28 @@
 					
 					<?php $i = 0; while($portfolio->have_posts() && $i < 12 ) : $portfolio->the_post(); ?>
 
-						<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark">
-							<div class="project mix <?php foreach((get_the_category()) as $category) { echo $category->category_nicename . ' '; } ?>">
-								<div class="project-wrapper">
-									<?php if (has_post_thumbnail( $post->ID ) ): ?>
-										<div class="thumbnail_image_container">
-											<?php $thumbImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'portfolio-thumb' ); ?>
-									  		<img class="thumbnail-image" src="<?php echo $thumbImage[0]; ?>" />
-									  		<div class="label">
+						<?php 
+							$taxonomy = 'test-cat';
+							$terms = get_the_terms( $post->ID , $taxonomy );
+						?>
+					
+						<div class="project mix <?php if ( !empty( $terms ) ) : foreach ( $terms as $term ) { if ( !is_wp_error( $link ) ) echo $term->name; } endif;  ?>">
+							<div class="project-wrapper">
+								<?php if (has_post_thumbnail( $post->ID ) ): ?>
+									<div class="thumbnail_image_container">
+										<?php $thumbImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'portfolio-thumb' ); ?>
+								  		<img class="thumbnail-image" src="<?php echo $thumbImage[0]; ?>" />
+								  		<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark">
+								  			<div class="label">
 									  			<div class="label-text"><?php the_title(); ?></div>
 									  			<div class="label-bg"></div>
 									  		</div>
-									  	</div>
-									<?php endif; ?>
-					  			</div>
-							</div>
-						</a>
+									  	</a>
+								  	</div>
+								<?php endif; ?>
+				  			</div>
+						</div>
+					</a>
 					<?php $i++; endwhile; ?>
 				</div>
 			</div>
