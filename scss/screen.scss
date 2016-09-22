@@ -16,7 +16,7 @@ html, body {
 }
 
 body {
-    background: #fff;
+    color: #fff;
     margin: 0;
     padding: 0;
     position: absolute;
@@ -67,7 +67,7 @@ body {
 }
 
 header {
-    background: #e6e6e6;
+    background: $primary;
     position: fixed;
     height: 60px;
     width: 100%;
@@ -283,7 +283,7 @@ header {
 
 .page-content {
     //position: relative;
-    background: #fff;
+    background: $secondary;
     padding-top: 60px;
     padding-bottom: 200px; 
 
@@ -678,7 +678,6 @@ article {
     }
 
     .portfolio {
-        background: #fff;
         z-index: 6;
         position: relative;
 
@@ -762,7 +761,7 @@ article {
 footer {
     position: absolute;
     min-height: 200px;
-    background-color: #848484;
+    background-color: $primary;
     color: #fff;
     bottom: 0;
     width: 100%;

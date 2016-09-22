@@ -13,7 +13,7 @@
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		-o-box-sizing: border-box;
-		width:50%;
+		width:100%;
 		margin: 0;
 		display:none;
 		float:left;
@@ -60,7 +60,7 @@
 		.project-wrapper {
 			overflow:hidden;
 			position: relative !important;
-			background: #fff;
+			background: $primary;
 			cursor:pointer;
 		}
 

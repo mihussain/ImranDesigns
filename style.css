@@ -348,7 +348,7 @@ body, .sg-type-wrapper {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
-  width: 50%;
+  width: 100%;
   margin: 0;
   display: none;
   float: left;
@@ -394,7 +394,7 @@ body, .sg-type-wrapper {
   .portfolio .project .project-wrapper {
     overflow: hidden;
     position: relative !important;
-    background: #fff;
+    background: #131313;
     cursor: pointer; }
   .portfolio .project img {
     max-width: 100%;
@@ -486,7 +486,7 @@ html, body {
   height: 100%; }
 
 body {
-  background: #fff;
+  color: #fff;
   margin: 0;
   padding: 0;
   position: absolute;
@@ -526,7 +526,7 @@ body {
       max-width: 1200px; } }
 
 header {
-  background: #e6e6e6;
+  background: #131313;
   position: fixed;
   height: 60px;
   width: 100%;
@@ -675,7 +675,7 @@ header {
         padding: 0; } }
 
 .page-content {
-  background: #fff;
+  background: #353535;
   padding-top: 60px;
   padding-bottom: 200px; }
   .single-project .page-content {
@@ -940,7 +940,6 @@ article {
         .home .part_1_image {
           width: 100%; } }
   .home .portfolio {
-    background: #fff;
     z-index: 6;
     position: relative; }
     .home .portfolio.bg_image {
@@ -1000,7 +999,7 @@ article {
 footer {
   position: absolute;
   min-height: 200px;
-  background-color: #848484;
+  background-color: #131313;
   color: #fff;
   bottom: 0;
   width: 100%;
