@@ -1,34 +1,195 @@
 .blog {
 
 	h2 {
-		margin-bottom: 1em;
+		margin-bottom: 1em !important;
+
+		@include respond-to(large) {
+			width: 80%;
+			margin: 0 auto;
+		}
 	}
 
 	ol.news {
 		list-style: none;
 		padding: 0;
+		margin: 0;
+
+		@include respond-to(large) {
+			width: 80%;
+			margin: 0 auto;
+		}
 
 		li {
 			article {
-				padding-bottom: .5em;
-				margin-bottom: 1.5em;
-				border-bottom: 1px solid #ccc;
 
-				.post-meta {
-					font-size: 11px;
+				h3 {
+					font-size: 1.5em;
+					margin-bottom: 0;
+
+				}
+
+				a{
+				    color: #ffffff;
+				    font-weight: bold;
+				    text-decoration: none;
+
+				    &:hover, &:active {
+				        
+				    }
+				}
+
+				border-radius: 0;
+				padding-bottom: 2em;
+				margin-bottom: 1.5em;
+				border-bottom: 1px solid rgba(255, 255, 255, .2);
+
+				.meta-container {
+					clear: both;
+					background: rgba(0, 0, 0, .1);
+					padding: 5px;
+					border-radius: 5px;
+
+					&:after {
+						content: '';
+						display: block;
+						clear: both;
+					}
+
+					.post-meta {
+						font-size: .8em;
+						color: $secondary--text;
+						text-align: center;
+						
+						@include respond-to(small) {
+							float: left;
+							text-align: left;
+						}
+					}
+
+					.social-meta {
+			            cursor: pointer;
+			            height: 25px;
+			            margin-top: 10px;
+			            text-align: center;
+
+			            @include respond-to(small) {
+			            	float: right;
+			            	margin-top: 0;
+			            	height: 20px;
+			            	text-align: left;
+			            }
+
+			            .facebook {
+			                background-image: url('images/facebook.jpg');
+			                background-size: cover;
+			                display: inline-block;
+			                width: 25px;
+			                height: 25px;
+			                margin-right: 5px;
+			                @include easeAnimation
+			                opacity: .6;
+
+			                @include respond-to(small) {
+			                	width: 20px;
+			                	height: 20px;
+			                }
+
+			                &:hover {
+			                    background-image: url('images/facebook_color.jpg');
+			                    opacity: 1;
+
+			                }
+			            }
+
+			            .twitter {
+			                background-image: url('images/twitter.jpg');
+			                background-size: cover;
+			                display: inline-block;
+			                width: 25px;
+			                height: 25px;
+			                margin-right: 5px;
+			                @include easeAnimation
+			                opacity: .6;
+
+			                @include respond-to(small) {
+			                	width: 20px;
+			                	height: 20px;
+			                }
+
+			                &:hover {
+			                    background-image: url('images/twitter_color.jpg');
+			                    opacity: 1;
+			                }
+			            }
+
+			            .linkedin {
+			                background-image: url('images/linkedin.jpg');
+			                background-size: cover;
+			                display: inline-block;
+			                width: 25px;
+			                height: 25px;
+			                margin-right: 5px;
+			                @include easeAnimation
+			                opacity: .6;
+
+			                &:hover {
+			                    background-image: url('images/linkedin_color.jpg');
+			                    opacity: 1;
+			                }
+
+			                @include respond-to(small) {
+			                	width: 20px;
+			                	height: 20px;
+			                }
+			            }
+
+			            .instagram {
+			                background-image: url('images/instagram.jpg');
+			                background-size: cover;
+			                display: inline-block;
+			                width: 25px;
+			                height: 25px;
+			                @include easeAnimation
+			                opacity: .6;
+
+			                @include respond-to(small) {
+			                	width: 20px;
+			                	height: 20px;
+			                }
+
+			                &:hover {
+			                    background-image: url('images/instagram_color.jpg');
+			                    opacity: 1;
+			                }
+			            }
+					}
 				}
 
 				.post-content {
 					margin-top: 1em;
+					color: $primary--text;
 				}
 			}
 
 			&:last-child{
-					article {
-						border-bottom: 0;
-					}
+				article {
+					border-bottom: 0;
 				}
+			}
 		}
 	}
 
+}
+
+// blog single page 
+
+article {
+	.post-meta {
+		color: $secondary--text;
+		font-size: .8em;
+	}
+
+	.main-content {
+		margin-top: 1em;
+	}
 }

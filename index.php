@@ -17,17 +17,26 @@
 	<section class="page-content">
 		<div class="central_container"> 
 			<?php if ( have_posts() ): ?>
-			<h2>Latest News</h2>	
+			
 			<ol class="news">
 			<?php while ( have_posts() ) : the_post(); ?>
 				<li>
 					<article>
 						<h3><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
-						<div class="post-meta">
-							<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time> 
-						</div>
+						
 						<div class="post-content">
 							<?php the_excerpt(); ?>
+						</div>
+						<div class="meta-container">
+							<div class="post-meta">
+								This blog post was created on the <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> at <?php the_time(); ?></time> 
+							</div>
+							<div class="social-meta">
+								<span class="facebook"></span>
+								<span class="twitter"></span>
+								<span class="linkedin"></span>
+								<span class="instagram"></span>
+							</div>
 						</div>
 					</article>
 				</li>

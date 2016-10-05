@@ -15,44 +15,55 @@
 		-o-box-sizing: border-box;
 		width:100%;
 		margin: 0;
-		display:none;
+		//display:none;
 		float:left;
 		overflow:hidden;
 
+		@include respond-to(small) {
+			width: 50%
+		}
+
 		@include respond-to(medium) {
-			width: 32.3%;
-			margin-right: 1%;
-			margin-bottom: 1%;
+			width: 33%;
 		}
 
 		@include respond-to(large) {
-			width: 24%;
+			width: 25%;
 		}
 
 		&:hover {
-			@include easeAnimation;
-
-			img {
-				-webkit-transform:scale(1.5); /* Safari and Chrome */
-        		-moz-transform:scale(1.5); /* Firefox */
-        		-ms-transform:scale(1.5); /* IE 9 */
-        		-o-transform:scale(1.5); /* Opera */
-         		transform:scale(1.5);
-
-         		@include respond-to(large) {
-         			filter: blur(6px);
-         			-webkit-filter: blur(6px);
-         		}
+			.thumbnail_image_container {
+				@include respond-to(small) {
+					@include easeAnimation;
+					transform: translate(-300px, 0);
+					//opacity: .1;
+				}
 			}
+		}
 
-			.label-bg {
-				background: rgba(0, 0, 0, .5);
+		&:nth-child(2n):hover{ 
+			.thumbnail_image_container {
+				@include respond-to(small) {
+					@include easeAnimation;
+					transform: translate(0, -300px);
+				}
 			}
+		}
 
-			.label-text {
-				@include respond-to(large) {
-					@include opacityAnimation;
-					opacity: 1;
+		&:nth-child(3n):hover{ 
+			.thumbnail_image_container {
+				@include respond-to(small) {
+					@include easeAnimation;
+					transform: translate(600px, 0);
+				}
+			}
+		}
+
+		&:nth-child(5n):hover{ 
+			.thumbnail_image_container {
+				@include respond-to(small) {
+					@include easeAnimation;
+					transform: translate(0, 600px);
 				}
 			}
 		}
@@ -60,34 +71,54 @@
 		.project-wrapper {
 			overflow:hidden;
 			position: relative !important;
-			background: $primary;
+			
 			cursor:pointer;
-		}
+			
+			margin-bottom: 10px;
+			
 
-		img {
-			max-width:100%;
-			position: relative;
-			@include easeAnimation;
-			opacity: .8;
+			@include respond-to(small) {
+				background: $primary;
+				border: 1px solid rgba(255, 255, 255, .3);
+				height: 300px;
+				margin-bottom: 0;
+				border: none;
+			}
+
+			&:after {
+				content: '';
+				clear: both;
+				display: block;
+			}
+
+			.thumbnail_image_container {
+				background-size: cover;
+				background-position: center;
+				display: block;
+				width: 100%;
+				height: 100%;
+				//float: left;
+				position: relative;
+				z-index:3;
+				@include easeAnimation;
+				min-height: 80px;
+			}
 		}
 	
 		//hide its label by default
 		.label {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			top: 0;
+			width:100%;
+			height: 100%;
+			display: block;
 		}
 
 		.label-bg {		
+			background-size: cover;
+			display: block;
 			height: 100%;
 			width: 100%;
-			background: rgba(0, 0, 0, .5);
-
-			@include respond-to(large) {
-				background: none;
-			}
+			opacity: 1;
+			//transform: scale(1.3,1.3);
 
 			// -webkit-box-shadow: inset 0px 0px 85px 14px rgba(0,0,0,0.75);
 			// -moz-box-shadow: inset 0px 0px 85px 14px rgba(0,0,0,0.75);
@@ -96,17 +127,67 @@
 	
 		.label-text {
 			color:#fff;
-			position: absolute;
-			z-index:5;
-			bottom: 0; 
-			padding: 15px;
-			font-size: 1.3em;
+			z-index:2;
+			font-size: 1.1em;
+			
+			display: block;
+			background: rgba(0, 0, 0, .2);
+			overflow: hidden;
+			padding: 10px;
 
 
+			@include respond-to(small) {
+				position: absolute;
+				font-size: 1.3em;
+				border: 1px solid #ccc;
+				padding: 15px;
+				text-align: center;
+				top: 25px; 
+				left: 25px;
+				right: 25px;
+				bottom: 25px;
+				background: rgba(0, 0, 0, .5);
+			}		
 
-			@include respond-to(large) {
-				opacity: 0;
+			.label--container {
+
+				display: inline-block;
+				vertical-align: middle;
+				position: relative;
+				z-index: 5;
+
+				//@include respond-to(medium) {
+					//position: relative;
+					//margin-top: 50%;
+					//transform: translateY(-50%);
+				//}
 			}
+
+			
+
+			.label-title {
+				font-size: 1em;
+			}
+
+			.button.take_a_look {
+				background-color: $third;
+				display: none;
+				margin: 14px 0;
+				font-size: .8em;
+
+				@include respond-to(small) {
+					display: inline-block;
+				}
+			}
+
+			.label-cat {
+				font-size: .6em;
+				opacity: .7;
+			}
+
+			// @include respond-to(large) {
+			// 	opacity: 0;
+			// }
 		}
 			
 		.text-category {
@@ -115,39 +196,6 @@
 		}
 	}
 }
-
-// .websites {
-// 	.label-bg {
-// 		background: $color__websites;
-// 		background: -webkit-linear-gradient(left top, red, yellow); /* For Safari 5.1 to 6.0 */
-//   		background: -o-linear-gradient(bottom right, red, yellow); /* For Opera 11.1 to 12.0 */
-//   		background: -moz-linear-gradient(bottom right, red, yellow); /* For Firefox 3.6 to 15 */
-//   		background: linear-gradient(to bottom right, red, yellow); /* Standard syntax */
-//   		opacity: .6;
-// 	}
-// }
-
-// .testing {
-// 	.label-bg  {
-// 		background: $color__test;
-// 		background: -webkit-linear-gradient(left top, blue, green); /* For Safari 5.1 to 6.0 */
-//   		background: -o-linear-gradient(bottom right, blue, green); For Opera 11.1 to 12.0
-//   		background: -moz-linear-gradient(bottom right, blue, green); /* For Firefox 3.6 to 15 */
-//   		background: linear-gradient(to bottom right, blue, green); /* Standard syntax */
-// 		opacity: .6;
-// 	}	
-// }
-
-// .print {
-// 	.label-bg  {
-// 		background: $color__print;
-// 		background: -webkit-linear-gradient(left top, orange, purple); /* For Safari 5.1 to 6.0 */
-//   		background: -o-linear-gradient(bottom right, orange, purple); /* For Opera 11.1 to 12.0 */
-//   		background: -moz-linear-gradient(bottom right, orange, purple); /* For Firefox 3.6 to 15 */
-//   		background: linear-gradient(to bottom right, orange, purple); /* Standard syntax */
-// 		opacity: .6;
-// 	}	
-// }
 
 // Filters 
 #filters {

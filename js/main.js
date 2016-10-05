@@ -28,53 +28,6 @@ jQuery(document).ready(function($) {
 
 	if ( detectIE() != false ) {$('html').addClass('ie' + detectIE());}
 	
-	// var store,
-	// 	dataStore;
-
-	// //Get JSON Data and Store it in local storage 
-	// $.getJSON('../json_data.json', function(data) {
-	// 	dataStore = JSON.stringify(data);
-	// 	localStorage.setItem('storage', dataStore);
-	// 	store = JSON.parse(localStorage.getItem('storage'));
-
-	// });
-
-	// function fixHeader() {
-		
-	//  	var body = $(document);
-
-	//  	body.on('scroll', function(e) {
-	  	
-	//    		// if (body.scrollTop() > 123) {
-	//    		// 	$('header').addClass('small_header');
-	//      // 		$('.page-content').css('transform','translateY(185px)');
-	//      // 		//$('footer').css('transform','translateY(185px)');
-	//    		// } else {
-	//    		// 	$('header').removeClass('small_header');
-	//      // 		$('.page-content').css('transform','translateY(0)');
-	//    		// }
-	// 		console.log( body.scrollTop() );
-	//    		if (body.scrollTop() >= 80) {
-	//    			$('.sidebar').addClass('fixed_test');
-				
-	//    			var new_width = $('.sidebar').width();
-	//  			$('.fixed_test').width(new_width); 
-
-	//    		} else {
-	//    			$('.sidebar').removeClass('fixed_test');
-	//    		}
-	//  	});
-	// }
-	
-	//  $(window).on("resize", function () {
-	//  	if ($(window).width() >= 768) {
-	//  		fixHeader();
-	//  	} else {
-	//  		//$('header').addClass('small_header');
-	//  		//$('.page-content').css('transform','translateY(60px)');
-	//  	}
-	//  }).resize();
-
 	$('#nav-icon').click(function(){
 	
 		var menuHeight = $(window).height();
@@ -109,9 +62,9 @@ jQuery(document).ready(function($) {
 		}, 15); // Timeout in msec
 	});
 
-	function scrollEvents() {
+	var windowWidth = $(window).width();
 
-		var windowWidth = $(window).width();
+	function scrollEvents() {
 
 		if ( windowWidth <= 1024) {
 	 		$('.single-project .featured-image').css({
@@ -134,32 +87,32 @@ jQuery(document).ready(function($) {
 	 	}
 	 }
 
-	// portfolio filter
-	var filterList = {
-		init: function () {
-			// MixItUp plugin
-			$('.portfolio').mixItUp({
-				selectors: {
-					target: '.project',
-					filter: '.filter'
-				},
-				load: {
-					sort: 'random'
-				},
-				animation: {
-					enable: true,
-					effects: 'fade',
-					easing: 'easeInOutCubic'
-				},
-				controls: {
-					activeClass: 'active'
-				}
-			});				
-		},
-	};
+	// // portfolio filter
+	// var filterList = {
+	// 	init: function () {
+	// 		// MixItUp plugin
+	// 		$('.portfolio').mixItUp({
+	// 			selectors: {
+	// 				target: '.project',
+	// 				filter: '.filter'
+	// 			},
+	// 			load: {
+	// 				sort: 'random'
+	// 			},
+	// 			animation: {
+	// 				enable: true,
+	// 				effects: 'fade',
+	// 				easing: 'easeInOutCubic'
+	// 			},
+	// 			controls: {
+	// 				activeClass: 'active'
+	// 			}
+	// 		});				
+	// 	},
+	// };
 	
-	// Run the show!
-	filterList.init();
+	// // Run the show!
+	// filterList.init();
 		
 
 
@@ -189,4 +142,42 @@ jQuery(document).ready(function($) {
 	}).children().on('click', function (event) {
     	event.stopPropagation();
 	});
+
+
+	//FIXED HEADER SCRIPT
+
+	if ( windowWidth >= 768) {
+		$(window).on('scroll', function() {
+			console.log($(this).scrollTop());
+
+			if ($(this).scrollTop() > 190 ) {
+				$('header').addClass('fixed');
+				$('.page-content').addClass('padding');
+			} else {
+				$('header').removeClass('fixed');
+				$('.page-content').removeClass('padding');
+			}
+		});
+	}
+
+	$(window).load(function() {
+		var myImage = $('img.featured-image');
+		var colorThief = new ColorThief();
+		var color = colorThief.getColor(myImage[0]);
+		
+		$('.sidebar a.project_link').css('background-color','rgb(' + color[0] + ',' + color[1] + ',' + color[2] + ')');
+
+		function invert(rgb) {
+		  	rgb = Array.prototype.join.call(arguments).match(/(-?[0-9\.]+)/g);
+		  	for (var i = 0; i < rgb.length; i++) {
+		    	rgb[i] = (i === 3 ? 1 : 255) - rgb[i];
+		  	}
+		  return rgb;
+		}
+
+		invertedColor = invert( color[0] + ',' + color[1] + ',' + color[2] );
+
+		$('.sidebar a.project_link').css('color','rgb(' + invertedColor + ')');
+	});
+
 });	

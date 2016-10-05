@@ -60,16 +60,25 @@
 						<div class="project mix <?php if ( !empty( $terms ) ) : foreach ( $terms as $term ) { if ( !is_wp_error( $link ) ) echo $term->name; } endif;  ?>">
 							<div class="project-wrapper">
 								<?php if (has_post_thumbnail( $post->ID ) ): ?>
-									<div class="thumbnail_image_container">
-										<?php $thumbImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'portfolio-thumb' ); ?>
-								  		<img class="thumbnail-image" src="<?php echo $thumbImage[0]; ?>" />
-								  		<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark">
-								  			<div class="label">
-									  			<div class="label-text"><?php the_title(); ?></div>
-									  			<div class="label-bg"></div>
+									
+									<?php $thumbImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'portfolio-thumb' ); ?>
+								  	
+								  	<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark">
+										<div class="thumbnail_image_container" style="background-image: url('<?php echo $thumbImage[0]; ?>');">
+										</div>	
+								  		
+								  		<div class="label">
+									  		<div class="label-text">
+									  			<div class="label--container">
+										  			<div class="label-title"><?php the_title(); ?></div>
+										  			<div class="button take_a_look">View Project</div>
+										  			<div class="label-cat"><?php user_the_categories(); ?></div>
+									  			</div>
 									  		</div>
-									  	</a>
-								  	</div>
+									  		<div class="label-bg" style="background-image: url('<?php echo $thumbImage[0]; ?>');"></div>
+									  	</div>
+									</a>
+								  	
 								<?php endif; ?>
 				  			</div>
 						</div>

@@ -9,7 +9,7 @@ header {
     }
 }
 
-.small_header {
+.fixed {
     #logo, nav {
         @include respond-to(medium) {
             -webkit-animation: fade-in-small-header 1s 1; /* Safari 4+ */

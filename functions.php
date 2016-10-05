@@ -41,6 +41,13 @@
 
 	add_filter( 'body_class', array( 'Starkers_Utilities', 'add_slug_to_body_class' ) );
 
+	/* SCRIPTS */
+	function my_theme_scripts() {
+	    wp_enqueue_script( 'jquery-script', get_template_directory_uri() . '/js/vendor/jquery-3.1.1.min.js', array( 'jquery' ), '3.1.1', true );
+	}
+
+	add_action( 'wp_enqueue_scripts', 'my_theme_scripts' );
+
 	/* ========================================================================================================================
 	
 	Custom Post Types - include custom post types and taxonimies here e.g.
@@ -70,8 +77,12 @@
 		wp_register_script( 'transit', get_template_directory_uri().'/js/vendor/jquery.transit.min.js', array( 'jquery' ), '', true );
 		wp_enqueue_script( 'transit' );
 
+		wp_register_script( 'color-thief', get_template_directory_uri().'/js/vendor/color-thief.min.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( 'color-thief' );
+
 		wp_register_script( 'mixitup', get_template_directory_uri().'/js/vendor/jquery.mixitup.min.js', array( 'jquery' ), '', true );
 		wp_enqueue_script( 'mixitup' );
+
 
 		wp_register_script( 'site', get_template_directory_uri().'/js/main.js', array( 'jquery' ), '', true );
 		wp_enqueue_script( 'site' );
@@ -173,3 +184,17 @@
    return '… <a href="'. get_permalink($post->ID) . '">' . 'Read More &raquo;' . '</a>';
    }
    add_filter('excerpt_more', 'new_excerpt_more');
+
+   /*
+	get categories without the hyperlink 
+   */
+
+	function user_the_categories() {
+	    // get all categories for this post
+	    global $cats;
+	    $cats = get_the_category();
+	    // echo the first category
+	    echo $cats[0]->cat_name;
+	    // echo the remaining categories, appending separator
+	    for ($i = 1; $i < count($cats); $i++) {echo ', ' . $cats[$i]->cat_name ;}
+	}

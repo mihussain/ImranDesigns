@@ -1,3 +1,4 @@
+@import 'partials/colours';
 /*------------------------------------*\
     $MIXINS
 \*------------------------------------*/
@@ -58,3 +59,16 @@
     background-image: url('/images/sprite.png');
 }
 
+.button {
+    margin: 10px;
+    padding: 6px 12px;
+}
+
+a {
+    color: $third;
+    text-decoration: none;
+}
+
+.hidden {
+    display: none;
+}

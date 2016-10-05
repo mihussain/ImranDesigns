@@ -31,7 +31,7 @@
 						</div>
 						<div class="copy">
 							<div class="project_title">
-								<div class="breadcrumb"><a href="<?php echo bloginfo('url'); ?>">Home</a> / <a href="<?php echo bloginfo('url'); ?>/portfolio">Portfolio</a> / <?php the_category(', '); ?></div>
+								<div class="breadcrumb"><a href="<?php echo bloginfo('url'); ?>">Home</a> / <a href="<?php echo bloginfo('url'); ?>/portfolio">Portfolio</a> /</div>
 								<h2><?php the_title(); ?></h2> 
 							</div>
 
@@ -124,7 +124,7 @@
 							<?php endif; ?>
 
 							<span class="heading">Category:</span>
-							<?php the_category(', '); ?>
+							<?php user_the_categories(); ?>
 
 							<?php if (get_field('url')) : ?>
 								<span class="heading">URL:</span>

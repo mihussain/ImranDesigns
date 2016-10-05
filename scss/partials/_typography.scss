@@ -61,20 +61,6 @@ ul, ol, li {
     font-weight: 300;   
 }
 
-article a{
-    color: $color__link;
-    font-weight: bold;
-    text-decoration: none;
-
-    &:visited {
-        color: $color__link_visited;
-    }
-
-    &:hover, &:active {
-        color: $color__link_hover;
-    }
-}
-
 // styleguide:ignore:end
 
 
