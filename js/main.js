@@ -31,10 +31,24 @@ jQuery(document).ready(function($) {
 	$('#nav-icon').click(function(){
 	
 		var menuHeight = $(window).height();
+		var headerHeight = $('header').height();
 
-		$('.menu > ul').height(menuHeight);
+		$('header nav').height(menuHeight - headerHeight);
+
+
+		
 		$(this).toggleClass('open');
-		$('nav').toggleClass('open');
+		$('header nav').toggleClass('open');
+
+		if( $('header nav').hasClass('open')){
+			$('body').css('overflow','hidden');
+
+			if ( $('header nav').height() >= 500 ){
+				$('header nav .dynamic_posts').css('display','block');
+			}
+		} else {
+			$('body').css('overflow','auto');
+		}
 	});
 
 	//Scroll effects
@@ -160,6 +174,21 @@ jQuery(document).ready(function($) {
 		});
 	}
 
+	//Facebook Share 
+	// $('.facebookButton').on('click', function() {
+	// 	FB.ui({
+	// 		method: 'share_open_graph',
+	// 	  	action_type: 'og.shares',
+	// 	  	action_properties: JSON.stringify({
+	// 			object:'http://www.imrandesigns.co.uk',
+	// 	  })
+
+	// 	}, function(response){});
+	// });
+
+	/*
+	COLOUR THEIF
+
 	$(window).load(function() {
 		var myImage = $('img.featured-image');
 		var colorThief = new ColorThief();
@@ -179,5 +208,5 @@ jQuery(document).ready(function($) {
 
 		$('.sidebar a.project_link').css('color','rgb(' + invertedColor + ')');
 	});
-
+*/
 });	

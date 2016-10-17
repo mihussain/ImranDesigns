@@ -164,10 +164,106 @@ header {
             top: 8em;
             margin: 0 auto;
         }
+
+        .social {
+            display: none;
+            position: absolute;
+            bottom: 1.1em;
+            left: 1.1em;
+            right: 1.1em;
+            cursor: pointer;
+            margin-left: 0;
+            margin-top: 10px;
+            text-align: center;
+
+            @include respond-to(medium) {
+                float: left;
+                margin-left: 7px;
+                margin-top: 0;
+            }
+
+            .facebook {
+                background-image: url('images/facebook.jpg');
+                background-size: cover;
+                display: inline-block;
+                width: 35px;
+                height: 35px;
+                margin-right: 10px;
+                @include easeAnimation
+
+                &:hover {
+                    background-image: url('images/facebook_color.jpg');
+                }
+            }
+
+            .twitter {
+                background-image: url('images/twitter.jpg');
+                background-size: cover;
+                display: inline-block;
+                width: 35px;
+                height: 35px;
+                margin-right: 10px;
+                @include easeAnimation
+
+                &:hover {
+                    background-image: url('images/twitter_color.jpg');
+                }
+            }
+
+            .linkedin {
+                background-image: url('images/linkedin.jpg');
+                background-size: cover;
+                display: inline-block;
+                width: 35px;
+                height: 35px;
+                margin-right: 10px;
+                @include easeAnimation
+
+                &:hover {
+                    background-image: url('images/linkedin_color.jpg');
+                }
+            }
+
+            .instagram {
+                background-image: url('images/instagram.jpg');
+                background-size: cover;
+                display: inline-block;
+                width: 35px;
+                height: 35px;
+                @include easeAnimation
+
+                &:hover {
+                    background-image: url('images/instagram_color.jpg');
+                }
+            }
+        }
+
+        .dynamic_posts {
+            background-color: #131313;
+            display: none;
+            margin-top: 20px;
+            position: absolute;
+            width: 100%;
+            bottom: 75px;
+
+            ul {
+                background-color: #131313;
+            }
+
+            .title {
+                text-align: left;
+                padding: 0.625em 1.1em;
+            }
+        }
         
         &.open {
+            background: #000;
             display: block;
             z-index: 10;
+
+            .social{
+                display: block;
+            }
         }
 
         @include respond-to(medium) {
@@ -473,7 +569,7 @@ header {
     }
 
      .project_link {
-        background: #000;
+        background: $third;
         padding: .6em 1em;
         color: #fff;
         text-decoration: none;
@@ -486,6 +582,13 @@ header {
 
         @include respond-to(large) {
             width: 100%;
+        }
+
+        @include easeAnimation
+
+        &:hover {
+            background: #fff;
+            color: #000;
         }
     }
 
@@ -576,11 +679,12 @@ article {
     }
 
     .sidebar{ 
-        background: rgba(0, 0, 0, 0.5);
+        
         width: 100%;
         margin-top: 1em;
 
         @include respond-to(large) {
+            background: rgba(0, 0, 0, 0.5);
             padding: 1.250em;
         }
 
@@ -601,7 +705,8 @@ article {
 
         .details {
             margin-top: 1em;
-            border: 1px solid #e6e6e6;
+            margin-bottom: 1em;
+            border: 1px solid rgba(230, 230, 230, .2);
             padding: 1em;
 
             .heading {
@@ -613,6 +718,7 @@ article {
             @include respond-to(large) {
                 border: none;
                 margin-top: 2em;
+                margin-bottom: 0;
                 padding: 0;
 
 
@@ -678,6 +784,106 @@ article {
         .url_link {
             word-break: break-all;
         }
+
+        
+.social-meta {
+                        cursor: pointer;
+                        height: 25px;
+                        margin-top: 10px;
+                        text-align: center;
+
+                        @include respond-to(small) {
+                            float: right;
+                            margin-top: 0;
+                            height: 20px;
+                            text-align: left;
+                        }
+
+                        .facebook {
+                            background-image: url('images/facebook.jpg');
+                            background-size: cover;
+                            display: inline-block;
+                            width: 25px;
+                            height: 25px;
+                            margin-right: 5px;
+                            @include easeAnimation
+                            opacity: .6;
+
+                            @include respond-to(small) {
+                                width: 20px;
+                                height: 20px;
+                            }
+
+                            &:hover {
+                                background-image: url('images/facebook_color.jpg');
+                                opacity: 1;
+
+                            }
+                        }
+
+                        .twitter {
+                            background-image: url('images/twitter.jpg');
+                            background-size: cover;
+                            display: inline-block;
+                            width: 25px;
+                            height: 25px;
+                            margin-right: 5px;
+                            @include easeAnimation
+                            opacity: .6;
+
+                            @include respond-to(small) {
+                                width: 20px;
+                                height: 20px;
+                            }
+
+                            &:hover {
+                                background-image: url('images/twitter_color.jpg');
+                                opacity: 1;
+                            }
+                        }
+
+                        .linkedin {
+                            background-image: url('images/linkedin.jpg');
+                            background-size: cover;
+                            display: inline-block;
+                            width: 25px;
+                            height: 25px;
+                            margin-right: 5px;
+                            @include easeAnimation
+                            opacity: .6;
+
+                            &:hover {
+                                background-image: url('images/linkedin_color.jpg');
+                                opacity: 1;
+                            }
+
+                            @include respond-to(small) {
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+
+                        .instagram {
+                            background-image: url('images/instagram.jpg');
+                            background-size: cover;
+                            display: inline-block;
+                            width: 25px;
+                            height: 25px;
+                            @include easeAnimation
+                            opacity: .6;
+
+                            @include respond-to(small) {
+                                width: 20px;
+                                height: 20px;
+                            }
+
+                            &:hover {
+                                background-image: url('images/instagram_color.jpg');
+                                opacity: 1;
+                            }
+                        }
+                    }
+                
     }
 }
 
@@ -973,6 +1179,32 @@ footer {
                 font-size: .7em;
                 width: 80%;
                 margin-top: 10px;
+                margin-bottom: 8px;
+            }
+
+            nav {
+                ul {
+                    padding: 0;
+                    margin: 0;
+
+                    li {
+                        display: inline-block;
+                        padding: 0 5px;
+                        font-size: .8em;
+                        
+                        a {
+                            color: rgba(255 ,255, 255, .3);
+
+                            &:hover {
+                                color: $third;
+                            }
+                        }
+
+                        &:first-child {
+                            padding-left: 0;
+                        }
+                    }
+                }
             }
         }
 
@@ -1018,6 +1250,11 @@ footer {
 
             .view_more {
                 font-size: .8em;
+                color: rgba(255, 255, 255, .7);
+
+                &:hover {
+                    color: $third;
+                }
             }
         }
 
@@ -1063,6 +1300,11 @@ footer {
 
             .view_more {
                 font-size: .8em;
+                color: rgba(255, 255, 255, .7);
+
+                &:hover {
+                    color: $third;
+                }
             }
         }
     }
@@ -1168,3 +1410,24 @@ margin-bottom: 2em;
     }
 }
 
+
+.breadcrumb {
+    color: rgba(255, 255, 255, .3);
+    cursor: pointer;
+
+    a {
+        color: rgba(255, 255, 255, .3);
+        cursor: pointer;
+        display: inline-block;
+        padding: 2px 5px;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:hover {
+            color: $third;
+        }
+
+    }
+}

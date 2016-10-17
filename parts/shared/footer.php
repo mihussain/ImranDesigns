@@ -13,9 +13,10 @@
 						</div>
 					</div>
 					<p>ImranDesigns is a digital design and web developemnt portfolio. Why not follow me on the following social media accounts to keep up to date with my latest work! Follow me on my journey through each project that I create. I'm on Facebook, Twitter, Linked In and Instagram.</p>
+					<?php wp_nav_menu( array( 'theme_location' => 'footer-menu', 'container' =>'nav' ) ); ?>
 				</div>
 				<div class="col_2">
-					<div class="title">Latest News</div>
+					<div class="title">Latest Blog Posts</div>
 					<ul>
 					<?php
 						$args = array( 'numberposts' => '3' );

@@ -107,8 +107,10 @@ textarea {
   padding: 6px 12px; }
 
 a {
-  color: #0bed00;
+  color: #00aeff;
   text-decoration: none; }
+  a:hover {
+    color: #fff; }
 
 .hidden {
   display: none; }
@@ -399,7 +401,10 @@ body, .sg-type-wrapper {
     overflow: hidden;
     position: relative !important;
     cursor: pointer;
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    border: 1px solid transparent; }
+    .portfolio .project .project-wrapper:hover {
+      border-color: #00aeff; }
     @media only screen and (min-width: 480px) {
       .portfolio .project .project-wrapper {
         background: #131313;
@@ -463,13 +468,21 @@ body, .sg-type-wrapper {
     .portfolio .project .label-text .label-title {
       font-size: 1em; }
     .portfolio .project .label-text .button.take_a_look {
-      background-color: #0bed00;
+      background-color: #00aeff;
       display: none;
       margin: 14px 0;
-      font-size: .8em; }
+      font-size: .8em;
+      -webkit-transition: all .6s ease;
+      -moz-transition: all .6s ease;
+      -o-transition: all .6s ease;
+      -ms-transition: all .6s ease;
+      transition: all .6s ease; }
       @media only screen and (min-width: 480px) {
         .portfolio .project .label-text .button.take_a_look {
           display: inline-block; } }
+      .portfolio .project .label-text .button.take_a_look:hover {
+        background-color: #fff;
+        color: #000; }
     .portfolio .project .label-text .label-cat {
       font-size: .6em;
       opacity: .7; }
@@ -773,9 +786,94 @@ header {
       header nav {
         top: 8em;
         margin: 0 auto; } }
+    header nav .social {
+      display: none;
+      position: absolute;
+      bottom: 1.1em;
+      left: 1.1em;
+      right: 1.1em;
+      cursor: pointer;
+      margin-left: 0;
+      margin-top: 10px;
+      text-align: center; }
+      @media only screen and (min-width: 768px) {
+        header nav .social {
+          float: left;
+          margin-left: 7px;
+          margin-top: 0; } }
+      header nav .social .facebook {
+        background-image: url("images/facebook.jpg");
+        background-size: cover;
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        margin-right: 10px;
+        -webkit-transition: all .6s ease;
+        -moz-transition: all .6s ease;
+        -o-transition: all .6s ease;
+        -ms-transition: all .6s ease;
+        transition: all .6s ease; }
+        header nav .social .facebook:hover {
+          background-image: url("images/facebook_color.jpg"); }
+      header nav .social .twitter {
+        background-image: url("images/twitter.jpg");
+        background-size: cover;
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        margin-right: 10px;
+        -webkit-transition: all .6s ease;
+        -moz-transition: all .6s ease;
+        -o-transition: all .6s ease;
+        -ms-transition: all .6s ease;
+        transition: all .6s ease; }
+        header nav .social .twitter:hover {
+          background-image: url("images/twitter_color.jpg"); }
+      header nav .social .linkedin {
+        background-image: url("images/linkedin.jpg");
+        background-size: cover;
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        margin-right: 10px;
+        -webkit-transition: all .6s ease;
+        -moz-transition: all .6s ease;
+        -o-transition: all .6s ease;
+        -ms-transition: all .6s ease;
+        transition: all .6s ease; }
+        header nav .social .linkedin:hover {
+          background-image: url("images/linkedin_color.jpg"); }
+      header nav .social .instagram {
+        background-image: url("images/instagram.jpg");
+        background-size: cover;
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        -webkit-transition: all .6s ease;
+        -moz-transition: all .6s ease;
+        -o-transition: all .6s ease;
+        -ms-transition: all .6s ease;
+        transition: all .6s ease; }
+        header nav .social .instagram:hover {
+          background-image: url("images/instagram_color.jpg"); }
+    header nav .dynamic_posts {
+      background-color: #131313;
+      display: none;
+      margin-top: 20px;
+      position: absolute;
+      width: 100%;
+      bottom: 75px; }
+      header nav .dynamic_posts ul {
+        background-color: #131313; }
+      header nav .dynamic_posts .title {
+        text-align: left;
+        padding: 0.625em 1.1em; }
     header nav.open {
+      background: #000;
       display: block;
       z-index: 10; }
+      header nav.open .social {
+        display: block; }
     @media only screen and (min-width: 768px) {
       header nav {
         display: block;
@@ -977,7 +1075,7 @@ header {
       padding: 0;
       margin-bottom: .4em; }
   .page-content .project_link {
-    background: #000;
+    background: #00aeff;
     padding: .6em 1em;
     color: #fff;
     text-decoration: none;
@@ -986,10 +1084,18 @@ header {
     display: block;
     width: 200px;
     margin: 0 auto;
-    border-radius: 5px; }
+    border-radius: 5px;
+    -webkit-transition: all .6s ease;
+    -moz-transition: all .6s ease;
+    -o-transition: all .6s ease;
+    -ms-transition: all .6s ease;
+    transition: all .6s ease; }
     @media only screen and (min-width: 1024px) {
       .page-content .project_link {
         width: 100%; } }
+    .page-content .project_link:hover {
+      background: #fff;
+      color: #000; }
   .page-content .image_section {
     border: 1px solid #353535;
     padding: 5px;
@@ -1048,11 +1154,11 @@ article {
       article .left .copy {
         padding: 0 20px; } }
   article .sidebar {
-    background: rgba(0, 0, 0, 0.5);
     width: 100%;
     margin-top: 1em; }
     @media only screen and (min-width: 1024px) {
       article .sidebar {
+        background: rgba(0, 0, 0, 0.5);
         padding: 1.250em; } }
     @media only screen and (min-width: 1024px) {
       article .sidebar {
@@ -1068,7 +1174,8 @@ article {
           transform: translateX(-17%); } }
     article .sidebar .details {
       margin-top: 1em;
-      border: 1px solid #e6e6e6;
+      margin-bottom: 1em;
+      border: 1px solid rgba(230, 230, 230, 0.2);
       padding: 1em; }
       article .sidebar .details .heading:first-child {
         margin-top: 0; }
@@ -1076,6 +1183,7 @@ article {
         article .sidebar .details {
           border: none;
           margin-top: 2em;
+          margin-bottom: 0;
           padding: 0; } }
     article .sidebar .heading {
       margin-top: 1.5em;
@@ -1115,6 +1223,96 @@ article {
           margin: 0; }
     article .sidebar .url_link {
       word-break: break-all; }
+    article .sidebar .social-meta {
+      cursor: pointer;
+      height: 25px;
+      margin-top: 10px;
+      text-align: center; }
+      @media only screen and (min-width: 480px) {
+        article .sidebar .social-meta {
+          float: right;
+          margin-top: 0;
+          height: 20px;
+          text-align: left; } }
+      article .sidebar .social-meta .facebook {
+        background-image: url("images/facebook.jpg");
+        background-size: cover;
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+        -webkit-transition: all .6s ease;
+        -moz-transition: all .6s ease;
+        -o-transition: all .6s ease;
+        -ms-transition: all .6s ease;
+        transition: all .6s ease;
+        opacity: .6; }
+        @media only screen and (min-width: 480px) {
+          article .sidebar .social-meta .facebook {
+            width: 20px;
+            height: 20px; } }
+        article .sidebar .social-meta .facebook:hover {
+          background-image: url("images/facebook_color.jpg");
+          opacity: 1; }
+      article .sidebar .social-meta .twitter {
+        background-image: url("images/twitter.jpg");
+        background-size: cover;
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+        -webkit-transition: all .6s ease;
+        -moz-transition: all .6s ease;
+        -o-transition: all .6s ease;
+        -ms-transition: all .6s ease;
+        transition: all .6s ease;
+        opacity: .6; }
+        @media only screen and (min-width: 480px) {
+          article .sidebar .social-meta .twitter {
+            width: 20px;
+            height: 20px; } }
+        article .sidebar .social-meta .twitter:hover {
+          background-image: url("images/twitter_color.jpg");
+          opacity: 1; }
+      article .sidebar .social-meta .linkedin {
+        background-image: url("images/linkedin.jpg");
+        background-size: cover;
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+        -webkit-transition: all .6s ease;
+        -moz-transition: all .6s ease;
+        -o-transition: all .6s ease;
+        -ms-transition: all .6s ease;
+        transition: all .6s ease;
+        opacity: .6; }
+        article .sidebar .social-meta .linkedin:hover {
+          background-image: url("images/linkedin_color.jpg");
+          opacity: 1; }
+        @media only screen and (min-width: 480px) {
+          article .sidebar .social-meta .linkedin {
+            width: 20px;
+            height: 20px; } }
+      article .sidebar .social-meta .instagram {
+        background-image: url("images/instagram.jpg");
+        background-size: cover;
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        -webkit-transition: all .6s ease;
+        -moz-transition: all .6s ease;
+        -o-transition: all .6s ease;
+        -ms-transition: all .6s ease;
+        transition: all .6s ease;
+        opacity: .6; }
+        @media only screen and (min-width: 480px) {
+          article .sidebar .social-meta .instagram {
+            width: 20px;
+            height: 20px; } }
+        article .sidebar .social-meta .instagram:hover {
+          background-image: url("images/instagram_color.jpg");
+          opacity: 1; }
 
 .no-scroll {
   overflow: hidden; }
@@ -1335,7 +1533,21 @@ footer {
         color: rgba(255, 255, 255, 0.4);
         font-size: .7em;
         width: 80%;
-        margin-top: 10px; }
+        margin-top: 10px;
+        margin-bottom: 8px; }
+      footer .col_container .col_1 nav ul {
+        padding: 0;
+        margin: 0; }
+        footer .col_container .col_1 nav ul li {
+          display: inline-block;
+          padding: 0 5px;
+          font-size: .8em; }
+          footer .col_container .col_1 nav ul li a {
+            color: rgba(255, 255, 255, 0.3); }
+            footer .col_container .col_1 nav ul li a:hover {
+              color: #00aeff; }
+          footer .col_container .col_1 nav ul li:first-child {
+            padding-left: 0; }
     footer .col_container .col_2 {
       width: 100%; }
       @media only screen and (min-width: 768px) {
@@ -1364,7 +1576,10 @@ footer {
             color: white;
             border-bottom: 1px solid rgba(255, 255, 255, 0.6); }
       footer .col_container .col_2 .view_more {
-        font-size: .8em; }
+        font-size: .8em;
+        color: rgba(255, 255, 255, 0.7); }
+        footer .col_container .col_2 .view_more:hover {
+          color: #00aeff; }
     footer .col_container .col_3 {
       width: 100%; }
       @media only screen and (min-width: 768px) {
@@ -1393,7 +1608,10 @@ footer {
             color: white;
             border-bottom: 1px solid rgba(255, 255, 255, 0.6); }
       footer .col_container .col_3 .view_more {
-        font-size: .8em; }
+        font-size: .8em;
+        color: rgba(255, 255, 255, 0.7); }
+        footer .col_container .col_3 .view_more:hover {
+          color: #00aeff; }
   footer .small {
     position: absolute;
     bottom: 8px;
@@ -1470,4 +1688,17 @@ footer {
     outline: none; }
 
 .form_element .submit_button:hover {
-  background-color: #0bed00; }
+  background-color: #00aeff; }
+
+.breadcrumb {
+  color: rgba(255, 255, 255, 0.3);
+  cursor: pointer; }
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    display: inline-block;
+    padding: 2px 5px; }
+    .breadcrumb a:first-child {
+      padding-left: 0; }
+    .breadcrumb a:hover {
+      color: #00aeff; }

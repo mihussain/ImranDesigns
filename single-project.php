@@ -131,6 +131,13 @@
 								<a class="url_link" href="<?php the_field('url'); ?>" target="_blank"><?php the_field('url'); ?></a>
 							<?php endif; ?>
 						</div>
+
+						<div class="social-meta">
+							<span class="facebook"></span>
+							<span class="twitter"></span>
+							<span class="linkedin"></span>
+							<span class="instagram"></span>
+						</div>
 					</div>
 
 				</article>

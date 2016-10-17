@@ -67,6 +67,10 @@
 a {
     color: $third;
     text-decoration: none;
+
+    &:hover {
+        color: #fff;
+    }
 }
 
 .hidden {

@@ -71,12 +71,14 @@
 		.project-wrapper {
 			overflow:hidden;
 			position: relative !important;
-			
 			cursor:pointer;
-			
 			margin-bottom: 10px;
-			
+			border: 1px solid rgba(0,0,0,0);
 
+			&:hover {
+				border-color: $third;
+			}
+			
 			@include respond-to(small) {
 				background: $primary;
 				border: 1px solid rgba(255, 255, 255, .3);
@@ -174,9 +176,15 @@
 				display: none;
 				margin: 14px 0;
 				font-size: .8em;
+				@include easeAnimation
 
 				@include respond-to(small) {
 					display: inline-block;
+				}
+
+				&:hover {
+					background-color: #fff;
+					color: #000;
 				}
 			}
 

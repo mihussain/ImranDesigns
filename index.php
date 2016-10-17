@@ -32,7 +32,7 @@
 								This blog post was created on the <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> at <?php the_time(); ?></time> 
 							</div>
 							<div class="social-meta">
-								<span class="facebook"></span>
+								<span class="facebook facebookButton"></span>
 								<span class="twitter"></span>
 								<span class="linkedin"></span>
 								<span class="instagram"></span>
