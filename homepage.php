@@ -19,12 +19,12 @@
 
 			<?php
 
-				$first_featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'featured-image' );
+				$first_featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( $page_id ), 'featured-image' );
 
 				if( class_exists('Dynamic_Featured_Image') ) {
 					global $dynamic_featured_image;
-					$second_featured_image = $dynamic_featured_image->get_nth_featured_image( 2 );
-					$third_featured_image = $dynamic_featured_image->get_nth_featured_image( 3 );
+					$second_featured_image = $dynamic_featured_image -> get_nth_featured_image( 2, $page_id);
+					$third_featured_image = $dynamic_featured_image -> get_nth_featured_image( 3, $page_id );
 				}
 
 			?>
