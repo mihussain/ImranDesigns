@@ -22,6 +22,7 @@
 						<div class="post-meta">
 							This blog post was created on the <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> at <?php the_time(); ?></time> 
 						</div>
+						<hr>
 						<div class="main-content"><?php the_content(); ?></div>
 
 						<?php if ( get_the_author_meta( 'description' ) ) : ?>

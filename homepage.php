@@ -33,13 +33,28 @@
 			
 			<div class="part_1 <?php if ( !empty($first_featured_image) ) : ?>bg_image<?php endif; ?>">
 				<div class="central_container"> 
-					<?php the_content(); ?>
+					<div class="dark_bg"><?php the_content(); ?></div>
 				</div>
 				<?php if ( !empty($first_featured_image) ) : ?>
 					<img class="part_1_image" src="<?php echo $first_featured_image[0]; ?>" />
 				<?php endif; ?>
 			</div>
 			<?php comments_template( '', true ); ?>
+			<?php endwhile; ?>
+
+
+			<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+				<?php if(get_field('before_portfolio')): ?>
+					<div class="part_2 <?php if ( !empty($second_featured_image) ) : ?>bg_image<?php endif; ?>">
+						<div class="central_container"> 
+							<?php the_field('before_portfolio'); ?>
+						</div>
+
+						<?php if ( !empty($second_featured_image) ) : ?>
+							<img class="part_2_image" src="<?php echo $second_featured_image['full']; ?>" />
+						<?php endif; ?>
+					</div>
+				<?php endif; ?>
 			<?php endwhile; ?>
 
 			<?php $portfolio = new WP_Query(array(
@@ -88,21 +103,25 @@
 			</div>
 
 			<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-			<div class="part_2 <?php if ( !empty($second_featured_image) ) : ?>bg_image<?php endif; ?>">
-				<div class="central_container"> 
-					<?php the_field('after_portfolio'); ?>
-				</div>
+				<?php if(get_field('after_portfolio')): ?>	
+					<div class="part_3 <?php if ( !empty($third_featured_image) ) : ?>bg_image<?php endif; ?>">
+						<div class="central_container"> 
+							<?php the_field('after_portfolio'); ?>
+						</div>
 
-				<?php if ( !empty($second_featured_image) ) : ?>
-					<img class="part_2_image" src="<?php echo $second_featured_image['full']; ?>" />
+						<?php if ( !empty($third_featured_image) ) : ?>
+							<img class="part_3_image" src="<?php echo $third_featured_image['full']; ?>" />
+						<?php endif; ?>
+					</div>
 				<?php endif; ?>
-			</div>
 
-			<div class="part_3 <?php if (get_field('background_images')): ?>bg_image<?php endif; ?>">
-				<div class="central_container"> 
-					<?php the_field('third_paragraph'); ?>
-				</div>
-			</div>
+				<?php if(get_field('third_paragraph')): ?>	
+					<div class="part_4 <?php if (get_field('background_images')): ?>bg_image<?php endif; ?>">
+						<div class="central_container"> 
+							<?php the_field('third_paragraph'); ?>
+						</div>
+					</div>
+				<?php endif; ?>
 			<?php endwhile; ?>
 	</section>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>

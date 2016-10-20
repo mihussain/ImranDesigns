@@ -6,10 +6,10 @@
 					<div class="footer_logo_social">
 						<a class="footer_logo" href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" width="241" height="25" /></a>
 						<div class="social">
-							<span class="facebook"></span>
-							<span class="twitter"></span>
-							<span class="linkedin"></span>
-							<span class="instagram"></span>
+							<a href="https://www.facebook.com/ImranDesigns/" target="_blank"><span class="facebook"></span></a>
+							<a href="https://twitter.com/imrandesigns" target="_blank"><span class="twitter"></span></a>
+							<a href="https://www.linkedin.com/in/mihussain/" target="_blank"><span class="linkedin"></span></a>
+							<a href="https://www.instagram.com/imran_designs/" target="_blank"><span class="instagram"></span></a>
 						</div>
 					</div>
 					<p>ImranDesigns is a digital design and web developemnt portfolio. Why not follow me on the following social media accounts to keep up to date with my latest work! Follow me on my journey through each project that I create. I'm on Facebook, Twitter, Linked In and Instagram.</p>

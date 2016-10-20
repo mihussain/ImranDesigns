@@ -444,16 +444,16 @@ header {
 .page-content {
     //position: relative;
     background: $secondary;
-    padding-top: 110px;
+    padding-top: 60px;
     padding-bottom: 50px;
 
     @include respond-to(medium) {
-        padding-top: 100px;
+        padding-top: 0px;
         padding-bottom: 300px; 
     }
 
     &.padding {
-        padding-top: 350px;
+        padding-top: 250px;
     }
 
     .single & {
@@ -624,6 +624,10 @@ header {
                 height: auto;
             }
         }
+    }
+
+    .page-template {
+        padding-top: 4em;
     }
 }
 
@@ -898,37 +902,70 @@ article {
         //height: 100vh;
         position: relative;
         overflow: hidden;
+        text-align: left;
+        padding-top: 4em;
+        
+        h2 {
+            padding: 0;
+        }
 
         @include respond-to(large) {
         }
 
-        h2, h3, .intro-text {
-            text-align: center;
-        }
+        
+
 
         h3 {
             @include respond-to(large) {
-                margin-bottom: 3em;
+                margin-bottom: 1em;
+            }
+        }
+
+        p {
+            &:last-child {
+                margin: 0;
             }
         }
 
         &.bg_image {
-            padding: 4em 0;
+            padding: 1em 0;
             background: -webkit-linear-gradient(left top, red, yellow); /* For Safari 5.1 to 6.0 */
             background: -o-linear-gradient(bottom right, red, yellow); /* For Opera 11.1 to 12.0 */
             background: -moz-linear-gradient(bottom right, red, yellow); /* For Firefox 3.6 to 15 */
             background: linear-gradient(to bottom right, red, yellow); /* Standard syntax */
+            text-align: left;
+            
+            @include respond-to(small) {
+                margin-bottom: 2em; 
+                padding: 2em 0;
+            }
 
-            h2, h3, .intro-text{
-                text-align: left;
+            @include respond-to(medium) {
+                padding: 4em 0;
+            }
+
+            .dark_bg {
+                padding: 1em;
+                background-color: rgba(0, 0, 0, 0.7);
+                border-radius: 5px; 
+
+                h2 {
+                    padding: 0;
+                }
+
+                @include respond-to(medium) {
+                    p {
+                        width: 100%;
+                    }
+                }
+
+                @include respond-to(large) {
+                    width: 50%;
+                }
             }
 
             h2 {
                 color: #fff;
-            }
-
-            h3 {
-                margin-bottom: 0;
             }
 
             p {
@@ -967,6 +1004,8 @@ article {
     .portfolio {
         z-index: 6;
         position: relative;
+        margin-top: 2em;
+        background: rgba(0, 0, 0, .05);
 
         &.bg_image {
             padding: 1em 0 4em 0;
@@ -976,6 +1015,12 @@ article {
     .part_2 {
         position: relative;
         overflow: hidden;
+        padding-top: 2em;
+
+        
+        h2 {
+            padding: 0;
+        }
 
         &.bg_image {
             padding: 4em 0;
@@ -983,9 +1028,12 @@ article {
             background: -o-linear-gradient(bottom right, brown, black); /* For Opera 11.1 to 12.0 */
             background: -moz-linear-gradient(bottom right, brown, black); /* For Firefox 3.6 to 15 */
             background: linear-gradient(to bottom right, brown, black); /* Standard syntax */
+            color: #fff;
+        }
 
-            h2, p, li {
-                color: #fff;
+        p {
+            &:last-child {
+                margin: 0;
             }
         }
 
@@ -1037,7 +1085,86 @@ article {
     .part_3 {
         position: relative;
         overflow: hidden;
-        padding-bottom: 2em;
+        padding-top: 2em;
+        
+        h2 {
+            padding: 0;
+        }
+
+        &.bg_image {
+            padding: 4em 0;
+            background: -webkit-linear-gradient(left top, brown, black); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(bottom right, brown, black); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(bottom right, brown, black); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(to bottom right, brown, black); /* Standard syntax */
+            color: #fff;
+        }
+
+        .list {
+            clear: both;
+            margin-bottom: 1em;
+        
+            ul {
+                clear: both;
+                padding-left: 20px;
+
+                &:after {
+                    display: block;
+                    clear: both;
+                    content: '';
+                }
+
+                li {
+                    width: 100%;
+                    
+                    @include respond-to(medium) {
+                        float: left;
+                        width: 50%;
+                    }
+
+                    @include respond-to(large) {
+                        float: left;
+                        width: 33%;
+                    }
+                }
+            }
+        }
+
+        p {
+            &:last-child {
+                margin: 0;
+            }
+        }
+        
+        .central_container {
+            position: relative;
+            z-index: 2;
+        }
+
+        &_image {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            width: 100%;
+            opacity: .6;
+        }
+    }
+
+    .part_4 {
+        position: relative;
+        overflow: hidden;
+        padding-top: 2em;
+
+        p {
+            &:last-child {
+                margin: 0;
+            }
+        }
+        
+        h2 {
+            padding: 0;
+        }
 
         &.bg_image {
             padding: 4em 0;

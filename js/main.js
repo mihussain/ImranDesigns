@@ -93,12 +93,6 @@ jQuery(document).ready(function($) {
 	 	$('.home .part_2_image').css({
 	 	  	'transform' : 'translateY(' + ($(this).scrollTop()/-8)+ 'px)'
 	 	});	    
-
-	 	if( $(this).scrollTop() >= 60) {
-	 		$('.single-project header').addClass('solid');
-	 	} else {
-	 		$('.single-project header').removeClass('solid');
-	 	}
 	 }
 
 	// // portfolio filter
@@ -166,9 +160,11 @@ jQuery(document).ready(function($) {
 
 			if ($(this).scrollTop() > 190 ) {
 				$('header').addClass('fixed');
+				$('.single-project header').addClass('solid');
 				$('.page-content').addClass('padding');
 			} else {
 				$('header').removeClass('fixed');
+				$('.single-project header').removeClass('solid');
 				$('.page-content').removeClass('padding');
 			}
 		});
