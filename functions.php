@@ -84,10 +84,10 @@
 		wp_enqueue_script( 'mixitup' );
 
 
-		wp_register_script( 'site', get_template_directory_uri().'/js/main.js', array( 'jquery' ), '', true );
+		wp_register_script( 'site', get_template_directory_uri().'/js/main.min.js', array( 'jquery' ), '', true );
 		wp_enqueue_script( 'site' );
 
-		wp_register_style( 'screen', get_stylesheet_directory_uri().'/style.css', '', '', 'screen' );
+		wp_register_style( 'screen', get_stylesheet_directory_uri().'/style.min.css', '', '', 'screen' );
         wp_enqueue_style( 'screen' );
 	}	
 
