@@ -156,7 +156,6 @@ jQuery(document).ready(function($) {
 
 	if ( windowWidth >= 768) {
 		$(window).on('scroll', function() {
-			console.log($(this).scrollTop());
 
 			if ($(this).scrollTop() > 190 ) {
 				$('header').addClass('fixed');
