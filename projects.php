@@ -19,9 +19,8 @@
 		<div class="page-template">
 			<div class="central_container"> 
 				<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-				<h2><?php the_title(); ?></h2>
-				<?php the_content(); ?>
-				<?php comments_template( '', true ); ?>
+					<h2><?php the_title(); ?></h2>
+					<?php the_content(); ?>
 				<?php endwhile; ?>
 
 				<?php $portfolio = new WP_Query(array(
@@ -31,24 +30,26 @@
 				<ul id="filters">
 				  	<?php
 				  		echo "<li><span class='filter active' data-filter='all'>All</span></li>";
-				  		foreach (get_categories('taxonomy=test-cat') as $category){
-				    		echo "<li>";
-				    		echo "<span class='filter' data-filter='.$category->name'>";
-				    		echo $category->name;
+
+				  		foreach (get_terms('taxonomy=project_type&hide_empty=true') as $term){
+
+				  			echo "<li>";
+				    		echo "<span class='filter' data-filter='.$term->slug'>";
+				    		echo $term->name;
 				    		echo "</span>";
 				    		echo "</li>";
-				  		} 
+				  		}
 				  	?>
 				</ul>
 
 				<div class="portfolio">
 					<?php while($portfolio->have_posts()) : $portfolio->the_post(); ?>
 						<?php 
-							$taxonomy = 'test-cat';
+							$taxonomy = 'project_type';
 							$terms = get_the_terms( $post->ID , $taxonomy );
 						?>
 						
-							<div class="project mix <?php if ( !empty( $terms ) ) : foreach ( $terms as $term ) { if ( !is_wp_error( $link ) ) echo $term->name; } endif;  ?>">
+							<div class="project mix <?php if ( !empty( $terms ) ) : foreach ( $terms as $term ) { if ( !is_wp_error( $link ) ) echo $term->slug; } endif;  ?>">
 								<div class="project-wrapper">
 									<?php if (has_post_thumbnail( $post->ID ) ): ?>
 										
@@ -77,6 +78,6 @@
 					<?php endwhile; ?>
 				</div>
 			</div>
-			<?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>
 		</div>
 	</section>
+	<?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>

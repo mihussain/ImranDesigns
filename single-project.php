@@ -149,5 +149,6 @@
 				<img id="modal_img" src="" /> 
 			</div>
 		</div>
-	<?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>
 </section>
+
+<?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>

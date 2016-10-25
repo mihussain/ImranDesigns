@@ -449,6 +449,10 @@ header {
 
     @include respond-to(medium) {
         padding-top: 0px;
+        padding-bottom: 100px;
+    }
+
+    @include respond-to(large){
         padding-bottom: 300px; 
     }
 

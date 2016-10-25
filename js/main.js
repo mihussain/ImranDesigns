@@ -95,32 +95,32 @@ jQuery(document).ready(function($) {
 	 	});	    
 	 }
 
-	// // portfolio filter
-	// var filterList = {
-	// 	init: function () {
-	// 		// MixItUp plugin
-	// 		$('.portfolio').mixItUp({
-	// 			selectors: {
-	// 				target: '.project',
-	// 				filter: '.filter'
-	// 			},
-	// 			load: {
-	// 				sort: 'random'
-	// 			},
-	// 			animation: {
-	// 				enable: true,
-	// 				effects: 'fade',
-	// 				easing: 'easeInOutCubic'
-	// 			},
-	// 			controls: {
-	// 				activeClass: 'active'
-	// 			}
-	// 		});				
-	// 	},
-	// };
+	 // portfolio filter
+	 var filterList = {
+	 	init: function () {
+	 		// MixItUp plugin
+	 		$('.portfolio').mixItUp({
+	 			selectors: {
+	 				target: '.project',
+	 				filter: '.filter'
+	 			},
+	 			load: {
+	 				sort: 'random'
+	 			},
+	 			animation: {
+	 				enable: true,
+	 				effects: 'fade',
+	 				easing: 'easeInOutCubic'
+	 			},
+	 			controls: {
+	 				activeClass: 'active'
+	 			}
+	 		});				
+	 	},
+	 };
 	
-	// // Run the show!
-	// filterList.init();
+	// Run the show!
+	filterList.init();
 		
 
 
