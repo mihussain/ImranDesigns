@@ -37,3 +37,10 @@ $third: #00aeff;
 $primary--text: #ffffff;
 $secondary--text: #bcbcbc;
 $third--text: #818181;
+
+$white: #ffffff;
+$black: #000000;
+
+$accent: #00aeff;
+$accent--lighter: lighten( $accent, 10% );
+$accent--darker: darken( $accent, 10% );

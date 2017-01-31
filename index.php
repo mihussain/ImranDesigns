@@ -23,20 +23,28 @@
 				<?php while ( have_posts() ) : the_post(); ?>
 					<li>
 						<article>
-							<h3><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
-							
-							<div class="post-content">
-								<?php the_excerpt(); ?>
-							</div>
-							<div class="meta-container">
-								<div class="post-meta">
-									This blog post was created on the <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> at <?php the_time(); ?></time> 
+							<?php if (has_post_thumbnail( $post->ID ) ): ?>
+								<?php $featuredImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'portfolio-thumb' ); ?>
+								<?php $landscapeImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'landscape-image' ); ?>
+								<div class="article__thumbnail">
+							  		
+									<picture>
+									    <source srcset="<?php echo $landscapeImage[0]; ?>" media="(max width: 479px)">
+									    <source srcset="<?php echo $featuredImage[0]; ?>" media="(min-width: 480px)">
+									    <img class="post-featured-image" src="<?php echo $landscapeImage[0]; ?>" alt="My default image">
+									</picture>
 								</div>
-								<div class="social-meta">
-									<span class="facebook facebookButton"></span>
-									<span class="twitter"></span>
-									<span class="linkedin"></span>
-									<span class="instagram"></span>
+							<?php endif; ?>
+							<div class="article__content">
+								<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><h3><?php the_title(); ?></h3></a>
+								
+								<div class="post-content">
+									<?php the_excerpt(); ?>
+								</div>
+								<div class="meta-container">
+									<div class="post-meta">
+										This blog post was created on the <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> at <?php the_time(); ?></time> 
+									</div>
 								</div>
 							</div>
 						</article>

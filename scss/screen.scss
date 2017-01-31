@@ -1,18 +1,6 @@
-@import 'partials/reset';
-@import 'partials/helpers';
-@import 'partials/typography';
-@import 'partials/colours';
-@import 'partials/variables';
-@import 'partials/animation';
-@import 'portfolio';
-@import 'blog';
 
 img {
     border: 0;
-}
-
-html, body {
-    height: 100%;
 }
 
 body {
@@ -67,379 +55,7 @@ body {
     }
 }
 
-header {
-    background: $primary;
-    height: 60px;
-    width: 100%;
-    z-index: 11;
-    position: fixed;
 
-    @include respond-to(medium) {
-        height: 250px;
-        position: relative;
-    }
-
-    .single-project & {
-        @include respond-to(large) {
-            background: rgba(0, 0, 0, 0.7);
-
-            &.solid {
-                background: $primary;
-            }
-        }
-    }
-
-    &.fixed {
-        position: fixed;
-        height: 60px;
-
-        #logo {
-            display: block;
-            float: left;
-            margin: 0;
-            padding: 0;
-            color: #000;
-            top: 1.313em;
-
-            img {
-                display: block;
-                font-size: 25px;
-                font-weight: 300;
-                padding: 0;
-                color: #000;
-                text-decoration: none;
-                width: 180px;
-                height: auto;
-                max-width: 241px;
-            }
-        }
-
-        nav {
-            top: 1.2em;
-
-            ul {
-                text-align: right;
-            }
-        }
-    }
-    
-    #logo {
-        display: block;
-        position: relative;
-        top: 1.313em;
-
-        @include respond-to(medium) {
-            top: 5.5em;
-        }
-
-        img {
-            display: block;
-            font-size: 25px;
-            font-weight: 300;
-            padding: 0;
-            color: #000;
-            text-decoration: none;
-            width: 180px;
-            height: auto;
-            max-width: 241px;
-
-            @include respond-to(medium) {
-                margin: 0 auto;
-                width: 100%;
-                height: auto;
-            }
-        }
-    }
-
-    nav {
-
-        display: none;
-        clear: both;
-        position: absolute;
-        right: 0;
-        left: 0;
-        top: 60px; 
-
-        @include respond-to(medium) {
-            top: 8em;
-            margin: 0 auto;
-        }
-
-        .social {
-            display: none;
-            position: absolute;
-            bottom: 1.1em;
-            left: 1.1em;
-            right: 1.1em;
-            cursor: pointer;
-            margin-left: 0;
-            margin-top: 10px;
-            text-align: center;
-
-            @include respond-to(medium) {
-                float: left;
-                margin-left: 7px;
-                margin-top: 0;
-            }
-
-            .facebook {
-                background-image: url('images/facebook.jpg');
-                background-size: cover;
-                display: inline-block;
-                width: 35px;
-                height: 35px;
-                margin-right: 10px;
-                @include easeAnimation
-
-                &:hover {
-                    background-image: url('images/facebook_color.jpg');
-                }
-            }
-
-            .twitter {
-                background-image: url('images/twitter.jpg');
-                background-size: cover;
-                display: inline-block;
-                width: 35px;
-                height: 35px;
-                margin-right: 10px;
-                @include easeAnimation
-
-                &:hover {
-                    background-image: url('images/twitter_color.jpg');
-                }
-            }
-
-            .linkedin {
-                background-image: url('images/linkedin.jpg');
-                background-size: cover;
-                display: inline-block;
-                width: 35px;
-                height: 35px;
-                margin-right: 10px;
-                @include easeAnimation
-
-                &:hover {
-                    background-image: url('images/linkedin_color.jpg');
-                }
-            }
-
-            .instagram {
-                background-image: url('images/instagram.jpg');
-                background-size: cover;
-                display: inline-block;
-                width: 35px;
-                height: 35px;
-                @include easeAnimation
-
-                &:hover {
-                    background-image: url('images/instagram_color.jpg');
-                }
-            }
-        }
-
-        .dynamic_posts {
-            background-color: #131313;
-            display: none;
-            margin-top: 20px;
-            position: absolute;
-            width: 100%;
-            bottom: 75px;
-
-            ul {
-                background-color: #131313;
-            }
-
-            .title {
-                text-align: left;
-                padding: 0.625em 1.1em;
-            }
-        }
-        
-        &.open {
-            background: #000;
-            display: block;
-            z-index: 10;
-
-            .social{
-                display: block;
-            }
-        }
-
-        @include respond-to(medium) {
-            display: block;
-            clear: none;
-        }
-
-        ul {
-            background: #000000;
-            display: block;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            text-align: left;
-
-            @include respond-to(medium) {
-                background: none;
-                text-align: center;
-            }
-
-            li {
-
-                display: block;
-
-                @include respond-to(medium) {
-                    display: inline;
-                }
-
-                &:last-child {
-                    a {
-                        @include respond-to(medium) {
-                            padding-right: 0;
-                        }
-                    }
-                }
-
-                &:first-child {
-                    a {
-                        @include respond-to(medium) {
-                            padding-left: 0;
-                        }
-                    }
-                }
-
-                a{
-                    color: #ffffff;
-                    font-weight: 300;
-                    display: block;
-                    padding: 0.625em 1.1em;
-                    text-decoration: none;
-                    border-bottom: 1px solid #1D1D1D;
-
-                    @include respond-to(medium) {
-                        color: #676767;
-                        display: inline;
-                        padding: 0 0.625em;
-                        border-bottom: none;
-                    }
-
-                    &:hover {
-                       color: #fff;
-                    }
-                }
-            }
-        }
-    }
-
-    #nav-icon {
-        float: right;
-        width: 25px;
-        height: 21px;
-        position: relative;
-        margin-top: .2em;
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-        -webkit-transition: .5s ease-in-out;
-        -moz-transition: .5s ease-in-out;
-        -o-transition: .5s ease-in-out;
-        transition: .5s ease-in-out;
-        cursor: pointer;
-
-        @include respond-to(medium) {
-            display: none;
-        }
-
-        span {
-            display: block;
-            position: absolute;
-            height: 1px;
-            width: 100%;
-            background: #ffffff;
-            opacity: 1;
-            left: 0;
-            -webkit-transform: rotate(0deg);
-            -moz-transform: rotate(0deg);
-            -o-transform: rotate(0deg);
-            transform: rotate(0deg);
-            -webkit-transition: .25s ease-in-out;
-            -moz-transition: .25s ease-in-out;
-            -o-transition: .25s ease-in-out;
-            transition: .25s ease-in-out;
-        }
-
-        span:nth-child(1) {
-            top: 0px;
-        }
-
-        span:nth-child(2),
-        span:nth-child(3) {  
-            top: 8px;
-        }
-
-        span:nth-child(4) {
-            top: 16px;
-        }
-
-        &.open span:nth-child(1) {
-            top: 18px;
-            width: 0%;
-            left: 50%;
-        }
-
-        &.open span:nth-child(2) {
-            -webkit-transform: rotate(45deg);
-            -moz-transform: rotate(45deg);
-            -o-transform: rotate(45deg);
-            transform: rotate(45deg);
-        }
-
-        &.open span:nth-child(3) {
-            -webkit-transform: rotate(-45deg);
-            -moz-transform: rotate(-45deg);
-            -o-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-        }
-
-        &.open span:nth-child(4) {
-            top: 18px;
-            width: 0%;
-            left: 50%;
-        }
-    }
-
-    &.small_header {
-        height: 60px;
-        position: fixed;
-        top: 0;
-
-
-        #logo {
-            @include respond-to(medium) {            
-                font-size: 20px;
-                float: left;
-                margin: .8em 1em 0;
-                padding: 0;
-            }
-
-            @include respond-to(wide) {
-                font-size: 30px;
-                margin: .3em 0;
-            }
-        }
-
-        nav {
-            ul {
-                @include respond-to(medium) {
-                    float: right;
-                    margin: 1.17em 1em 0;
-                    padding: 0;
-                }
-            }
-        }
-    }
-}
 
 .page-content {
     //position: relative;
@@ -456,11 +72,17 @@ header {
         padding-bottom: 300px; 
     }
 
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
     &.padding {
         padding-top: 250px;
     }
 
-    .single & {
+    .single-post & {
         padding-top: 60px;
         padding-bottom: 0;
 
@@ -664,6 +286,16 @@ article {
             background: rgba(0, 0, 0, 0.7);
         }
 
+        img.post-image {
+            display: none;
+
+            @include respond-to(large) {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+        }
+
         .article-featured-image {
             display: none;
 
@@ -715,7 +347,7 @@ article {
             margin-top: 1em;
             margin-bottom: 1em;
             border: 1px solid rgba(230, 230, 230, .2);
-            padding: 1em;
+            padding: 10px;
 
             .heading {
                 &:first-child {
@@ -734,11 +366,28 @@ article {
 
         }
 
-        .heading{
-            margin-top: 1.5em;
-            display: block;
-            width: 100%;
-            margin-bottom: 0.5em;
+        .section {
+            .section__heading{
+                margin-top: 1.5em;
+                display: block;
+                width: 100%;
+                margin-bottom: 0.5em;
+                padding-left: 1em;
+            }
+
+            .section__body {
+                background: rgba(255,255,255,.02);
+                display: block;
+                padding: 1em;
+                border-radius: 5px;
+
+                &:after {
+                    clear: both;
+                    display: block;
+                    content: '';
+                                    
+                }
+            }
         }
 
         .features {
@@ -767,6 +416,12 @@ article {
             }
         }
 
+        p, a {
+            font-size: .9em;
+            font-weight: 300;
+            margin: 0;
+        }
+
         .categories {
             padding: 0;
             clear: both;
@@ -792,106 +447,104 @@ article {
         .url_link {
             word-break: break-all;
         }
-
         
-.social-meta {
-                        cursor: pointer;
-                        height: 25px;
-                        margin-top: 10px;
-                        text-align: center;
+        .social-meta {
+            cursor: pointer;
+            height: 25px;
+            margin-top: 10px;
+            text-align: center;
 
-                        @include respond-to(small) {
-                            float: right;
-                            margin-top: 0;
-                            height: 20px;
-                            text-align: left;
-                        }
+            @include respond-to(small) {
+                float: left;
+                margin-top: 0;
+                height: 20px;
+                text-align: left;
+            }
 
-                        .facebook {
-                            background-image: url('images/facebook.jpg');
-                            background-size: cover;
-                            display: inline-block;
-                            width: 25px;
-                            height: 25px;
-                            margin-right: 5px;
-                            @include easeAnimation
-                            opacity: .6;
+            .facebook {
+                background-image: url('images/facebook.jpg');
+                background-size: cover;
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                margin-right: 5px;
+                @include easeAnimation
+                opacity: .6;
 
-                            @include respond-to(small) {
-                                width: 20px;
-                                height: 20px;
-                            }
+                @include respond-to(small) {
+                    width: 20px;
+                    height: 20px;
+                }
 
-                            &:hover {
-                                background-image: url('images/facebook_color.jpg');
-                                opacity: 1;
+                &:hover {
+                    background-image: url('images/facebook_color.jpg');
+                    opacity: 1;
 
-                            }
-                        }
+                }
+            }
 
-                        .twitter {
-                            background-image: url('images/twitter.jpg');
-                            background-size: cover;
-                            display: inline-block;
-                            width: 25px;
-                            height: 25px;
-                            margin-right: 5px;
-                            @include easeAnimation
-                            opacity: .6;
+            .twitter {
+                background-image: url('images/twitter.jpg');
+                background-size: cover;
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                margin-right: 5px;
+                @include easeAnimation
+                opacity: .6;
 
-                            @include respond-to(small) {
-                                width: 20px;
-                                height: 20px;
-                            }
+                @include respond-to(small) {
+                    width: 20px;
+                    height: 20px;
+                }
 
-                            &:hover {
-                                background-image: url('images/twitter_color.jpg');
-                                opacity: 1;
-                            }
-                        }
+                &:hover {
+                    background-image: url('images/twitter_color.jpg');
+                    opacity: 1;
+                }
+            }
 
-                        .linkedin {
-                            background-image: url('images/linkedin.jpg');
-                            background-size: cover;
-                            display: inline-block;
-                            width: 25px;
-                            height: 25px;
-                            margin-right: 5px;
-                            @include easeAnimation
-                            opacity: .6;
+            .linkedin {
+                background-image: url('images/linkedin.jpg');
+                background-size: cover;
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                margin-right: 5px;
+                @include easeAnimation
+                opacity: .6;
 
-                            &:hover {
-                                background-image: url('images/linkedin_color.jpg');
-                                opacity: 1;
-                            }
+                &:hover {
+                    background-image: url('images/linkedin_color.jpg');
+                    opacity: 1;
+                }
 
-                            @include respond-to(small) {
-                                width: 20px;
-                                height: 20px;
-                            }
-                        }
+                @include respond-to(small) {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
 
-                        .instagram {
-                            background-image: url('images/instagram.jpg');
-                            background-size: cover;
-                            display: inline-block;
-                            width: 25px;
-                            height: 25px;
-                            @include easeAnimation
-                            opacity: .6;
+            .instagram {
+                background-image: url('images/instagram.jpg');
+                background-size: cover;
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                @include easeAnimation
+                opacity: .6;
 
-                            @include respond-to(small) {
-                                width: 20px;
-                                height: 20px;
-                            }
+                @include respond-to(small) {
+                    width: 20px;
+                    height: 20px;
+                }
 
-                            &:hover {
-                                background-image: url('images/instagram_color.jpg');
-                                opacity: 1;
-                            }
-                        }
-                    }
-                
+                &:hover {
+                    background-image: url('images/instagram_color.jpg');
+                    opacity: 1;
+                }
+            }
+        }
     }
 }
 
@@ -940,7 +593,7 @@ article {
             text-align: left;
             
             @include respond-to(small) {
-                margin-bottom: 2em; 
+
                 padding: 2em 0;
             }
 
@@ -1005,23 +658,11 @@ article {
         }
     }
 
-    .portfolio {
-        z-index: 6;
-        position: relative;
-        margin-top: 2em;
-        background: rgba(0, 0, 0, .05);
-
-        &.bg_image {
-            padding: 1em 0 4em 0;
-        }
-    }
-
     .part_2 {
         position: relative;
         overflow: hidden;
-        padding-top: 2em;
+        padding-bottom: 40px;
 
-        
         h2 {
             padding: 0;
         }
@@ -1089,7 +730,6 @@ article {
     .part_3 {
         position: relative;
         overflow: hidden;
-        padding-top: 2em;
         
         h2 {
             padding: 0;
@@ -1158,7 +798,6 @@ article {
     .part_4 {
         position: relative;
         overflow: hidden;
-        padding-top: 2em;
 
         p {
             &:last-child {
@@ -1176,279 +815,7 @@ article {
     }
 }
 
-footer {
-    min-height: 200px;
-    background-color: $primary;
-    color: #fff;
-    bottom: 0;
-    width: 100%;
-    z-index: 9;
 
-    @include respond-to(large) {
-        position: absolute;
-    }
-
-    .footer_logo_social {
-        display: block;
-        margin: 0 auto;
-
-        &:after {
-            content: '';
-            clear: both;
-            display: block; 
-        }
-
-        .footer_logo {
-            @include respond-to(medium) {
-                float: left;
-            }
-        }
-
-        .social {
-            cursor: pointer;
-            margin-left: 0;
-            margin-top: 10px;
-
-            @include respond-to(medium) {
-                float: left;
-                margin-left: 7px;
-                margin-top: 0;
-            }
-
-            .facebook {
-                background-image: url('images/facebook.jpg');
-                background-size: cover;
-                display: inline-block;
-                width: 25px;
-                height: 25px;
-                margin-right: 5px;
-                @include easeAnimation
-
-                &:hover {
-                    background-image: url('images/facebook_color.jpg');
-                }
-            }
-
-            .twitter {
-                background-image: url('images/twitter.jpg');
-                background-size: cover;
-                display: inline-block;
-                width: 25px;
-                height: 25px;
-                margin-right: 5px;
-                @include easeAnimation
-
-                &:hover {
-                    background-image: url('images/twitter_color.jpg');
-                }
-            }
-
-            .linkedin {
-                background-image: url('images/linkedin.jpg');
-                background-size: cover;
-                display: inline-block;
-                width: 25px;
-                height: 25px;
-                margin-right: 5px;
-                @include easeAnimation
-
-                &:hover {
-                    background-image: url('images/linkedin_color.jpg');
-                }
-            }
-
-            .instagram {
-                background-image: url('images/instagram.jpg');
-                background-size: cover;
-                display: inline-block;
-                width: 25px;
-                height: 25px;
-                @include easeAnimation
-
-                &:hover {
-                    background-image: url('images/instagram_color.jpg');
-                }
-            }
-        }
-    }
-
-    .col_container {
-        clear: both;
-        padding-top: 2em;
-        padding-bottom: 3em;
-
-        &:after {
-            content: '';
-            display: block;
-            clear: both;
-        }        
-
-        @include respond-to(medium) {
-            padding-bottom: 2em;
-        }
-
-        .col_1 {
-            
-            width: 100%; 
-
-            @include respond-to(large) {
-                width: 50%;
-                float: left;
-            }
-
-            .logo {
-                font-family: 'Lato', sans-serif;
-                font-weight: 100;
-                text-transform: uppercase;
-                font-size: 1.5em;
-                color: rgba(255,255,255,0.5);
-                text-decoration: none;
-            }
-
-            p {
-                color: rgba(255,255,255,0.4);
-                font-size: .7em;
-                width: 80%;
-                margin-top: 10px;
-                margin-bottom: 8px;
-            }
-
-            nav {
-                ul {
-                    padding: 0;
-                    margin: 0;
-
-                    li {
-                        display: inline-block;
-                        padding: 0 5px;
-                        font-size: .8em;
-                        
-                        a {
-                            color: rgba(255 ,255, 255, .3);
-
-                            &:hover {
-                                color: $third;
-                            }
-                        }
-
-                        &:first-child {
-                            padding-left: 0;
-                        }
-                    }
-                }
-            }
-        }
-
-        .col_2 {
-            width: 100%;
-
-            @include respond-to(medium) {
-                width: 50%;
-                float: left;
-            }
-
-            @include respond-to(large) {
-                width: 25%;
-                float: left;
-            }
-
-            .title {
-                font-weight: bold;
-            }
-
-            ul {
-                list-style: none;
-                padding: 0;
-                margin-top: 10px;
-                width: 80%;
-
-                li {
-                    a {
-                        color: rgba(255, 255, 255, 0.4);
-                        text-decoration: none;
-                        display: block;
-                        border-bottom: 1px solid rgba(255, 255, 255, .05);
-                        font-size: .8em;
-                        margin-bottom: 10px;
-
-                        &:hover {
-                            color: rgba(255, 255, 255, 1); 
-                            border-bottom: 1px solid rgba(255, 255, 255, .6);
-                        }
-                    }
-                }
-            }
-
-            .view_more {
-                font-size: .8em;
-                color: rgba(255, 255, 255, .7);
-
-                &:hover {
-                    color: $third;
-                }
-            }
-        }
-
-        .col_3 {
-            width: 100%;
-
-            @include respond-to(medium) {
-                width: 50%;
-                float: left;
-            }
-
-            @include respond-to(large) {
-                width: 25%;
-                float: left;
-            }
-
-            .title {
-                font-weight: bold;
-            }
-
-            ul {
-                list-style: none;
-                padding: 0;
-                margin-top: 10px;
-                width: 80%;
-
-                li {
-                    a {
-                        color: rgba(255, 255, 255, 0.4);
-                        text-decoration: none;
-                        display: block;
-                        border-bottom: 1px solid rgba(255, 255, 255, .05);
-                        font-size: .8em;
-                        margin-bottom: 10px;
-
-                        &:hover {
-                            color: rgba(255, 255, 255, 1); 
-                            border-bottom: 1px solid rgba(255, 255, 255, .6);
-                        }
-                    }
-                }
-            }
-
-            .view_more {
-                font-size: .8em;
-                color: rgba(255, 255, 255, .7);
-
-                &:hover {
-                    color: $third;
-                }
-            }
-        }
-    }
-
-    .small {
-        position: absolute;
-        bottom: 8px;
-        text-align: center;
-        width: 100%;
-        font-size: 11px;
-        color: rgba(255,255,255,0.4);
-    }
-}
 
 /* Modal */
 .modal {
@@ -1475,68 +842,6 @@ footer {
             position: relative;
             max-width: 100%;
             max-height: 100%;
-        }
-    }
-}
-
-//forms
-
-.nf-form-fields-required {
-font-size: .8em;
-margin-bottom: 2em;
-}
-
-.form_element input {
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 1em;
-}
-
-.name_container {
-    width: 100%;
-    margin-right: 5%;
-
-    @include respond-to(small) {
-        width: 45%;
-        float: left;
-        clear:none !important;
-    }
-}
-
-.email_container {
-    width: 100%;
-
-    @include respond-to(small) {
-        width: 50%;
-        float: left;
-        clear:none !important;
-    }
-}
-
-.message_container {
-    textarea {
-        padding: 10px;
-        border-radius: 5px;
-        font-size: 1em;
-    }
-}
-
-.form_element input, .form_element textarea {
-    @include easeAnimation;
-    border: 1px solid $secondary;
-
-    &:focus {
-     
-        box-shadow: 0 0 5px rgba(0, 0, 0, 1);
-        border: 1px solid rgba(0, 0, 0, 1);
-        outline:none;
-    }
-}
-
-.form_element {
-    .submit_button {
-        &:hover {
-            background-color: $third;
         }
     }
 }

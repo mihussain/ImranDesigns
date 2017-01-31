@@ -17,12 +17,18 @@
 			<div class="container">
 				<div class="central_container"> 
 					<article>
-						
+
 						<h2><?php the_title(); ?></h2>
 						<div class="post-meta">
 							This blog post was created on the <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> at <?php the_time(); ?></time> 
 						</div>
 						<hr>
+						<?php if (has_post_thumbnail( $post->ID ) ): ?>
+								<?php $featuredImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'featured-image' ); ?>
+						  		<div class="article-featured-image">
+									<img src="<?php echo $featuredImage[0]; ?>" />
+								</div>
+						<?php endif; ?>
 						<div class="main-content"><?php the_content(); ?></div>
 
 						<?php if ( get_the_author_meta( 'description' ) ) : ?>

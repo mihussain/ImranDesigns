@@ -6,6 +6,7 @@ $siteWidth: 980px;
 $break-small: 480px;
 $break-medium: 768px;
 $break-large: 1024px;
+$break-extralarge: 1200px;
 
 @mixin respond-to($media) {
   @if $media == small {
@@ -18,6 +19,10 @@ $break-large: 1024px;
 
   @else if $media == large {
     @media only screen and (min-width: $break-large) { @content; }
+  }
+
+  @else if $media == extralarge {
+    @media only screen and (min-width: $break-extralarge) { @content; }
   }
 }
 

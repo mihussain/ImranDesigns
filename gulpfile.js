@@ -1,5 +1,5 @@
 var gulp = require( 'gulp' ),
-  	plumber = require( 'gulp-plumber' ),
+	plumber = require( 'gulp-plumber' ),
 	watch = require( 'gulp-watch' ),
 	livereload = require( 'gulp-livereload' ),
 	minifycss = require( 'gulp-minify-css' ),
@@ -17,21 +17,21 @@ var onError = function( err ) {
 }
 
 gulp.task( 'scss', function() {
-  	return gulp.src( './scss/style.scss' )
-    	.pipe( plumber( { errorHandler: onError } ) )
-    	.pipe( sass() )
-    	.pipe( gulp.dest( '.' ) )
-    	.pipe( minifycss() )
-    	.pipe( rename( { suffix: '.min' } ) )
-    	.pipe( gulp.dest( '.' ) )
-    	.pipe( livereload() );
+	return gulp.src( './scss/style.scss' )
+		.pipe( plumber( { errorHandler: onError } ) )
+		.pipe( sass() )
+		.pipe( gulp.dest( '.' ) )
+		.pipe( minifycss() )
+		.pipe( rename( { suffix: '.min' } ) )
+		.pipe( gulp.dest( '.' ) )
+		.pipe( livereload() );
 });
 
 gulp.task('minifyjs', function () {
   gulp.src('./js/main.js')
-    .pipe(uglify())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest('./js/'))
+	.pipe(uglify())
+	.pipe(rename({ suffix: '.min' }))
+	.pipe(gulp.dest('./js/'))
 })
 
 gulp.task( 'watch', function() {
@@ -39,7 +39,7 @@ gulp.task( 'watch', function() {
   gulp.watch( './scss/**/*.scss', [ 'scss' ] );
   gulp.watch( './js/*.js', [ 'minifyjs' ]);
   gulp.watch( './**/*.php' ).on( 'change', function( file ) {
-    livereload.changed( file );
+	livereload.changed( file );
   } );
 });
 

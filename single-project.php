@@ -17,8 +17,15 @@
 		<?php if (has_post_thumbnail( $post->ID ) ): ?>
 			<div class="featured_image_container">
 				<?php $featuredImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'featured-image' ); ?>
+				<?php $landscapeImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'landscape-image' ); ?>
 		  		<span class="gradient"></span>
-		  		<img class="featured-image" src="<?php echo $featuredImage[0]; ?>" />
+		  		
+		  		<picture>
+				    <source srcset="<?php echo $landscapeImage[0]; ?>" media="(max width: 1023px)">
+				    <source srcset="<?php echo $featuredImage[0]; ?>" media="(min-width: 1024px)">
+				    <img class="featured-image" src="<?php echo $landscapeImage[0]; ?>" alt="My default image">
+				</picture>
+		  		<!-- <img class="featured-image" src="<?php// echo $featuredImage[0]; ?>" /> -->
 		  	</div>
 		<?php endif; ?>
 
@@ -26,9 +33,10 @@
 			<div class="central_container"> 
 				<article>
 					<div class="left">
-						<div class="article-featured-image">
-							<img src="<?php echo $featuredImage[0]; ?>" />
-						</div>
+						
+							<img class="post-image" src="<?php echo $landscapeImage[0]; ?>" alt="My default image">
+						
+							<?php echo $LandscapeImage[0]; ?>
 						<div class="copy">
 							<div class="project_title">
 								<div class="breadcrumb"><a href="<?php echo bloginfo('url'); ?>">Home</a> / <a href="<?php echo bloginfo('url'); ?>/portfolio">Portfolio</a> /</div>
@@ -113,33 +121,50 @@
 							$choices = $field['choices'];
 
 							if( $value ): ?>
-							<span class="heading">This website uses:</span>
-							<ul class="features">
-								<?php foreach( $value as $v ): ?>
-								<li>
-									<?php echo $choices[ $v ]; ?>
-								</li>
-								<?php endforeach; ?>
-							</ul>
-							<?php endif; ?>
+							<div class="section">
+								<span class="section__heading">This website uses:</span>
+								<span class="section__body">
+									<ul class="features">
+										<?php foreach( $value as $v ): ?>
+										<li>
+											<?php echo $choices[ $v ]; ?>
+										</li>
+										<?php endforeach; ?>
+									</ul>
+									<?php endif; ?>
+								</span>
+							</div>
 
-							<span class="heading">Category:</span>
-							<?php user_the_categories(); ?>
+							<div class="section">
+								<span class="section__heading">Category:</span>
+								<span class="section__body">
+									<?php 
+										$taxonomy = 'project_type';
+										$terms = get_the_terms( $post->ID , $taxonomy );
+						
+										if ( !empty( $terms ) ) : foreach ( $terms as $term ) { if ( !is_wp_error( $link ) ) echo $term->name; } endif; 
+									?>
+								</span>
+							</div>
 
-							<?php if (get_field('url')) : ?>
-								<span class="heading">URL:</span>
-								<a class="url_link" href="<?php the_field('url'); ?>" target="_blank"><?php the_field('url'); ?></a>
-							<?php endif; ?>
-						</div>
+							<div class="section">
+								<?php if (get_field('url')) : ?>
+									<span class="section__heading">URL:</span>
+									<span class="section__body"><a class="url_link" href="<?php the_field('url'); ?>" target="_blank"><?php the_field('url'); ?></a></span>
+								<?php endif; ?>
+							</div>
 
-						<div class="social-meta">
-							<span class="facebook"></span>
-							<span class="twitter"></span>
-							<span class="linkedin"></span>
-							<span class="instagram"></span>
+							<div class="section">
+								<span class="section__heading">Share:</span>
+								<span class="section__body">
+									<div class="social-meta">
+										<span class="facebook facebookButton"></span>
+										<a class="twitter_pop_up twitter" href="http://twitter.com/share"><span class="twitter"></span></a>
+									</div>
+								</span>
+							</div>
 						</div>
 					</div>
-
 				</article>
 				<?php endwhile; ?>
 			</div>

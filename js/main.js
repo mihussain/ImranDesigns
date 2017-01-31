@@ -121,6 +121,10 @@ jQuery(document).ready(function($) {
 	
 	// Run the show!
 	filterList.init();
+
+	$( window ).resize(function() {
+  		filterList.init();
+	});
 		
 
 
@@ -170,17 +174,34 @@ jQuery(document).ready(function($) {
 	}
 
 	//Facebook Share 
-	// $('.facebookButton').on('click', function() {
-	// 	FB.ui({
-	// 		method: 'share_open_graph',
-	// 	  	action_type: 'og.shares',
-	// 	  	action_properties: JSON.stringify({
-	// 			object:'http://www.imrandesigns.co.uk',
-	// 	  })
+	 $('.facebookButton').on('click', function() {
+	 	FB.ui({
+	 		method: 'share_open_graph',
+	 	  	action_type: 'og.shares',
+	 	  	action_properties: JSON.stringify({
+	 			object:'http://www.imrandesigns.co.uk',
+	 	  })
 
-	// 	}, function(response){});
-	// });
+	 	}, function(response){});
+	 });
 
+	 //Twitter Share
+	$('.twitter_pop_up').on('click', function(){
+		    var width  = 575,
+	        height = 400,
+	        left   = ($(window).width()  - width)  / 2,
+	        top    = ($(window).height() - height) / 2,
+	        url    = this.href,
+	        opts   = 'status=1' +
+	                 ',width='  + width  +
+	                 ',height=' + height +
+	                 ',top='    + top    +
+	                 ',left='   + left;
+	    
+	    window.open(url, 'twitter', opts);
+	 
+	    return false;
+	});
 	/*
 	COLOUR THEIF
 

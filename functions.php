@@ -9,7 +9,7 @@
  	 * @since 		Starkers 4.0
 	 */
 
-	/* ========================================================================================================================
+	/* ======================================================e ==================================================================
 	
 	Required external files
 	
@@ -30,6 +30,7 @@
 	add_image_size( 'portfolio-thumb', 600, 600, true ); //
 	add_image_size( 'sidebar-thumb', 120, 120, true ); // Hard Crop Mode
 	add_image_size( 'featured-image', 1024, 768, true ); // 
+	add_image_size( 'landscape-image', 1024, 400, false);
 
 	/* ========================================================================================================================
 	
@@ -42,8 +43,23 @@
 	add_filter( 'body_class', array( 'Starkers_Utilities', 'add_slug_to_body_class' ) );
 
 	/* SCRIPTS */
+
+
+	add_action( 'wp_default_scripts', 'move_jquery_into_footer' );
+
+	function move_jquery_into_footer( $wp_scripts ) {
+
+	    if( is_admin() ) {
+	        return;
+	    }
+
+	    $wp_scripts->add_data( 'jquery', 'group', 1 );
+	    $wp_scripts->add_data( 'jquery-core', 'group', 1 );
+	    $wp_scripts->add_data( 'jquery-migrate', 'group', 1 );
+	}
+
 	function my_theme_scripts() {
-	    wp_enqueue_script( 'jquery-script', get_template_directory_uri() . '/js/vendor/jquery-3.1.1.min.js', array( 'jquery' ), '3.1.1', true );
+	    //wp_enqueue_script( 'jquery-script', get_template_directory_uri() . '/js/vendor/jquery-3.1.1.min.js', array( 'jquery' ), '3.1.1', true );
 	}
 
 	add_action( 'wp_enqueue_scripts', 'my_theme_scripts' );
@@ -55,9 +71,6 @@
 	e.g. require_once( 'custom-post-types/your-custom-post-type.php' );
 	
 	======================================================================================================================== */
-
-
-
 	/* ========================================================================================================================
 	
 	Scripts
@@ -216,7 +229,7 @@
 	 
 	    if(is_single()) {
 	        if(has_post_thumbnail($post->ID)) {
-	            $img_src = wp_get_attachment_image_src(get_post_thumbnail_id( $post->ID ), 'medium');
+	            $img_src = wp_get_attachment_image_src(get_post_thumbnail_id( $post->ID ), 'featured-image');
 	        } else {
 	            $img_src = get_stylesheet_directory_uri() . '/img/opengraph_image.jpg';
 	        }
@@ -233,7 +246,13 @@
 	    <meta property="og:type" content="article"/>
 	    <meta property="og:url" content="<?php echo the_permalink(); ?>"/>
 	    <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
-	    <meta property="og:image" content="<?php echo $img_src; ?>"/>
+	    <meta property="og:image" content="<?php echo $img_src[0]; ?>"/>
+
+	    <meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@imrandesigns">
+		<meta name="twitter:title" content="<?php echo the_title(); ?>">
+		<meta name="twitter:description" content="<?php echo $excerpt; ?>">
+		<meta name="twitter:image" content="<?php echo $img_src[0]; ?>">
 	 
 	<?php
 	    } else {
@@ -241,4 +260,5 @@
 	    }
 	}
 	add_action('wp_head', 'fb_opengraph', 5);
+
 
