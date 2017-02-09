@@ -7,8 +7,14 @@ requirejs.config({
     }
 });
 
-requirejs(['task'], function (Task) {
+requirejs(['task','detectIE','nav','header','filter', 'modal', 'scroll'], function (Task, DetectIE, Nav, Header, Filter, Modal, Scroll) {
 
+    DetectIE.init();
     Task.init();
+    Nav.init();
+    Header.init();
+    Filter.init();
+    Modal.init();
+    Scroll.init();
 
 });
