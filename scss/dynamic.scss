@@ -14,11 +14,13 @@
 
 	&__blog {
 		width: 100%;
+		margin-top: 3em;
 
 		@include respond-to(medium) {
 			width: 40%;
 			float: left;
 			padding-left: 5%;
+			margin-top: 0;
 		}
 
 		@include respond-to(large) {

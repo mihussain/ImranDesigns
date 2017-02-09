@@ -635,8 +635,9 @@ body {
     content: '';
     display: block;
     clear: both; }
-  .page-content.padding {
-    padding-top: 250px; }
+  @media only screen and (min-width: 768px) {
+    .page-content.padding {
+      padding-top: 250px; } }
   .single-post .page-content {
     padding-top: 60px;
     padding-bottom: 0; }
@@ -1266,8 +1267,6 @@ article {
     content: '';
     display: block;
     clear: both; }
-  .portfolio .mix {
-    display: none; }
   .portfolio .project {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -1458,12 +1457,14 @@ article {
   .dynamic-content h3 {
     color: #ffffff; }
   .dynamic-content__blog {
-    width: 100%; }
+    width: 100%;
+    margin-top: 3em; }
     @media only screen and (min-width: 768px) {
       .dynamic-content__blog {
         width: 40%;
         float: left;
-        padding-left: 5%; } }
+        padding-left: 5%;
+        margin-top: 0; } }
     @media only screen and (min-width: 1024px) {
       .dynamic-content__blog {
         width: 30%; } }
@@ -1878,14 +1879,14 @@ footer {
       content: '';
       clear: both;
       display: block; }
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 480px) {
       footer .footer_logo_social .footer_logo {
         float: left; } }
     footer .footer_logo_social .social {
       cursor: pointer;
       margin-left: 0;
       margin-top: 10px; }
-      @media only screen and (min-width: 768px) {
+      @media only screen and (min-width: 480px) {
         footer .footer_logo_social .social {
           float: left;
           margin-left: 7px;
@@ -1969,9 +1970,12 @@ footer {
       footer .col_container .col_1 p {
         color: rgba(255, 255, 255, 0.4);
         font-size: .7em;
-        width: 80%;
         margin-top: 10px;
-        margin-bottom: 8px; }
+        margin-bottom: 8px;
+        width: 100%; }
+        @media only screen and (min-width: 768px) {
+          footer .col_container .col_1 p {
+            width: 80%; } }
       footer .col_container .col_1 nav ul {
         padding: 0;
         margin: 0; }

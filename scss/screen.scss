@@ -79,7 +79,9 @@ body {
     }
 
     &.padding {
-        padding-top: 250px;
+        @include respond-to(medium) {
+            padding-top: 250px;
+        }
     }
 
     .single-post & {
