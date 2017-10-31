@@ -4,7 +4,7 @@
 			<div class="col_container">
 				<div class="col_1">
 					<div class="footer_logo_social">
-						<a class="footer_logo" href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" width="241" height="25" /></a>
+						<a class="footer_logo" href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/imrandesigns_logo.svg" width="100" height="auto" /></a>
 						<div class="social">
 							<a href="https://www.facebook.com/ImranDesigns/" target="_blank"><span class="facebook"></span></a>
 							<a href="https://twitter.com/imrandesigns" target="_blank"><span class="twitter"></span></a>

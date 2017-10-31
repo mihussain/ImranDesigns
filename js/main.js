@@ -7,14 +7,17 @@ requirejs.config({
     }
 });
 
-requirejs(['task','detectIE','nav','header','filter', 'modal', 'scroll'], function (Task, DetectIE, Nav, Header, Filter, Modal, Scroll) {
+requirejs(['task','detectIE','nav','header', 'moveImage','filter', 'modal', 'scroll', 'typewriter', 'portfolio'], function (Task, DetectIE, Nav, Header, moveImage, Filter, Modal, Scroll, Typewriter, Portfolio) {
 
     DetectIE.init();
     Task.init();
     Nav.init();
     Header.init();
+    moveImage.init();
     Filter.init();
     Modal.init();
     Scroll.init();
+    Typewriter.init();
+    Portfolio.init();
 
 });

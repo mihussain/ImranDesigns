@@ -1,13 +1,13 @@
 footer {
     min-height: 200px;
-    background-color: $primary;
+    background-color: rgba(19, 19, 19, 0.3);
     color: #fff;
-    bottom: 0;
     width: 100%;
+    position: relative;
     z-index: 9;
 
-    @include respond-to(large) {
-        position: absolute;
+    .home & {
+        margin-top: 100px;
     }
 
     .footer_logo_social {
@@ -32,9 +32,13 @@ footer {
             margin-top: 10px;
 
             @include respond-to(small) {
-                float: left;
-                margin-left: 7px;
                 margin-top: 0;
+                float: left;
+                margin-left: 21px;
+                border-left: 1px solid white;
+                height: 70px;
+                padding-top: 23px;
+                padding-left: 20px;
             }
 
             .facebook {

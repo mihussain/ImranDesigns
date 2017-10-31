@@ -34,7 +34,11 @@
 		}
 
 		@include respond-to(large) {
-			width: 33%;
+			width: 25%;
+		}
+
+		@include respond-to(extralarge) {
+			width: 20%;
 		}
 
 		body.portfolio & {
@@ -44,6 +48,12 @@
 		}
 
 		&:hover {
+			
+				background-color: rgba(0,0,0,.5);
+			
+		}
+
+		/*&:hover {
 			.thumbnail_image_container {
 				@include respond-to(small) {
 					@include easeAnimation;
@@ -53,7 +63,7 @@
 			}
 		}
 
-		&:nth-child(2n):hover{ 
+		/*&:nth-child(2n):hover{ 
 			.thumbnail_image_container {
 				@include respond-to(small) {
 					@include easeAnimation;
@@ -78,11 +88,11 @@
 					transform: translate(0, 600px);
 				}
 			}
-		}
+		}*/
 	
 		.project-wrapper {
 			overflow:hidden;
-			position: relative !important;
+			//position: relative !important;
 			cursor:pointer;
 			margin-bottom: 10px;
 			border: 1px solid rgba(0,0,0,0);
@@ -123,15 +133,27 @@
 		.label {
 			width:100%;
 			height: 100%;
-			display: block;
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 5;
+
+			&.open {
+				display: block;
+			}
 		}
 
 		.label-bg {		
 			background-size: cover;
+			position: absolute;
 			display: block;
 			height: 100%;
 			width: 100%;
 			opacity: 1;
+			top: 0;
+			left: 0;
+			z-index: -1;
 			//transform: scale(1.3,1.3);
 
 			// -webkit-box-shadow: inset 0px 0px 85px 14px rgba(0,0,0,0.75);
@@ -144,30 +166,21 @@
 			z-index:2;
 			font-size: 1.1em;
 			
-			display: block;
-			background: rgba(0, 0, 0, .2);
+			display: table;
+			background: rgba(0, 0, 0, .95);
+			border: 1px solid #3c3c3c;
 			overflow: hidden;
-			padding: 10px;
 
 
-			@include respond-to(small) {
-				position: absolute;
-				font-size: 1.3em;
-				border: 1px solid #ccc;
-				padding: 15px;
-				text-align: center;
-				top: 25px; 
-				left: 25px;
-				right: 25px;
-				bottom: 25px;
-				background: rgba(0, 0, 0, .5);
-			}		
+			width: 100%;
+			height: 100%;
 
 			.label--container {
 
-				display: inline-block;
+				display: table-cell;
 				vertical-align: middle;
 				position: relative;
+				text-align: center;
 				z-index: 5;
 
 				//@include respond-to(medium) {
@@ -184,10 +197,15 @@
 			}
 
 			.button.take_a_look {
+				position: absolute;
+				bottom: 40px;
+				left: 50%;
+				transform: translateX(-50%);
 				background-color: $third;
 				display: none;
 				margin: 14px 0;
 				font-size: .8em;
+				padding: 20px 35px;
 				@include easeAnimation
 
 				@include respond-to(small) {

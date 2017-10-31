@@ -15,10 +15,29 @@
  */
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
+	<section class="page-content">
 
-	<section class="hero">
-		<div class="central_container">
-			<div class="portfolio">
+			<?php
+
+				$first_featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( $page_id ), 'featured-image' );
+
+				if( class_exists('Dynamic_Featured_Image') ) {
+					global $dynamic_featured_image;
+					$second_featured_image = $dynamic_featured_image -> get_nth_featured_image( 2, $page_id);
+					$third_featured_image = $dynamic_featured_image -> get_nth_featured_image( 3, $page_id );
+				}
+
+			?>
+
+			<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+			
+			<div class="part_1">
+				<div class="move_image"></div>
+				<div class="central_container"> 
+					<!--<div class="dark_bg"><?php the_content(); ?></div>-->
+
+
+					<div class="portfolio">
 						<?php $portfolio = new WP_Query(array(
 								'post_type' => 'project'
 							)); ?>
@@ -58,8 +77,23 @@
 							
 							<?php $i++; endwhile; ?>
 						</div>
-			</div>
-		</div>
-	</section>
 
-	<?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>
+
+
+
+
+
+
+
+
+				</div>
+				<!--<?php if ( !empty($first_featured_image) ) : ?>
+					<img class="part_1_image" src="<?php echo $first_featured_image[0]; ?>" />
+				<?php endif; ?>-->
+			</div>
+			<?php endwhile; ?>
+
+		
+			<?php endwhile; ?>
+	</section>
+<?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>

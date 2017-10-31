@@ -5,6 +5,7 @@
   "main": "/index",
   "author": "Imran Hussain <mihussain@hotmail.co.uk",
   "devDependencies": {
+    "gulp": "^3.9.1",
     "gulp-include": "^2.1.0",
     "gulp-jshint": "^2.0.0",
     "gulp-livereload": "^3.8.1",

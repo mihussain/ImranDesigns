@@ -29,6 +29,8 @@ define(['jquery',], function($) {
 
 			function scrollEvents() {
 
+				var windowWidth = $(window).width();
+
 				if ( windowWidth <= 1024) {
 			 		$('.single-project .featured-image').css({
 			 		   	'transform' : 'translateY(' + ($(this).scrollTop()/-4) + 'px) scale(1.1)'

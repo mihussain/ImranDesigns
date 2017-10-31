@@ -139,7 +139,8 @@
 	======================================================================================================================== */
 
 	function menu() {
-		register_nav_menu('header-menu',__( 'Header Menu' ));
+		register_nav_menu('header-menu-left',__( 'Header Menu Left' ));
+		register_nav_menu('header-menu-right',__( 'Header Menu Right' ));
 		register_nav_menu('footer-menu',__( 'Footer Menu' ));
 	}
 
