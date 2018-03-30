@@ -1,7 +1,13 @@
 <header>
 	<div class="header-container">
 		<nav class="nav--left"><?php wp_nav_menu( array( 'theme_location' => 'header-menu-left' ) ); ?></nav>
-		<a id="logo" href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/imrandesigns_logo.svg" width="150" height="75" /></a>
+		<a id="logo" href="<?php echo home_url(); ?>">
+			<picture>
+				<source srcset="<?php echo get_template_directory_uri(); ?>/images/imrandesigns_logo.svg" media="(max-width: 768px)">
+				<source srcset="<?php echo get_template_directory_uri(); ?>/images/imrandesigns_logo.svg">
+				<img src="<?php echo get_template_directory_uri(); ?>/images/imrandesigns_logo.svg" width="150" height="75" />
+			</picture>
+		</a>
 		<nav class="nav--right"><?php wp_nav_menu( array( 'theme_location' => 'header-menu-right' ) ); ?></nav>
 		
 		<div id="nav-icon">

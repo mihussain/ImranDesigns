@@ -17,32 +17,33 @@
 		<?php if (has_post_thumbnail( $post->ID ) ): ?>
 			<div class="featured_image_container">
 				<?php $featuredImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'featured-image' ); ?>
-				<?php $landscapeImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'landscape-image' ); ?>
+				<?php $landscapeImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
 		  		<span class="gradient"></span>
 		  		
 		  		<picture>
-				    <source srcset="<?php echo $landscapeImage[0]; ?>" media="(max width: 1023px)">
-				    <source srcset="<?php echo $featuredImage[0]; ?>" media="(min-width: 1024px)">
-				    <img class="featured-image" src="<?php echo $landscapeImage[0]; ?>" alt="My default image">
+				    <source srcset="<?php //echo $landscapeImage[0]; ?>" media="(max width: 1023px)">
+				    <source srcset="<?php //echo $featuredImage[0]; ?>" media="(min-width: 1024px)">
+				    <img class="featured-image" src="<?php //echo $landscapeImage[0]; ?>" alt="My default image">
 				</picture>
 		  		<!-- <img class="featured-image" src="<?php// echo $featuredImage[0]; ?>" /> -->
 		  	</div>
 		<?php endif; ?>
 
-		<div class="container">
+		<div class="hero-image">
+			<div class="over-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/test.png');"></div>
+			<div class="move-image" style="background-image: url(<?php echo $landscapeImage[0]; ?>);"></div>
+		</div>
+
+		<div class="article-container">
 			<div class="central_container"> 
 				<article>
 					<div class="left">
-						
-							<img class="post-image" src="<?php echo $landscapeImage[0]; ?>" alt="My default image">
-						
-							<?php echo $LandscapeImage[0]; ?>
 						<div class="copy">
 							<div class="project_title">
 								<div class="breadcrumb"><a href="<?php echo bloginfo('url'); ?>">Home</a> / <a href="<?php echo bloginfo('url'); ?>/portfolio">Portfolio</a> /</div>
 								<h2><?php the_title(); ?></h2> 
+								
 							</div>
-
 							<?php
 							    // split content into array
 							    $content = split_content();
@@ -175,5 +176,5 @@
 			</div>
 		</div>
 </section>
-
+<div>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>

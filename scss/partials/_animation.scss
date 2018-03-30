@@ -71,6 +71,10 @@ header {
     transition:         opacity 1s ease;
 }
 
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
 //intro logo 
 
 // @keyframes logo-intro {
@@ -85,3 +89,75 @@ header {
 //   0% { height: 100vh; }
 //   100% { height: 0; padding: 0; }
 // }
+
+@-webkit-keyframes animateHeroImage {
+  0% {background-position:0 0; opacity: 0;}
+  15% {opacity: 1;}
+  75% {opacity: 1;}
+	100% {background-position: 100% 0; opacity: 0;}
+}
+ 
+@-moz-keyframes animateHeroImage {
+	0% {background-position:0 0; opacity: 0;}
+  15% {opacity: 1;}
+  75% {opacity: 1;}
+	100% {background-position: 100% 0; opacity: 0;}
+}
+ 
+@-ms-keyframes animateHeroImage {
+	0% {background-position:0 0; opacity: 0;}
+  15% {opacity: 1;}
+  75% {opacity: 1;}
+	100% {background-position: 100% 0; opacity: 0;}
+}
+ 
+@-o-keyframes animateHeroImage {
+	0% {background-position:0 0; opacity: 0;}
+  15% {opacity: 1;}
+  75% {opacity: 1;}
+	100% {background-position: 100% 0; opacity: 0;}
+}
+ 
+@keyframes animateHeroImage {
+	0% {background-position:0 0; opacity: 0;}
+  15% {opacity: 1;}
+  75% {opacity: 1;}
+	100% {background-position: 100% 0; opacity: 0;}
+}
+
+
+
+
+
+
+
+
+@-webkit-keyframes moveHeroImage {
+  0% {background-position:0 0;}
+  50% {background-position: 100% 0;}
+  100% {background-position: 0 0;}
+}
+ 
+@-moz-keyframes moveHeroImage {
+	0% {background-position:0 0;}
+  50% {background-position: 100% 0;}
+  100% {background-position: 0 0;}
+}
+ 
+@-ms-keyframes moveHeroImage {
+	0% {background-position:0 0;}
+  50% {background-position: 100% 0;}
+  100% {background-position: 0 0;}
+}
+ 
+@-o-keyframes moveHeroImage {
+	0% {background-position:0 0;}
+  50% {background-position: 100% 0;}
+  100% {background-position: 0 0;}
+}
+ 
+@keyframes moveHeroImage {
+	0% {background-position:0 0;}
+  50% {background-position: 100% 0;}
+  100% {background-position: 0 0;}
+}

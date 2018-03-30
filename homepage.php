@@ -16,7 +16,7 @@
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
-	<section class="hero">
+	<section class="hero grow">
 		<div class="central_container">
 			<div class="portfolio">
 						<?php $portfolio = new WP_Query(array(

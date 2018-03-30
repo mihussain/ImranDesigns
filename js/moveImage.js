@@ -25,9 +25,9 @@ define(['jquery'], function($) {
 				x += (lFollowX - x) * friction;
 			  	y += (lFollowY - y) * friction;
 			  
-			  	translate = 'translate(' + x + 'px, ' + y + 'px) scale(1.5)';
+			  	translate = 'translate(' + x + 'px, ' + y + 'px) scale(1.1)';
 
-			  	$('.move_image').css({
+			  	$('.move-image').css({
 			    	'-webit-transform': translate,
 			    	'-moz-transform': translate,
 			    	'transform': translate
@@ -36,7 +36,7 @@ define(['jquery'], function($) {
 			  	window.requestAnimationFrame(moveBackground);
 			}
 
-			$('header, .part_1').on('mousemove', function(e) {
+			$('.hero-image').on('mousemove', function(e) {
 			  	var lMouseX = Math.max(-100, Math.min(100, $(window).width() / 2 - e.clientX));
 			  	var lMouseY = Math.max(-100, Math.min(100, $(window).height() / 2 - e.clientY));
 			  	lFollowX = (20 * lMouseX) / 100; // 100 : 12 = lMouxeX : lFollow

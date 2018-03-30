@@ -2,7 +2,16 @@
 
 .portfolio {
     z-index: 6;
-    position: relative;
+	position: relative;
+
+	opacity:0; 
+	animation:fadeIn ease-in 1;
+	animation-fill-mode:forwards;
+	animation-duration:1s;
+	animation-delay: 1s;
+	
+
+
 
     &.bg_image {
         padding: 1em 0 4em 0;
@@ -18,27 +27,33 @@
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 		-o-box-sizing: border-box;
-		width:100%;
+		width:50%;
+		padding-bottom: 50%;
 		margin: 0;
 		float:left;
 		overflow:hidden;
+		position: relative;
 
 		@include easeAnimation;
 
 		@include respond-to(small) {
-			width: 50%
+			width: 33%;
+			padding-bottom: 33%;
 		}
 
 		@include respond-to(medium) {
-			width: 50%;
+			width: 33%;
+			padding-bottom: 33%;
 		}
 
 		@include respond-to(large) {
 			width: 25%;
+			padding-bottom: 25%;
 		}
 
 		@include respond-to(extralarge) {
 			width: 20%;
+			padding-bottom: 20%;
 		}
 
 		body.portfolio & {
@@ -48,47 +63,11 @@
 		}
 
 		&:hover {
+			.thumbnail_image_container {
+				transform: scale(1.2);
+			}
 			
-				background-color: rgba(0,0,0,.5);
-			
 		}
-
-		/*&:hover {
-			.thumbnail_image_container {
-				@include respond-to(small) {
-					@include easeAnimation;
-					transform: translate(-300px, 0);
-					//opacity: .1;
-				}
-			}
-		}
-
-		/*&:nth-child(2n):hover{ 
-			.thumbnail_image_container {
-				@include respond-to(small) {
-					@include easeAnimation;
-					transform: translate(0, -300px);
-				}
-			}
-		}
-
-		&:nth-child(3n):hover{ 
-			.thumbnail_image_container {
-				@include respond-to(small) {
-					@include easeAnimation;
-					transform: translate(600px, 0);
-				}
-			}
-		}
-
-		&:nth-child(5n):hover{ 
-			.thumbnail_image_container {
-				@include respond-to(small) {
-					@include easeAnimation;
-					transform: translate(0, 600px);
-				}
-			}
-		}*/
 	
 		.project-wrapper {
 			overflow:hidden;
@@ -104,7 +83,7 @@
 			@include respond-to(small) {
 				background: $primary;
 				border: 1px solid rgba(255, 255, 255, .3);
-				height: 300px;
+				
 				margin-bottom: 0;
 				border: none;
 			}
@@ -121,8 +100,7 @@
 				display: block;
 				width: 100%;
 				height: 100%;
-				//float: left;
-				position: relative;
+				position: absolute;
 				z-index:3;
 				@include easeAnimation;
 				min-height: 80px;
