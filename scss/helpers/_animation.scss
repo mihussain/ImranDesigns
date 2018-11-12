@@ -9,17 +9,6 @@ header {
     
 }
 
-.fixed {
-    #logo, nav {
-        @include respond-to(medium) {
-            -webkit-animation: fade-in-small-header 1s 1; /* Safari 4+ */
-            -moz-animation:    fade-in-small-header 1s 1; /* Fx 5+ */
-            -o-animation:      fade-in-small-header 1s 1; /* Opera 12+ */
-            animation:         fade-in-small-header 1s 1; /* IE 10+, Fx 29+ */
-        }
-    }
-}
-
 // Keyframe Animation 
 @-webkit-keyframes fade-in-small-header {
   0%    { opacity: 0; }
@@ -125,13 +114,6 @@ header {
 	100% {background-position: 100% 0; opacity: 0;}
 }
 
-
-
-
-
-
-
-
 @-webkit-keyframes moveHeroImage {
   0% {background-position:0 0;}
   50% {background-position: 100% 0;}
@@ -160,4 +142,27 @@ header {
 	0% {background-position:0 0;}
   50% {background-position: 100% 0;}
   100% {background-position: 0 0;}
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+
+  40% {
+    -moz-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+  }
+
+  60% {
+    -moz-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    -webkit-transform: translateY(-15px);
+    transform: translateY(-15px);
+  }
 }

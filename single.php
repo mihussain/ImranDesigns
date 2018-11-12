@@ -10,19 +10,24 @@
  */
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
-	<section class="page-content">
-		<div class="central_container"> 
+	<main class="blog">
+
 			<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-			<div class="container">
+			
 				<div class="central_container"> 
 					<article>
-
+						<div class="title">
 						<h2><?php the_title(); ?></h2>
-						<div class="post-meta">
-							This blog post was created on the <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> at <?php the_time(); ?></time> 
 						</div>
-						<hr>
+						<div class="bar">
+			<div class="breadcrumb">
+				<a class="step" href="<?php echo bloginfo('url'); ?>"><span class="icon icon-home"></span></a><a class="step" href="<?php echo bloginfo('url'); ?>blog">Blog</a><span class="current step"><?php the_title(); ?></span>
+			</div>
+			<div class="meta">This blog post was created on the <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> at <?php the_time(); ?></time></div>
+		</div>
+
+				
 						<?php if (has_post_thumbnail( $post->ID ) ): ?>
 								<?php $featuredImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'featured-image' ); ?>
 						  		<div class="article-featured-image">
@@ -39,12 +44,11 @@
 					
 					</article>
 				</div>
-			</div>
-
+	
 				<?php// comments_template( '', true ); ?>
 
 			</article>
 			<?php endwhile; ?>
-		</div>
-	</section>
+
+	</main>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>

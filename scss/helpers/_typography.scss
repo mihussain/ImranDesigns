@@ -5,8 +5,16 @@
 // Styleguide 1.0
 
 // styleguide:ignore:start
-@import 'partials/variables';
-@import 'partials/colours';
+@import 'helpers/variables';
+@import 'helpers/colours';
+
+
+@font-face {
+    font-family: 'IcoMoon';
+    src: url('fonts/IcoMoon.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 html, .sg-html {
     font-size: 62.5%; /* render at ~10px for our baseline */
@@ -27,18 +35,29 @@ h1 {
 h2 {
     margin: 0;
     padding: 0;
-    font-family: 'Lato', sans-serif;
-    font-size: 30px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 40px;
     font-weight: 700;
+    letter-spacing: -1px;
     //text-transform: uppercase;
+    color: $color__text;
+}
+
+h2.hero_title{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
 }
 
 
 h3 {
     margin: 0 0 1em;
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    color: #bcbcbc;
+    font-family: 'Roboto', sans-serif;  
+    background-color: #3b516f;
+    color: #fff;
+    padding: 4px 8px;
+    display: inline-block;
+    margin-top: -3px;
+
     //text-transform: uppercase;
 }
 
@@ -50,8 +69,8 @@ h4, h5 {
 
 p {
     margin: 0 0 1em 0;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
     line-height: 1.8;
 
     @include respond-to(large) {
@@ -68,7 +87,7 @@ ul, ol, li {
 
 .main-content{
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Lato', sans-serif;
+        //font-family: 'Lato', sans-serif;
         font-weight: 300;
         text-transform: uppercase;
         margin-top: 0;

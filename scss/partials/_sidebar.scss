@@ -1,0 +1,153 @@
+.sidebar{ 
+    
+    width: 100%;    
+
+    @include respond-to(large) {
+        border-left: 1px solid #e8e8e8;
+        //background: rgba(0, 0, 0, 0.5);
+        padding:0em 1.250em 1.250em;
+    }   
+
+    @include respond-to(extralarge) {
+        padding: 0em 1.250em 1.250em;
+    }   
+
+    @include respond-to(medium) {
+        margin-top: 0;
+        width: 25%;
+    }   
+
+    .details {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        border: 1px solid rgba(230, 230, 230, .2);
+        padding: 10px;  
+
+        .heading {
+            &:first-child {
+                margin-top: 0;
+            }
+        }   
+
+        @include respond-to(large) {
+            border: none;
+            margin-top: 0em;
+            margin-bottom: 0;
+            padding: 0;
+        }   
+    }   
+
+    .section {
+        margin-bottom: 1em; 
+
+        .section__heading{
+            margin-top: 1.5em;
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid #f5f5f5;   
+
+            &:first-child {
+                margin-top: 0;
+            }   
+
+            .icon {
+                padding-right: 5px;
+                color: $color-primary;
+            }
+        }   
+
+        .section__body {
+            background: rgba(255,255,255,.02);
+            display: block;
+            padding: 1em 1em 1em 1.6em;
+            border-radius: 5px; 
+
+            &:after {
+                clear: both;
+                display: block;
+                content: '';
+            }
+        }
+    }   
+
+    .features {
+        padding-left: 0px;
+        clear: both;
+        list-style: none;   
+        &:after {
+            display: block;
+            clear: both;
+            content: '';
+        }   
+        li {
+            font-size: .9em;
+            float: left;
+            width: 100%;    
+            &:before {
+                font-family: 'IcoMoon' !important;
+                speak: none;
+                font-style: normal;
+                font-weight: normal;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+
+                /* Enable Ligatures ================ */
+                letter-spacing: 0;
+                -webkit-font-feature-settings: "liga";
+                -moz-font-feature-settings: "liga=1";
+                -moz-font-feature-settings: "liga";
+                -ms-font-feature-settings: "liga" 1;
+                -o-font-feature-settings: "liga";
+                font-feature-settings: "liga";
+            
+                /* Better Font Rendering =========== */
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale; 
+                content: '\ea10';
+                color: #33cc33;
+            }   
+
+            @include respond-to(medium) {
+                width: 100%;
+            }  
+
+            @include respond-to(large) {
+                width: 100%;
+            } 
+
+            @include respond-to(extralarge) {
+                width: 50%;
+            }   
+        }
+    }   
+
+    p, a {
+        font-size: .9em;
+        font-weight: 300;
+        margin: 0;
+    }   
+
+    .categories {
+        padding: 0;
+        clear: both;
+        list-style-type: none;  
+        &:after {
+            display: block;
+            clear: both;
+            content: '';
+        }   
+        li {
+            font-size: .9em;
+            float: left;
+            margin-right: .5em; 
+            &:last-child {
+                margin: 0;
+            }
+        }
+    }   
+
+    .url_link {
+        word-break: break-all;
+    }
+}

@@ -1,0 +1,114 @@
+.bar {
+    display: block;
+    background-color: #eaeaea;
+    color:  $color-primary;
+    margin-top: 20px;
+    margin-bottom: 1em;
+    border-radius: 3px;
+    clear: both;
+    font-size: 12px;
+
+  &:after {
+      content: '';
+      display: block;
+      clear: both;
+  }
+
+    .breadcrumb {
+        @include respond-to(medium) {
+            float: left;
+        }
+
+        a, .current {
+            color:  $color-primary;
+            display: inline-block;
+
+            &:not(:last-child) {
+                cursor: pointer;
+            }
+
+            &.step {
+                border-left: 1px solid #ccc;
+                padding: 7px 14px;
+
+
+                &:first-child {
+                    border-left: 0;
+                    border-top-left-radius: 3px;
+                    border-bottom-left-radius: 3px;
+                    padding: 6px 14px;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+
+                    .icon {
+                        font-size: 18px;
+                        vertical-align: middle;
+                    }
+                }
+
+                &:not(:last-child):hover {
+                    background: $color-primary;
+                    color: $white;
+                }
+            }
+
+            @include easeAnimation    
+        }
+
+        .current {
+            width: 50%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+
+            @include respond-to(medium) {
+                width: auto;
+            }
+        }
+    }
+
+    .project_link {
+        
+        padding: .6em 1em;
+        color: $color-primary;
+       
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        border-top: 1px solid #ccc;
+        
+        
+
+        @include respond-to(medium) {
+            float: right;
+            width: 25%;
+            border-left: 1px solid #ccc;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-top: 0;
+            display: inline;        
+        }
+
+        @include easeAnimation;
+
+        &:hover {
+            background: $color-primary;
+            color: $white;
+        }
+    }
+
+    .meta {
+        display: inline;
+        float: right;
+        padding: 7px 14px 7px;
+        color: #989898;
+    }
+}

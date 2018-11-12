@@ -1,19 +1,12 @@
 footer {
     min-height: 200px;
-    background-color: #131313;
+    background-color: #0d131a;
     color: #fff;
     width: 100%;
     position: relative;
     z-index: 9;
     transition: all 1s ease;
-
-    .home & {
-        margin-top: 100px;
-    }
-
-    &:hover {
-        background-color: rgba(19, 19, 19, 1);
-    }
+    padding: 10px 0 40px 0;
 
     .footer_logo_social {
         display: block;
@@ -46,6 +39,20 @@ footer {
                 padding-left: 20px;
             }
 
+            a {
+                margin-right: .5em;
+                display: inline-block;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                .icon {
+                    font-size: 1.5em;
+                    color: $white;
+                    
+                }
+            }
             .facebook {
                 background-image: url('images/facebook.jpg');
                 background-size: cover;
@@ -134,7 +141,7 @@ footer {
 
             p {
                 color: rgba(255,255,255,0.4);
-                font-size: .7em;
+                font-size: .8em;
                 margin-top: 10px;
                 margin-bottom: 8px;
                 width: 100%;
@@ -152,7 +159,7 @@ footer {
                     li {
                         display: inline-block;
                         padding: 0 5px;
-                        font-size: .8em;
+                        font-size: .9em;
                         
                         a {
                             color: rgba(255 ,255, 255, .3);
@@ -284,12 +291,14 @@ footer {
     }
 
     .small {
+        background-color: $color-primary;
         position: absolute;
-        bottom: 8px;
-        text-align: left;
+        bottom: 0px;
+        text-align: center;
         width: 100%;
         font-size: 11px;
         color: rgba(255,255,255,0.4);
+        padding: 10px 0;
 
         @include respond-to(large) {
             text-align: center;

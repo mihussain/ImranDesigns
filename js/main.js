@@ -7,17 +7,20 @@ requirejs.config({
     }
 });
 
-requirejs(['task','detectIE','nav','header', 'moveImage','filter', 'modal', 'scroll', 'typewriter', 'portfolio'], function (Task, DetectIE, Nav, Header, moveImage, Filter, Modal, Scroll, Typewriter, Portfolio) {
+requirejs(['task','detectIE','nav','header', 'moveImage','filter', 'modal', 'scroll', 'typewriter', 'portfolio','colourExtract'], function (Task, DetectIE, Nav, Header, moveImage, Filter, Modal, Scroll, Typewriter, Portfolio, ColourExtract) {
 
     DetectIE.init();
     Task.init();
     Nav.init();
     Header.init();
     moveImage.init();
-    Filter.init();
     Modal.init();
     Scroll.init();
     Typewriter.init();
     Portfolio.init();
+    ColourExtract.init();
 
+    if ($('body').hasClass('portfolio')) {
+        Filter.init();
+    }
 });

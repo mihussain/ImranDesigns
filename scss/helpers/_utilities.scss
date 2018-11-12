@@ -1,4 +1,4 @@
-@import 'partials/colours';
+@import 'helpers/colours';
 /*------------------------------------*\
     $MIXINS
 \*------------------------------------*/
@@ -65,12 +65,12 @@
 }
 
 a {
-    color: $third;
+    color: $color-primary;
     text-decoration: none;
     -webkit-tap-highlight-color: rgba(0,0,0,0); 
 
     &:hover {
-        color: #fff;
+        text-decoration: underline;
     }
 }
 

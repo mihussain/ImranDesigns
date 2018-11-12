@@ -11,7 +11,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Remove if you're not building a responsive site. (But then why would you do such a thing?) -->
 		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 		<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/img/favicon.ico"/>
-		<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+		<link href="https://fonts.googleapis.com/css?family=Heebo:700|Roboto" rel="stylesheet">
+		
 		<?php wp_head(); ?>
 
 		<!-- Hotjar Tracking Code for http://test.imrandesigns.co.uk -->

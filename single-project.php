@@ -12,46 +12,30 @@
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-	<section class="page-content">
-		
-		<?php if (has_post_thumbnail( $post->ID ) ): ?>
-			<div class="featured_image_container">
-				<?php $featuredImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'featured-image' ); ?>
-				<?php $landscapeImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
-		  		<span class="gradient"></span>
-		  		
-		  		<picture>
-				    <source srcset="<?php //echo $landscapeImage[0]; ?>" media="(max width: 1023px)">
-				    <source srcset="<?php //echo $featuredImage[0]; ?>" media="(min-width: 1024px)">
-				    <img class="featured-image" src="<?php //echo $landscapeImage[0]; ?>" alt="My default image">
-				</picture>
-		  		<!-- <img class="featured-image" src="<?php// echo $featuredImage[0]; ?>" /> -->
-		  	</div>
-		<?php endif; ?>
-
-		<div class="hero-image">
-			<div class="over-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/test.png');"></div>
-			<div class="move-image" style="background-image: url(<?php echo $landscapeImage[0]; ?>);"></div>
+	<main class="project">
+		<div class="central_container"> 
+		<div class="title">			
+			<h2><?php the_title(); ?></h2> 		
 		</div>
+		<div class="bar">
+			<div class="breadcrumb">
+				<a class="step" href="<?php echo bloginfo('url'); ?>"><span class="icon icon-home"></span></a><a class="step" href="<?php echo bloginfo('url'); ?>/portfolio">Portfolio</a><span class="current step"><?php the_title(); ?></span>
+			</div>
+			<a class="project_link" href="<?php the_field('url'); ?>" target="_blank">View Website</a> 
+		</div>
+			<article>
+				<div class="left">
+				
+					
+						
+						<?php
+						    // split content into array
+						    $content = split_content();
+						    // output first content section in column1
+						    echo '<div id="column1">', array_shift($content), '</div>';
+						?>						
 
-		<div class="article-container">
-			<div class="central_container"> 
-				<article>
-					<div class="left">
-						<div class="copy">
-							<div class="project_title">
-								<div class="breadcrumb"><a href="<?php echo bloginfo('url'); ?>">Home</a> / <a href="<?php echo bloginfo('url'); ?>/portfolio">Portfolio</a> /</div>
-								<h2><?php the_title(); ?></h2> 
-								
-							</div>
-							<?php
-							    // split content into array
-							    $content = split_content();
-							    // output first content section in column1
-							    echo '<div id="column1">', array_shift($content), '</div>';
-							?>						
-
-							<?php
+						<?php
 							if( have_rows('images') ): ?>
 
 								<div class="image_section">
@@ -93,37 +77,30 @@
 							<?php else :
 							    // no rows found
 							endif;
-							?>
+						?>
 
-							<?php
-								// output remaining content sections in column2
-							    echo '<div id="column2">', implode($content), '</div>';
-							?>
+						<?php
+							// output remaining content sections in column2
+						    echo '<div id="column2">', implode($content), '</div>';
+						?>
 
 
-							<!--<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time>-->
+					
+		
+				</div>
 
-							<?php if ( get_the_author_meta( 'description' ) ) : ?>
-							<?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?>
-							<h3>About <?php echo get_the_author() ; ?></h3>
-							<?php the_author_meta( 'description' ); ?>
-							<?php endif; ?>
+				<?php if ( !empty($value) || !empty($terms) || get_field('url')) : ?>
+				<div class="sidebar">
+					
+					<div class="details">
+						<?php 
+						$field = get_field_object('features');
+						$value = $field['value'];
+						$choices = $field['choices'];
 
-							<?php comments_template( '', true ); ?>
-						</div>
-					</div>
-					<div class="sidebar">
-						<a class="project_link" href="<?php the_field('url'); ?>" target="_blank">View Website</a> 
-
-						<div class="details">
-							<?php 
-							$field = get_field_object('features');
-							$value = $field['value'];
-							$choices = $field['choices'];
-
-							if( $value ): ?>
+						if( $value ): ?>
 							<div class="section">
-								<span class="section__heading">This website uses:</span>
+								<span class="section__heading"><span class="icon icon-stack"></span> This website uses:</span>
 								<span class="section__body">
 									<ul class="features">
 										<?php foreach( $value as $v ): ?>
@@ -132,49 +109,50 @@
 										</li>
 										<?php endforeach; ?>
 									</ul>
-									<?php endif; ?>
 								</span>
 							</div>
+						<?php endif; ?>
 
-							<div class="section">
-								<span class="section__heading">Category:</span>
-								<span class="section__body">
-									<?php 
-										$taxonomy = 'project_type';
-										$terms = get_the_terms( $post->ID , $taxonomy );
+						<?php 
+							$taxonomy = 'project_type';
+							$terms = get_the_terms( $post->ID , $taxonomy );
 						
-										if ( !empty( $terms ) ) : foreach ( $terms as $term ) { if ( !is_wp_error( $link ) ) echo $term->name; } endif; 
-									?>
-								</span>
-							</div>
-
+							if ( !empty( $terms )) :
+						?>
 							<div class="section">
-								<?php if (get_field('url')) : ?>
-									<span class="section__heading">URL:</span>
-									<span class="section__body"><a class="url_link" href="<?php the_field('url'); ?>" target="_blank"><?php the_field('url'); ?></a></span>
-								<?php endif; ?>
-							</div>
-
-							<div class="section">
-								<span class="section__heading">Share:</span>
+								<span class="section__heading"><span class="icon icon-folder-open"></span> Category:</span>
 								<span class="section__body">
-									<div class="social-meta">
-										<span class="facebook facebookButton"></span>
-										<a class="twitter_pop_up twitter" href="http://twitter.com/share"><span class="twitter"></span></a>
-									</div>
+									<?php if ( !empty( $terms ) ) : foreach ( $terms as $term ) { if ( !is_wp_error( $link ) ) echo $term->name; } endif; ?>
 								</span>
 							</div>
-						</div>
+						<?php endif; ?>
+
+						<?php if (get_field('url')) : ?>
+							<div class="section">
+									<span class="section__heading"><span class="icon icon-link"></span> URL:</span>
+									<span class="section__body"><a class="url_link" href="<?php the_field('url'); ?>" target="_blank"><?php the_field('url'); ?></a></span>
+							</div>
+						<?php endif; ?>
+					
 					</div>
+				</div>
+				<?php endif; ?>
 				</article>
 				<?php endwhile; ?>
 			</div>
-		</div>
+		
+
 		<div class="modal">
 			<div class="modal_window">
+				<div class="modal_previous">
+					<div class="icon icon-arrow-left"></div>
+				</div>
 				<img id="modal_img" src="" /> 
+				<div class="modal_next">
+					<div class="icon icon-arrow-right"></div>
+				</div>
 			</div>
 		</div>
-</section>
-<div>
+	</main>
+
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>

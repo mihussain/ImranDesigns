@@ -15,7 +15,7 @@
 // Styleguide 2.1
 
 $color__main: #fff;
-$color__text: #4c4d4f;
+$color__text: #3b516f;
 $color__gradient1: #60b0da;
 $color__gradient2: #945788;
 
@@ -31,11 +31,11 @@ $color__print: rgb(0, 255, 0);
 //new
 
 $primary: #131313;
-$secondary: #353535;
+$color-primary_dark: #0d131a;
 $third: #00aeff;
 
 $primary--text: #ffffff;
-$secondary--text: #bcbcbc;
+$color-primary--text: #bcbcbc;
 $third--text: #818181;
 
 $white: #ffffff;
@@ -44,3 +44,7 @@ $black: #000000;
 $accent: #00aeff;
 $accent--lighter: lighten( $accent, 10% );
 $accent--darker: darken( $accent, 10% );
+
+
+
+$color-primary: #1B2735;
