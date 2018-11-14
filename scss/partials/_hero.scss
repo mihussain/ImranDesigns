@@ -7,7 +7,9 @@
     align-items: center;
     background: $color-primary;
     position: relative;
-
+    overflow: hidden;
+    top: 75px;
+    
     .overlay {
         position: absolute;
         top: 0;
@@ -340,7 +342,7 @@
     background-position: center;
     opacity: 0;
     animation:fadeIn 1s ease-in 2.5s 1 forwards, bounce 2s infinite;
-    z-index: 12;
+    z-index: 11;
     }
 }
 

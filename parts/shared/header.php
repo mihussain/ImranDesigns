@@ -34,19 +34,34 @@
 			</div>
 			<?php endwhile; */ ?>
 	<?php } else if ( basename($template) === 'index.php') { ?>
-		<div class="hero-text box-border">
-				<h2 class="hero_title">Blog</h2>
-		</div>
+		
+			<div class="hero-image">
+					<div class="page-image" style="background-image: url('<?php echo get_template_directory_uri() ?>/images/blog.jpg');"></div>		
+				</div>
+				
+
 			
 	<?php } else { ?>
-		<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-			<div class="hero-text box-border">
-				<h2 class="hero_title"><?php the_title(); ?></h2>
-			</div>
+
+			<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+
+			<?php if (has_post_thumbnail( $post->ID ) ): ?>
+				<?php $landscapeImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
+
+				<div class="hero-image">
+					<div class="page-image" style="background-image: url(<?php echo $landscapeImage[0]; ?>);"></div>
+					
+				</div>
+			<?php endif; ?>
 			<?php endwhile; ?>
+
 	
 	<?php } ?>
-	<a class="scroll-down-arrow animated bounce" href="#content"></a>
+
+	<?php if ( basename($template) === 'homepage.php') { ?>
+		<a class="scroll-down-arrow animated bounce" href="#content"></a>
+	<?php } ?>
+	
 	<div class="scene">
 		<?php if ( basename($template) === 'homepage.php') { ?>
 			

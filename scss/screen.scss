@@ -7,8 +7,6 @@ body {
     position: relative;
 }
 
-body.logged-in{margin-top:20px;}
-
 #main-container {
     position: static;
 }
@@ -22,6 +20,7 @@ main {
 
     &.project,
     &.blog,
+    &.portfolio-page,
     &.contact {
         .list {
             clear: both;
@@ -55,8 +54,12 @@ main {
             clear: both;
             text-align: center;
             display: block;
-            margin-top: 2em;
-            margin-bottom: 4em;
+            margin-bottom: 2em;
+
+            @include respond-to(large) {
+                margin-top: 2em;
+                margin-bottom: 4em;
+            }
 
             &:after {
                 display: block;
@@ -117,10 +120,6 @@ main {
         content: '';
         display: block;
         clear: both;
-    }
-
-    @include respond-to(medium) {
-        padding: 0;
     }
 
     @include respond-to(large) {
@@ -266,11 +265,17 @@ article {
 }
 
 .contact--container {
-    display: flex;
     width: 100%;
+    @include respond-to(large) {
+        display: flex;
+    }
 
     .contact__left {
+        width: 100%;
+
+        @include respond-to(large) {
         width: 50%;
+        }
 
         .tel, 
         .email {
@@ -295,8 +300,72 @@ article {
     }
 
     .contact__right {
-        width: 50%;
-        border-left: 1px solid #e8e8e8;
-        padding-left: 20px;
+        margin-top: 30px;
+
+        width: 100%;
+        @include respond-to(large) {
+            width: 50%;
+            border-left: 1px solid #e8e8e8;
+            padding-left: 20px;
+        }
+       
+    }
+}
+
+ul.tick {
+
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    list-style-type: none;
+    padding: 0;
+
+    li {
+
+        width: 100%;
+        
+        margin-bottom: 10px;
+        display: block;
+
+        @include respond-to(medium) {
+            width: 50%;
+            float: left;
+        }
+
+        @include respond-to(large) {
+            width: 33%;
+            float: left;
+        }
+
+        &:before {
+            /* use !important to prevent issues with browser extensions that change fonts */
+            font-family: 'IcoMoon' !important;
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            
+            /* Enable Ligatures ================ */
+            letter-spacing: 0;
+            -webkit-font-feature-settings: "liga";
+            -moz-font-feature-settings: "liga=1";
+            -moz-font-feature-settings: "liga";
+            -ms-font-feature-settings: "liga" 1;
+            -o-font-feature-settings: "liga";
+            font-feature-settings: "liga";
+
+            /* Better Font Rendering =========== */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+
+            content: '\ea10';
+            color: #3c3;
+            margin-right: 5px;
+        }
     }
 }

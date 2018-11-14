@@ -16,7 +16,9 @@
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 	<main class="blog">
 		<div class="page-template">
+			
 			<div class="central_container"> 
+			<div class="title"><h2>Blog</h2></div>
 				<?php if ( have_posts() ): ?>
 				
 				<ol class="news">

@@ -605,7 +605,9 @@ body, .sg-type-wrapper {
   justify-content: center;
   align-items: center;
   background: #1B2735;
-  position: relative; }
+  position: relative;
+  overflow: hidden;
+  top: 75px; }
   .hero .overlay {
     position: absolute;
     top: 0;
@@ -898,7 +900,7 @@ body, .sg-type-wrapper {
     background-position: center;
     opacity: 0;
     animation: fadeIn 1s ease-in 2.5s 1 forwards, bounce 2s infinite;
-    z-index: 12; }
+    z-index: 11; }
 
 .hero-image .move-image {
   transform: scale(1.1); }
@@ -1068,7 +1070,8 @@ body, .sg-type-wrapper {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         content: '\ea10';
-        color: #33cc33; }
+        color: #33cc33;
+        margin-right: 5px; }
       @media only screen and (min-width: 768px) {
         .sidebar .features li {
           width: 100%; } }
@@ -1107,9 +1110,10 @@ header {
   height: 75px;
   position: fixed;
   top: 0;
-  background: #1B2735;
-  opacity: 0;
-  animation: fadeIn 1s ease-in .5s 1 forwards; }
+  background: #1B2735; }
+  header .header-container {
+    opacity: 0;
+    animation: fadeIn 1s ease-in .5s 1 forwards; }
   .home header {
     animation: fadeIn 1s ease-in 1.5s 1 forwards;
     background: transparent; }
@@ -1338,6 +1342,9 @@ header {
     bottom: 0;
     left: 0;
     right: 0; }
+    @media only screen and (min-width: 1024px) {
+      .nav--mobile.open {
+        display: none; } }
     .nav--mobile.open .social {
       display: block; }
   .nav--mobile ul {
@@ -1385,9 +1392,6 @@ body {
   width: 100%;
   position: relative; }
 
-body.logged-in {
-  margin-top: 20px; }
-
 #main-container {
   position: static; }
 
@@ -1396,57 +1400,60 @@ main {
   @media only screen and (min-width: 1024px) {
     main {
       padding: 60px 0 50px 0; } }
-  main.project .list, main.blog .list, main.contact .list {
+  main.project .list, main.blog .list, main.portfolio-page .list, main.contact .list {
     clear: both; }
-    main.project .list:after, main.blog .list:after, main.contact .list:after {
+    main.project .list:after, main.blog .list:after, main.portfolio-page .list:after, main.contact .list:after {
       content: '';
       display: block;
       clear: both; }
     @media only screen and (min-width: 480px) {
-      main.project .list .list_section, main.blog .list .list_section, main.contact .list .list_section {
+      main.project .list .list_section, main.blog .list .list_section, main.portfolio-page .list .list_section, main.contact .list .list_section {
         float: left;
         width: 49%; } }
     @media only screen and (min-width: 1024px) {
-      main.project .list .list_section, main.blog .list .list_section, main.contact .list .list_section {
+      main.project .list .list_section, main.blog .list .list_section, main.portfolio-page .list .list_section, main.contact .list .list_section {
         float: left;
         width: 30%;
         padding-left: 22px; } }
-    main.project .list .list_section li, main.blog .list .list_section li, main.contact .list .list_section li {
+    main.project .list .list_section li, main.blog .list .list_section li, main.portfolio-page .list .list_section li, main.contact .list .list_section li {
       margin: 0 0 .5em 0; }
-  main.project .title, main.blog .title, main.contact .title {
+  main.project .title, main.blog .title, main.portfolio-page .title, main.contact .title {
     clear: both;
     text-align: center;
     display: block;
-    margin-top: 2em;
-    margin-bottom: 4em; }
-    main.project .title:after, main.blog .title:after, main.contact .title:after {
+    margin-bottom: 2em; }
+    @media only screen and (min-width: 1024px) {
+      main.project .title, main.blog .title, main.portfolio-page .title, main.contact .title {
+        margin-top: 2em;
+        margin-bottom: 4em; } }
+    main.project .title:after, main.blog .title:after, main.portfolio-page .title:after, main.contact .title:after {
       display: block;
       content: '';
       clear: both; }
-    main.project .title h2, main.blog .title h2, main.contact .title h2 {
+    main.project .title h2, main.blog .title h2, main.portfolio-page .title h2, main.contact .title h2 {
       padding: 0;
       margin: 0; }
-  main.project .image_section, main.blog .image_section, main.contact .image_section {
+  main.project .image_section, main.blog .image_section, main.portfolio-page .image_section, main.contact .image_section {
     border: 1px solid #1B2735;
     padding: 5px;
     margin-bottom: 1em;
     clear: both; }
-    main.project .image_section:after, main.blog .image_section:after, main.contact .image_section:after {
+    main.project .image_section:after, main.blog .image_section:after, main.portfolio-page .image_section:after, main.contact .image_section:after {
       display: block;
       content: '';
       clear: both; }
-    main.project .image_section a, main.blog .image_section a, main.contact .image_section a {
+    main.project .image_section a, main.blog .image_section a, main.portfolio-page .image_section a, main.contact .image_section a {
       display: block;
       float: left;
       width: 32.3%;
       margin: .5%; }
       @media only screen and (min-width: 768px) {
-        main.project .image_section a, main.blog .image_section a, main.contact .image_section a {
+        main.project .image_section a, main.blog .image_section a, main.portfolio-page .image_section a, main.contact .image_section a {
           width: 24%; } }
       @media only screen and (min-width: 1024px) {
-        main.project .image_section a, main.blog .image_section a, main.contact .image_section a {
+        main.project .image_section a, main.blog .image_section a, main.portfolio-page .image_section a, main.contact .image_section a {
           width: 19%; } }
-      main.project .image_section a img, main.blog .image_section a img, main.contact .image_section a img {
+      main.project .image_section a img, main.blog .image_section a img, main.portfolio-page .image_section a img, main.contact .image_section a img {
         width: 100%;
         height: auto; }
 
@@ -1460,9 +1467,6 @@ main {
     content: '';
     display: block;
     clear: both; }
-  @media only screen and (min-width: 768px) {
-    .central_container {
-      padding: 0; } }
   @media only screen and (min-width: 1024px) {
     .central_container {
       max-width: 1200px; } }
@@ -1563,10 +1567,15 @@ article {
   margin-bottom: 30px; }
 
 .contact--container {
-  display: flex;
   width: 100%; }
+  @media only screen and (min-width: 1024px) {
+    .contact--container {
+      display: flex; } }
   .contact--container .contact__left {
-    width: 50%; }
+    width: 100%; }
+    @media only screen and (min-width: 1024px) {
+      .contact--container .contact__left {
+        width: 50%; } }
     .contact--container .contact__left .tel a,
     .contact--container .contact__left .email a {
       font-weight: bold;
@@ -1582,9 +1591,56 @@ article {
     .contact--container .contact__left .tel {
       margin-bottom: 20px; }
   .contact--container .contact__right {
-    width: 50%;
-    border-left: 1px solid #e8e8e8;
-    padding-left: 20px; }
+    margin-top: 30px;
+    width: 100%; }
+    @media only screen and (min-width: 1024px) {
+      .contact--container .contact__right {
+        width: 50%;
+        border-left: 1px solid #e8e8e8;
+        padding-left: 20px; } }
+
+ul.tick {
+  list-style-type: none;
+  padding: 0; }
+  ul.tick:after {
+    content: '';
+    display: block;
+    clear: both; }
+  ul.tick li {
+    width: 100%;
+    margin-bottom: 10px;
+    display: block; }
+    @media only screen and (min-width: 768px) {
+      ul.tick li {
+        width: 50%;
+        float: left; } }
+    @media only screen and (min-width: 1024px) {
+      ul.tick li {
+        width: 33%;
+        float: left; } }
+    ul.tick li:before {
+      /* use !important to prevent issues with browser extensions that change fonts */
+      font-family: 'IcoMoon' !important;
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      /* Enable Ligatures ================ */
+      letter-spacing: 0;
+      -webkit-font-feature-settings: "liga";
+      -moz-font-feature-settings: "liga=1";
+      -moz-font-feature-settings: "liga";
+      -ms-font-feature-settings: "liga" 1;
+      -o-font-feature-settings: "liga";
+      font-feature-settings: "liga";
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      content: '\ea10';
+      color: #3c3;
+      margin-right: 5px; }
 
 .portfolio {
   z-index: 6;
@@ -2315,6 +2371,23 @@ footer {
     background-position: center center;
     opacity: 1; }
     .hero-image .move-image:after {
+      animation: grain 8s steps(10) infinite;
+      background-image: url("images/grain.png");
+      content: "";
+      height: 300%;
+      left: -50%;
+      opacity: 0.2;
+      position: absolute;
+      top: -100%;
+      width: 300%; }
+  .hero-image .page-image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    opacity: 1; }
+    .hero-image .page-image:after {
       animation: grain 8s steps(10) infinite;
       background-image: url("images/grain.png");
       content: "";

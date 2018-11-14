@@ -34,6 +34,28 @@
         }
     }
 
+    .page-image {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center center;
+        opacity: 1;
+
+        &:after {
+  
+            animation: grain 8s steps(10) infinite;
+            background-image: url("images/grain.png");
+            content: "";
+            height: 300%;
+            left: -50%;
+            opacity: 0.2;
+            position: absolute;
+            top: -100%;
+            width: 300%;
+        }
+    }
+
     img {
         width: 100%;
         height: auto;
