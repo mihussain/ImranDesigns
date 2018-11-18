@@ -227,6 +227,10 @@ h3 {
   display: inline-block;
   margin-top: -3px;
   font-weight: 400; }
+  .single-project h3 {
+    margin: 15px 0 1em;
+    width: 100%;
+    text-align: center; }
 
 h4, h5 {
   margin: 0;

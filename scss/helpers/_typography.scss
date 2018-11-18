@@ -59,6 +59,12 @@ h3 {
     margin-top: -3px;
     font-weight: 400;
     //text-transform: uppercase;
+
+    .single-project & {
+        margin: 15px 0 1em;
+        width: 100%;
+        text-align: center;
+    }
 }
 
 h4, h5 {
