@@ -57,7 +57,7 @@ h3 {
     padding: 4px 8px;
     display: inline-block;
     margin-top: -3px;
-
+    font-weight: 400;
     //text-transform: uppercase;
 }
 
@@ -121,7 +121,86 @@ ul, ol, li {
 
 }
 
+blockquote {
+    margin-left: 50px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-right: 20px;
+    border-right: 4px solid #ccc;
+    //border-bottom: 1px solid #1B2735;
+    padding:15px 20px 0px 20px;
+    font-style: italic;
+    font-size: 18px;
+    text-align: right;
+    color: rgba($color: #000000, $alpha: .6);
+    position: relative;
+}
 
+blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    color: #7a7a7a;
+}
+
+.left {
+
+    
+    div[id^='attachment'], div[id*=' attachment']{
+        width: 100% !important;
+
+        .wp-caption-text {
+            background-color: #1B2735;
+            color: #fff;
+            font-size: 12px;
+            padding: 5px 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            display: inline-block;
+            vertical-align: middle;
+            width: 100%;
+
+            &:before {
+                /* use !important to prevent issues with browser extensions that change fonts */
+                font-family: 'IcoMoon' !important;
+                speak: none;
+                font-style: normal;
+                font-weight: normal;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                
+                /* Enable Ligatures ================ */
+                letter-spacing: 0;
+                -webkit-font-feature-settings: "liga";
+                -moz-font-feature-settings: "liga=1";
+                -moz-font-feature-settings: "liga";
+                -ms-font-feature-settings: "liga" 1;
+                -o-font-feature-settings: "liga";
+                font-feature-settings: "liga";
+
+                /* Better Font Rendering =========== */
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+
+                content: '\e90d';
+                margin-right: 8px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+
+    }
+
+    img[class^='wp-image'], img[class*=' wp-image']{
+        width: 100%;
+        height: auto;
+    }
+}
+ 
 // styleguide:ignore:end
 
 
@@ -213,4 +292,9 @@ body, .sg-type-wrapper {
 
 .pica {
     font-weight: bold;
+}
+
+
+.text-center {
+    text-align: center;
 }

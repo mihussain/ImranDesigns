@@ -8,6 +8,16 @@ define(['jquery'], function($) {
 				headerBottom = $('.hero').height() - $('.nav_bar').height();
 				bodyPadding = $('header').height();
 
+				console.log($(window).scrollTop());
+				
+				if ($(window).scrollTop() >= headerBottom ) {
+					$('header').addClass('background');
+					//$('body').css({'padding-top': bodyPadding });
+		   
+			   } else {
+				   $('header').removeClass('background');			
+				   //$('body').css({'padding-top': 0 });	
+			   }
 			
 			 	$(window).on('scroll', function() {
 
@@ -16,13 +26,67 @@ define(['jquery'], function($) {
 
 			 		if ($(this).scrollTop() >= headerBottom ) {
 						 $('header').addClass('background');
+						 //$('.scroll-up-arrow').addClass('show');
 						 //$('body').css({'padding-top': bodyPadding });
 				
 					} else {
-						$('header').removeClass('background');			
+						$('header').removeClass('background');
+						//$('.scroll-up-arrow').removeClass('show');			
 						//$('body').css({'padding-top': 0 });	
 					}
-			 	});
+				 });
+				 
+				 
+
+			//test
+
+			var didScroll;
+			var lastScrollTop = 0;
+			var delta = 5;
+			var navbarHeight = $('header').outerHeight();
+
+			// on scroll, let the interval function know the user has scrolled
+			$(window).scroll(function(event){
+			  didScroll = true;
+			});
+			// run hasScrolled() and reset didScroll status
+			setInterval(function() {
+			  if (didScroll) {
+				hasScrolled();
+				didScroll = false;
+			  }
+			}, 250);
+
+			function hasScrolled() {
+				console.log('scrolling');
+				var st = $(this).scrollTop();
+
+				if(Math.abs(lastScrollTop - st) <= delta) {
+					return;
+				}
+    
+
+				// If current position > last position AND scrolled past navbar...
+				if (st > lastScrollTop && st > navbarHeight){
+					// Scroll Down
+					$('header').removeClass('header-down').addClass('header-up');
+					$('.scroll-up-arrow').removeClass('show');
+				} else {
+					// Scroll Up
+					// If did not scroll past the document (possible on mac)...
+					if(st + $(window).height() < $(document).height()) { 
+						$('header').removeClass('header-up').addClass('header-down');
+						$('.scroll-up-arrow').addClass('show');
+					}
+				}
+				
+				lastScrollTop = st;
+			}
+
+			//test end
+
+
+
 			
 			 
 			if($('body').hasClass('home')) {

@@ -4,7 +4,7 @@
 			<div class="col_container">
 				<div class="col_1">
 					<div class="footer_logo_social">
-						<a class="footer_logo" href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/imrandesigns_logo.svg" width="100" height="auto" /></a>
+						<a class="footer_logo" href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/imrandesigns_logo.svg" width="100" height="auto" alt="ImranDesigns logo" /></a>
 						<div class="social">
 							<a href="https://www.facebook.com/ImranDesigns/" target="_blank"><span class="icon icon-facebook2"></span></a>
 							<a href="https://twitter.com/imrandesigns" target="_blank"><span class="icon icon-twitter"></span></a>
@@ -57,5 +57,6 @@
 			</div>
 			
 		</div>
-		<div class="small">&copy; <?php echo date("Y"); ?> <?php bloginfo( 'name' ); ?>. All rights reserved. | Sitemap</div>
+		<div class="small">&copy; <?php echo date("Y"); ?> <?php bloginfo( 'name' ); ?>. All rights reserved. | <a href="<?php echo site_url('/sitemap/') ?>" title="Go to Sitemap">Sitemap</a></div>
 	</footer>
+	<a class="scroll-up-arrow" href=""><span>Skip to content</span></a>

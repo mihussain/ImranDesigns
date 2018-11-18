@@ -11,7 +11,7 @@
 		
 		<div class="nav_bar">
 			<nav class="nav--left"><?php wp_nav_menu( array( 'theme_location' => 'header-menu--left' ) ); ?></nav>
-			<img src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" width="70" height="auto">
+			<img src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" width="70" height="auto" alt="ImranDesigns logo" />
 			<nav class="nav--right"><?php wp_nav_menu( array( 'theme_location' => 'header-menu--right' ) ); ?></nav>
 		</div>
 	</div>
@@ -20,25 +20,25 @@
 <div class="hero">
 	<div class="overlay"></div>
 	<?php if (is_page_template('homepage.php')) { ?>
-		<img id="logo" src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" width="100" height="auto">
+		<img id="logo" src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" width="100" height="auto" alt="ImranDesigns logo, header hero image" />
 
-
-	<?php } else if ( basename($template) === 'single-project.php') { ?>
-		<?php /* if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-			<div class="hero-text box-border">
-				<h2 class="hero_title"><?php the_title(); ?></h2>
-				<!--
-				<span class="built_by">Proudly built by</span> 
-				<img class="made_by" src="http://imrandesigns.local/wp-content/themes/imrandesigns-portfolio/images/imrandesigns_logo.svg" width="240" height="auto">
-				-->
-			</div>
-			<?php endwhile; */ ?>
 	<?php } else if ( basename($template) === 'index.php') { ?>
 		
 			<div class="hero-image">
 					<div class="page-image" style="background-image: url('<?php echo get_template_directory_uri() ?>/images/blog.jpg');"></div>		
 				</div>
-				
+	
+	<?php } else if ( basename($template) === 'sitemap.php') { ?>
+		
+			<div class="hero-image">
+					<div class="page-image" style="background-image: url('<?php echo get_template_directory_uri() ?>/images/sitemap.jpg');"></div>		
+				</div>
+
+	<?php } else if ( basename($template) === '404.php') { ?>
+		
+		<div class="hero-image">
+				<div class="page-image" style="background-image: url('<?php echo get_template_directory_uri() ?>/images/404.jpg');"></div>		
+			</div>
 
 			
 	<?php } else { ?>
@@ -59,7 +59,7 @@
 	<?php } ?>
 
 	<?php if ( basename($template) === 'homepage.php') { ?>
-		<a class="scroll-down-arrow animated bounce" href="#content"></a>
+		<a class="scroll-down-arrow animated bounce" href="#content"><span>Skip to content</span></a>
 	<?php } ?>
 	
 	<div class="scene">

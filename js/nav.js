@@ -33,7 +33,14 @@ define(['jquery'], function($) {
 				  e.preventDefault();
 				  $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top - $('header').height()}, 500, 'linear');
 				});
-			  });
+			});
+
+			$(function() {
+				$('.scroll-up-arrow').on('click', function(e) {
+					e.preventDefault();
+					$('html, body').animate({ scrollTop: 0}, 500, 'linear');
+				});
+			});
 		}
 
 	};
