@@ -1733,9 +1733,9 @@ ul.tick {
       margin-right: 5px; }
 
 .scroll-up-arrow {
-  left: 50%;
+  left: 0;
   color: #fff;
-  transform: rotate(180deg) translateX(50%);
+  transform: rotate(180deg) translateY(-48px);
   font-size: 12px;
   bottom: 0;
   padding: 20px;
