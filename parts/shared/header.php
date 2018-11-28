@@ -11,7 +11,8 @@
 		
 		<div class="nav_bar">
 			<nav class="nav--left"><?php wp_nav_menu( array( 'theme_location' => 'header-menu--left' ) ); ?></nav>
-			<img src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" width="70" height="auto" alt="ImranDesigns logo" />
+			<img data-src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="70" height="auto" alt="ImranDesigns logo" />
+			<noscript><img src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" width="70" height="auto" alt="ImranDesigns logo" /></noscript>
 			<nav class="nav--right"><?php wp_nav_menu( array( 'theme_location' => 'header-menu--right' ) ); ?></nav>
 		</div>
 	</div>
@@ -20,7 +21,8 @@
 <div class="hero">
 	<div class="overlay"></div>
 	<?php if (is_page_template('homepage.php')) { ?>
-		<img id="logo" src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" width="100" height="auto" alt="ImranDesigns logo, header hero image" />
+		<img id="logo" data-src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="500" height="auto" alt="ImranDesigns logo, header hero image" />
+		<noscript><img id="logo" src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" width="100" height="auto" alt="ImranDesigns logo, header hero image" /></noscript>
 
 	<?php } else if ( basename($template) === 'index.php') { ?>
 		
@@ -46,7 +48,7 @@
 			<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
 			<?php if (has_post_thumbnail( $post->ID ) ): ?>
-				<?php $landscapeImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
+				<?php $landscapeImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'project-featured-retina' ); ?>
 
 				<div class="hero-image">
 					<div class="page-image" style="background-image: url(<?php echo $landscapeImage[0]; ?>);"></div>
@@ -73,19 +75,7 @@
 		
 		<?php } ?>
 
-		<?php if ( basename($template) === 'single-project.php') { ?>
-			<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
-
-				<?php if (has_post_thumbnail( $post->ID ) ): ?>
-					<?php $landscapeImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
-
-					<div class="hero-image">
-						<div class="move-image" style="background-image: url(<?php echo $landscapeImage[0]; ?>);"></div>
-						
-					</div>
-				<?php endif; ?>
-			<?php endwhile; ?>
-		<?php } ?>
+	
 	</div>
 </div>
 

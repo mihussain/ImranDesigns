@@ -38,9 +38,9 @@
 			</div>
 		</section>
 
-		<section class="portfolio">
-			<div class="portfolio--container">
-				<div class="central_container">
+		<section class="project_portfolio">
+			<div class="central_container">
+				<div class="portfolio--container">
 					<?php $portfolio = new WP_Query(array(
 						'post_type' => 'project'
 					)); ?>
@@ -53,29 +53,22 @@
 						?>
 					
 						<div class="project mix <?php if ( !empty( $terms ) ) : foreach ( $terms as $term ) { if ( !is_wp_error( $link ) ) echo $term->name; } endif;  ?>">
-							<div class="project-wrapper">
+						
 								<?php if (has_post_thumbnail( $post->ID ) ): ?>
 									
 									<?php $thumbImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'portfolio-thumb' ); ?>
+									<?php $thumbImageRetina = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'portfolio-thumb-retina' ); ?>
 									
 									<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark">
-										<div class="thumbnail_image_container" style="background-image: url('<?php echo $thumbImage[0]; ?>');">
-										</div>	
-										
-										<div class="label">
-											<div class="label-text">
-												<div class="label--container">
-													<div class="label-title"><?php the_title(); ?></div>
-													<div class="button take_a_look">View Project</div>
-													<div class="label-cat"><?php user_the_categories(); ?></div>
-												</div>
-											</div>
-											<div class="label-bg" style="background-image: url('<?php echo $thumbImage[0]; ?>');"></div>
-										</div>
+						
+											<img data-src="<?php echo $thumbImage[0]; ?>" data-srcset="<?php echo $thumbImage[0]; ?> 1x, <?php echo $thumbImageRetina[0]; ?> 2x" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" />
+											<noscript><img src="<?php echo $thumbImage[0]; ?>" srcset="<?php echo $thumbImage[0]; ?> 1x, <?php echo $thumbImageRetina[0]; ?> 2x" /></noscript>
+								
+
 									</a>
 									
 								<?php endif; ?>
-							</div>
+							
 						</div>
 					
 					<?php $i++; endwhile; ?>

@@ -14,7 +14,36 @@
     src: url('fonts/IcoMoon.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: auto;
 }
+
+@font-face {
+    font-family: 'Heebo';
+    font-style: normal;
+    font-weight: 700;
+    font-display: auto;
+    src: url('/fonts/heebo-v3-latin-700.eot'); /* IE9 Compat Modes */
+    src: local('Heebo Bold'), local('Heebo-Bold'),
+         url('/fonts/heebo-v3-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/fonts/heebo-v3-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+         url('/fonts/heebo-v3-latin-700.woff') format('woff'), /* Modern Browsers */
+         url('/fonts/heebo-v3-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/fonts/heebo-v3-latin-700.svg#Heebo') format('svg'); /* Legacy iOS */
+  }
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: auto;
+    src: url('/fonts/roboto-v18-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local('Roboto'), local('Roboto-Regular'),
+         url('/fonts/roboto-v18-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/fonts/roboto-v18-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('/fonts/roboto-v18-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('/fonts/roboto-v18-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/fonts/roboto-v18-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+  }
 
 html, .sg-html {
     font-size: 62.5%; /* render at ~10px for our baseline */
@@ -128,7 +157,7 @@ ul, ol, li {
 }
 
 blockquote {
-    margin-left: 50px;
+    margin-left: 15px;
     margin-top: 40px;
     margin-bottom: 40px;
     margin-right: 20px;
@@ -136,10 +165,14 @@ blockquote {
     //border-bottom: 1px solid #1B2735;
     padding:15px 20px 0px 20px;
     font-style: italic;
-    font-size: 18px;
+    font-size: 16px;
     text-align: right;
     color: rgba($color: #000000, $alpha: .6);
     position: relative;
+
+    @include respond-to(medium) {
+        margin-left: 50px;
+    }
 }
 
 blockquote:before {

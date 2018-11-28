@@ -1,4 +1,4 @@
-.portfolio {
+.project_portfolio {
     z-index: 6;
 	position: relative;
 	opacity:0; 
@@ -6,14 +6,17 @@
 	animation-fill-mode:forwards;
 	animation-duration:1s;
 	animation-delay: 1s;
+	background-color: #f5f5f5;
 
-	.portfolio--container {
-		background-color: #f5f5f5;
+	.home & {
+		margin-bottom: 30px;
 	}
 
-	
-
-
+	.portfolio--container {
+		
+		display: flex;
+		flex-wrap: wrap;
+	}
 
     &.bg_image {
         padding: 1em 0 4em 0;
@@ -30,32 +33,27 @@
 		-moz-box-sizing: border-box;
 		-o-box-sizing: border-box;
 		width:50%;
-		padding-bottom: 50%;
 		margin: 0;
-		float:left;
 		overflow:hidden;
 		position: relative;
+		
 
 		@include easeAnimation;
 
 		@include respond-to(small) {
 			width: 33%;
-			padding-bottom: 33%;
 		}
 
 		@include respond-to(medium) {
 			width: 33%;
-			padding-bottom: 33%;
 		}
 
 		@include respond-to(large) {
 			width: 25%;
-			padding-bottom: 25%;
 		}
 
 		@include respond-to(extralarge) {
 			width: 20%;
-			padding-bottom: 20%;
 		}
 
 		body.portfolio & {
@@ -65,10 +63,15 @@
 		}
 
 		&:hover {
-			.thumbnail_image_container {
-				transform: scale(1.2);
+			img {
+			transform: scale(1.2);
 			}
-			
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+			@include easeAnimation;
 		}
 	
 		.project-wrapper {
@@ -95,123 +98,8 @@
 				clear: both;
 				display: block;
 			}
-
-			.thumbnail_image_container {
-				background-size: cover;
-				background-position: center;
-				display: block;
-				width: 100%;
-				height: 100%;
-				position: absolute;
-				z-index:3;
-				@include easeAnimation;
-				min-height: 80px;
-			}
-		}
-	
-		//hide its label by default
-		.label {
-			width:100%;
-			height: 100%;
-			display: none;
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: 5;
-
-			&.open {
-				display: block;
-			}
 		}
 
-		.label-bg {		
-			background-size: cover;
-			position: absolute;
-			display: block;
-			height: 100%;
-			width: 100%;
-			opacity: 1;
-			top: 0;
-			left: 0;
-			z-index: -1;
-			//transform: scale(1.3,1.3);
-
-			// -webkit-box-shadow: inset 0px 0px 85px 14px rgba(0,0,0,0.75);
-			// -moz-box-shadow: inset 0px 0px 85px 14px rgba(0,0,0,0.75);
-			// box-shadow: inset 0px 0px 85px 14px rgba(0,0,0,0.75);
-		}
-	
-		.label-text {
-			color:#fff;
-			z-index:2;
-			font-size: 1.1em;
-			
-			display: table;
-			background: rgba(0, 0, 0, .95);
-			border: 1px solid #3c3c3c;
-			overflow: hidden;
-
-
-			width: 100%;
-			height: 100%;
-
-			.label--container {
-
-				display: table-cell;
-				vertical-align: middle;
-				position: relative;
-				text-align: center;
-				z-index: 5;
-
-				//@include respond-to(medium) {
-					//position: relative;
-					//margin-top: 50%;
-					//transform: translateY(-50%);
-				//}
-			}
-
-			
-
-			.label-title {
-				font-size: 1em;
-			}
-
-			.button.take_a_look {
-				position: absolute;
-				bottom: 40px;
-				left: 50%;
-				transform: translateX(-50%);
-				background-color: $third;
-				display: none;
-				margin: 14px 0;
-				font-size: .8em;
-				padding: 20px 35px;
-				@include easeAnimation
-
-				@include respond-to(small) {
-					display: inline-block;
-				}
-
-				&:hover {
-					background-color: #fff;
-					color: #000;
-				}
-			}
-
-			.label-cat {
-				font-size: .6em;
-				opacity: .7;
-			}
-
-			// @include respond-to(large) {
-			// 	opacity: 0;
-			// }
-		}
-			
-		.text-category {
-			display:block;
-			font-size:9px;
-		}
 	}
 }
 

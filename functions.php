@@ -27,10 +27,14 @@
 
 	add_theme_support('post-thumbnails');
 
-	add_image_size( 'portfolio-thumb', 600, 600, true ); //
-	add_image_size( 'sidebar-thumb', 120, 120, true ); // Hard Crop Mode
+	add_image_size( 'portfolio-thumb', 300, 300, true ); 
+	add_image_size( 'portfolio-thumb-retina', 600, 600, true );
+	add_image_size( 'portfolio-thumb-large', 400, 400, true );
+	add_image_size( 'portfolio-thumb-large-retina', 800, 800, true );
+	add_image_size( 'project-featured', 750, 191, true );
+	add_image_size( 'project-featured-retina', 1500, 382, true );
 	add_image_size( 'featured-image', 1024, 768, true ); // 
-	add_image_size( 'landscape-image', 1024, 400, false);
+
 
 	/* ========================================================================================================================
 	
@@ -90,21 +94,22 @@
 		//wp_register_script( 'transit', get_template_directory_uri().'/js/vendor/jquery.transit.min.js', array( 'jquery' ), '', true );
 		//wp_enqueue_script( 'transit' );
 
-		wp_register_script( 'rgbaster', get_template_directory_uri().'/js/vendor/rgbaster.min.js', array( 'jquery' ), '', true );
-		wp_enqueue_script( 'rgbaster' );
+		//wp_register_script( 'rgbaster', get_template_directory_uri().'/js/vendor/rgbaster.min.js', array( 'jquery' ), '', true );
+		//wp_enqueue_script( 'rgbaster' );
 
 		//wp_register_script( 'mixitup', get_template_directory_uri().'/js/vendor/jquery.mixitup.min.js', array( 'jquery' ), '', true );
 		//wp_enqueue_script( 'mixitup' );
 
-		wp_register_script( 'require', get_template_directory_uri().'/js/vendor/require.js', array(), null, true );
-		wp_enqueue_script( 'require' );
+		//wp_register_script( 'require', get_template_directory_uri().'/js/vendor/require.js', array(), null, true );
+		//wp_enqueue_script( 'require' );
 
-		wp_register_script( 'site', get_template_directory_uri().'/js/main.min.js', array( 'jquery' ), '', true );
-		wp_enqueue_script( 'site' );
+		//wp_register_script( 'site', get_template_directory_uri().'/js/main.min.js', array( 'jquery' ), '', true );
+		//wp_enqueue_script( 'site' );
 
 		wp_register_style( 'screen', get_stylesheet_directory_uri().'/style.min.css', '', '', 'screen' );
         wp_enqueue_style( 'screen' );
 	}	
+
 
 	/* ========================================================================================================================
 	
@@ -216,53 +221,4 @@
 	    // echo the remaining categories, appending separator
 	    for ($i = 1; $i < count($cats); $i++) {echo ', ' . $cats[$i]->cat_name ;}
 	}
-
-	/*
-	OPEN GRAPH 
-	*/
-
-	function doctype_opengraph($output) {
-	    return $output . '
-	    xmlns:og="http://opengraphprotocol.org/schema/"
-	    xmlns:fb="http://www.facebook.com/2008/fbml"';
-	}
-	add_filter('language_attributes', 'doctype_opengraph');
-
-	function fb_opengraph() {
-	    global $post;
-	 
-	    if(is_single()) {
-	        if(has_post_thumbnail($post->ID)) {
-	            $img_src = wp_get_attachment_image_src(get_post_thumbnail_id( $post->ID ), 'featured-image');
-	        } else {
-	            $img_src = get_stylesheet_directory_uri() . '/img/opengraph_image.jpg';
-	        }
-	        if($excerpt = $post->post_excerpt) {
-	            $excerpt = strip_tags($post->post_excerpt);
-	            $excerpt = str_replace("", "'", $excerpt);
-	        } else {
-	            $excerpt = get_bloginfo('description');
-	        }
-	        ?>
-	 
-	    <meta property="og:title" content="<?php echo the_title(); ?>"/>
-	    <meta property="og:description" content="<?php echo $excerpt; ?>"/>
-	    <meta property="og:type" content="article"/>
-	    <meta property="og:url" content="<?php echo the_permalink(); ?>"/>
-	    <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
-	    <meta property="og:image" content="<?php echo $img_src[0]; ?>"/>
-
-	    <meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:site" content="@imrandesigns">
-		<meta name="twitter:title" content="<?php echo the_title(); ?>">
-		<meta name="twitter:description" content="<?php echo $excerpt; ?>">
-		<meta name="twitter:image" content="<?php echo $img_src[0]; ?>">
-	 
-	<?php
-	    } else {
-	        return;
-	    }
-	}
-	add_action('wp_head', 'fb_opengraph', 5);
-
 

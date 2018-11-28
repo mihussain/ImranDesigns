@@ -40,7 +40,7 @@
 
         opacity:0; 
         animation:fadeIn 1s ease-in 0.5s 1 forwards, Floating 12s ease-in-out infinite;
-
+        will-change: transform;
         @include respond-to(medium) {
             width: 500px;
         
