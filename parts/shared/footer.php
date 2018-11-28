@@ -6,10 +6,10 @@
 					<div class="footer_logo_social">
 						<a class="footer_logo" href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/imrandesigns_logo.svg" width="100" height="auto" alt="ImranDesigns logo" /></a>
 						<div class="social">
-							<a href="https://www.facebook.com/ImranDesigns/" target="_blank"><span class="icon icon-facebook2"></span></a>
-							<a href="https://twitter.com/imrandesigns" target="_blank"><span class="icon icon-twitter"></span></a>
-							<a href="https://www.linkedin.com/in/mihussain/" target="_blank"><span class="icon icon-linkedin"></span></a>
-							<a href="https://www.instagram.com/imran_designs/" target="_blank"><span class="icon icon-instagram"></span></a>
+							<a href="https://www.facebook.com/ImranDesigns/" target="_blank" rel="noreferrer"><span class="icon icon-facebook2"></span></a>
+							<a href="https://twitter.com/imrandesigns" target="_blank" rel="noreferrer"><span class="icon icon-twitter"></span></a>
+							<a href="https://www.linkedin.com/in/mihussain/" target="_blank" rel="noreferrer"><span class="icon icon-linkedin"></span></a>
+							<a href="https://www.instagram.com/imran_designs/" target="_blank" rel="noreferrer"><span class="icon icon-instagram"></span></a>
 						</div>
 					</div>
 					<p>ImranDesigns is a digital design and web developemnt portfolio. Why not follow me on the following social media accounts to keep up to date with my latest work! Follow me on my journey through each project that I create. I'm on Facebook, Twitter, Linked In and Instagram.</p>

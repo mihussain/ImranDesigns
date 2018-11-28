@@ -126,10 +126,10 @@
 
 
 <div class="social">
-	<a class="social__link" href="https://www.facebook.com/ImranDesigns/" target="_blank"><span class="icon icon-facebook2"></span></a>
-	<a class="social__link" href="https://twitter.com/imrandesigns" target="_blank"><span class="icon icon-twitter"></span></a>
-	<a class="social__link" href="https://www.linkedin.com/in/mihussain/" target="_blank"><span class="icon icon-linkedin"></span></a>
-	<a class="social__link" href="https://www.instagram.com/imran_designs/" target="_blank"><span class="icon icon-instagram"></span></a>
+	<a class="social__link" href="https://www.facebook.com/ImranDesigns/" target="_blank" rel="noreferrer"><span class="icon icon-facebook2"></span></a>
+	<a class="social__link" href="https://twitter.com/imrandesigns" target="_blank" rel="noreferrer"><span class="icon icon-twitter"></span></a>
+	<a class="social__link" href="https://www.linkedin.com/in/mihussain/" target="_blank" rel="noreferrer"><span class="icon icon-linkedin"></span></a>
+	<a class="social__link" href="https://www.instagram.com/imran_designs/" target="_blank" rel="noreferrer"><span class="icon icon-instagram"></span></a>
 			
 </div>
 </nav>
