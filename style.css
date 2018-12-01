@@ -190,16 +190,16 @@ a {
   src: url("fonts/IcoMoon.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-  font-display: auto; }
+  font-display: block; }
 
 @font-face {
   font-family: 'Heebo';
   font-style: normal;
   font-weight: 700;
   font-display: block;
-  src: url("/fonts/heebo-v3-latin-700.eot");
+  src: url("fonts/heebo-v3-latin-700.eot");
   /* IE9 Compat Modes */
-  src: local("Heebo Bold"), local("Heebo-Bold"), url("/fonts/heebo-v3-latin-700.eot?#iefix") format("embedded-opentype"), url("/fonts/heebo-v3-latin-700.woff2") format("woff2"), url("/fonts/heebo-v3-latin-700.woff") format("woff"), url("/fonts/heebo-v3-latin-700.ttf") format("truetype"), url("/fonts/heebo-v3-latin-700.svg#Heebo") format("svg");
+  src: local("Heebo Bold"), local("Heebo-Bold"), url("fonts/heebo-v3-latin-700.eot?#iefix") format("embedded-opentype"), url("fonts/heebo-v3-latin-700.woff2") format("woff2"), url("fonts/heebo-v3-latin-700.woff") format("woff"), url("fonts/heebo-v3-latin-700.ttf") format("truetype"), url("fonts/heebo-v3-latin-700.svg#Heebo") format("svg");
   /* Legacy iOS */ }
 
 @font-face {
@@ -207,9 +207,9 @@ a {
   font-style: normal;
   font-weight: 400;
   font-display: block;
-  src: url("/fonts/roboto-v18-latin-regular.eot");
+  src: url("fonts/roboto-v18-latin-regular.eot");
   /* IE9 Compat Modes */
-  src: local("Roboto"), local("Roboto-Regular"), url("/fonts/roboto-v18-latin-regular.eot?#iefix") format("embedded-opentype"), url("/fonts/roboto-v18-latin-regular.woff2") format("woff2"), url("/fonts/roboto-v18-latin-regular.woff") format("woff"), url("/fonts/roboto-v18-latin-regular.ttf") format("truetype"), url("/fonts/roboto-v18-latin-regular.svg#Roboto") format("svg");
+  src: local("Roboto"), local("Roboto-Regular"), url("fonts/roboto-v18-latin-regular.eot?#iefix") format("embedded-opentype"), url("fonts/roboto-v18-latin-regular.woff2") format("woff2"), url("fonts/roboto-v18-latin-regular.woff") format("woff"), url("fonts/roboto-v18-latin-regular.ttf") format("truetype"), url("fonts/roboto-v18-latin-regular.svg#Roboto") format("svg");
   /* Legacy iOS */ }
 
 html, .sg-html {

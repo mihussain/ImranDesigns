@@ -9,7 +9,8 @@ var gulp = require( 'gulp' ),
 	rename = require( 'gulp-rename' ),
 	notify = require( 'gulp-notify' ),
 	include = require( 'gulp-include' ),
-	sass = require( 'gulp-sass' );
+	sass = require( 'gulp-sass' ),
+	requirejsOptimize = require('gulp-requirejs-optimize');
 
 var onError = function( err ) {
 	console.log( 'An error occurred:', err.message );
@@ -28,8 +29,17 @@ gulp.task( 'scss', function() {
 });
 
 gulp.task('minifyjs', function () {
-  gulp.src('./js/main.js')
-	.pipe(uglify())
+	gulp.src('./js/main.js')
+	.pipe(requirejsOptimize({
+		baseUrl: 'js',
+    paths: {
+        'jquery': 'vendor/jquery-3.1.1.min',
+        'mixItUp': 'vendor/jquery.mixitup.min',
+        'transit': 'vendor/jquery.transit.min'
+    }
+	}))
+//	.pipe(uglify())
+//
 	.pipe(rename({ suffix: '.min' }))
 	.pipe(gulp.dest('./js/'))
 })

@@ -1,12 +1,3 @@
-requirejs.config({
-    baseUrl: '/wp-content/themes/imrandesigns-portfolio/js',
-    paths: {
-        'jquery': 'vendor/jquery-3.1.1.min',
-        'mixItUp': 'vendor/jquery.mixitup.min',
-        'transit': 'vendor/jquery.transit.min'
-    }
-});
-
 requirejs(['detectIE','nav','header', 'moveImage','filter', 'modal', 'scroll', 'portfolio','lazyLoad'], function (DetectIE, Nav, Header, moveImage, Filter, Modal, Scroll, Portfolio, LazyLoad) {
 
     DetectIE.init();

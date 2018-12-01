@@ -12,8 +12,6 @@ define(['jquery'], function($) {
 				if( $('nav.nav--mobile').hasClass('open')){
 					$('body').css('overflow','hidden');
 
-					console.log($(window).height());
-
 					if ( $(window).height() >= 525 ){
 					 	$('nav.nav--mobile .dynamic_posts').css('display','block');
 					} 

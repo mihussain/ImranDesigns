@@ -7,8 +7,6 @@ define(['jquery'], function($) {
 				headerHeight = $('header').height(),
 				headerBottom = $('.hero').height() - $('.nav_bar').height();
 				bodyPadding = $('header').height();
-
-				console.log($(window).scrollTop());
 				
 				if ($(window).scrollTop() >= headerBottom ) {
 					$('header').addClass('background');
@@ -58,7 +56,6 @@ define(['jquery'], function($) {
 			}, 250);
 
 			function hasScrolled() {
-				console.log('scrolling');
 				var st = $(this).scrollTop();
 
 				if(Math.abs(lastScrollTop - st) <= delta) {
@@ -107,10 +104,10 @@ define(['jquery'], function($) {
 
 				if(windowWidth <= 786) {
 					qtdeEstrelas = 80;
-					console.log('100');
+				
 				} else {
 					qtdeEstrelas = 250;
-					console.log('250');
+			
 				}
 
 				if( window.innerWidth > window.innerHeight) {

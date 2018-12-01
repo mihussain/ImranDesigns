@@ -1,8 +1,8 @@
 <?php global $template; ?>
 
-<header>
+<header role="banner">
 	<div class="header-container">
-		<div id="nav-icon">
+		<div id="nav-icon" aria-label="Toggle mobile menu">
 			<span></span>
 			<span></span>
 			<span></span>
@@ -10,15 +10,15 @@
 		</div>
 		
 		<div class="nav_bar">
-			<nav class="nav--left"><?php wp_nav_menu( array( 'theme_location' => 'header-menu--left' ) ); ?></nav>
+			<nav class="nav--left" role="navigation" aria-label="Left Navigation"><?php wp_nav_menu( array( 'theme_location' => 'header-menu--left' ) ); ?></nav>
 			<img data-src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="70" height="auto" alt="ImranDesigns logo" />
 			<noscript><img src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" width="70" height="auto" alt="ImranDesigns logo" /></noscript>
-			<nav class="nav--right"><?php wp_nav_menu( array( 'theme_location' => 'header-menu--right' ) ); ?></nav>
+			<nav class="nav--right" role="navigation" arial-label="Right Navigation"><?php wp_nav_menu( array( 'theme_location' => 'header-menu--right' ) ); ?></nav>
 		</div>
 	</div>
 </header>
 
-<div class="hero">
+<div class="hero" >
 	<div class="overlay"></div>
 	<?php if (is_page_template('homepage.php')) { ?>
 		<img id="logo" data-src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="500" height="auto" alt="ImranDesigns logo, header hero image" />
@@ -79,7 +79,7 @@
 	</div>
 </div>
 
-<nav class="nav--mobile">
+<nav class="nav--mobile" role="navigation" artia-label="Mobile Navigation">
 	<nav class="mobile--nav"><?php wp_nav_menu( array( 'theme_location' => 'header-menu--mobile' ) ); ?></nav>
 
 		<div class="dynamic_posts">
@@ -126,10 +126,10 @@
 
 
 <div class="social">
-	<a class="social__link" href="https://www.facebook.com/ImranDesigns/" target="_blank" rel="noreferrer"><span class="icon icon-facebook2"></span></a>
-	<a class="social__link" href="https://twitter.com/imrandesigns" target="_blank" rel="noreferrer"><span class="icon icon-twitter"></span></a>
-	<a class="social__link" href="https://www.linkedin.com/in/mihussain/" target="_blank" rel="noreferrer"><span class="icon icon-linkedin"></span></a>
-	<a class="social__link" href="https://www.instagram.com/imran_designs/" target="_blank" rel="noreferrer"><span class="icon icon-instagram"></span></a>
+	<a class="social__link" href="https://www.facebook.com/ImranDesigns/" aria-label="Facebook" target="_blank" rel="noreferrer"><span class="icon icon-facebook2"></span></a>
+	<a class="social__link" href="https://twitter.com/imrandesigns" aria-label="Twitter" target="_blank" rel="noreferrer"><span class="icon icon-twitter"></span></a>
+	<a class="social__link" href="https://www.linkedin.com/in/mihussain/" aria-label="Linked In" target="_blank" rel="noreferrer"><span class="icon icon-linkedin"></span></a>
+	<a class="social__link" href="https://www.instagram.com/imran_designs/" aria-label="Instagram" target="_blank" rel="noreferrer"><span class="icon icon-instagram"></span></a>
 			
 </div>
 </nav>

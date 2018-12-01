@@ -16,7 +16,7 @@
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
-    <main id="content" class="contact">
+    <main id="content" class="sitemap" role="main">
 		<div class="page-template">
 			<div class="central_container"> 
 

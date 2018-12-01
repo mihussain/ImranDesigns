@@ -12,7 +12,7 @@
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 	<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-	<main class="project">
+	<main class="project" role="main">
 		<div class="central_container"> 
 		<div class="title">			
 			<h2><?php the_title(); ?></h2> 		
@@ -24,7 +24,7 @@
 			<a class="project_link" href="<?php the_field('url'); ?>" target="_blank">View Website</a> 
 		</div>
 			<article>
-				<div class="left">
+				<div class="left" role="article">
 				
 					
 						
@@ -90,7 +90,7 @@
 				</div>
 
 				<?php if ( !empty($value) || !empty($terms) || get_field('url')) : ?>
-				<div class="sidebar">
+				<div class="sidebar" role="complementary">
 					
 					<div class="details">
 						<?php 
