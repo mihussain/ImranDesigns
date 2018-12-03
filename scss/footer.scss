@@ -135,12 +135,12 @@ footer {
                 font-weight: 100;
                 text-transform: uppercase;
                 font-size: 1.5em;
-                color: rgba(255,255,255,0.5);
+                color: #A0A3A7;
                 text-decoration: none;
             }
 
             p {
-                color: rgba(255,255,255,0.4);
+                color: #A0A3A7;
                 font-size: .8em;
                 margin-top: 10px;
                 margin-bottom: 8px;
@@ -162,10 +162,10 @@ footer {
                         font-size: .9em;
                         
                         a {
-                            color: rgba(255 ,255, 255, .3);
+                            color: #A0A3A7;
 
                             &:hover {
-                                color: $third;
+                                color: #ffffff;
                             }
                         }
 
@@ -208,16 +208,16 @@ footer {
 
                 li {
                     a {
-                        color: rgba(255, 255, 255, 0.4);
+                        color: #9FA2A8;
                         text-decoration: none;
                         display: block;
-                        border-bottom: 1px solid rgba(255, 255, 255, .05);
+                        border-bottom: 1px solid transparent;
                         font-size: .8em;
                         margin-bottom: 10px;
 
                         &:hover {
                             color: rgba(255, 255, 255, 1); 
-                            border-bottom: 1px solid rgba(255, 255, 255, .6);
+                            border-bottom: 1px solid #9FA2A8;
                         }
                     }
                 }
@@ -228,7 +228,7 @@ footer {
                 color: rgba(255, 255, 255, .7);
 
                 &:hover {
-                    color: $third;
+                    color: #ffffff;
                 }
             }
         }
@@ -264,16 +264,16 @@ footer {
 
                 li {
                     a {
-                        color: rgba(255, 255, 255, 0.4);
+                        color: #9FA2A8;
                         text-decoration: none;
                         display: block;
-                        border-bottom: 1px solid rgba(255, 255, 255, .05);
+                        border-bottom: 1px solid transparent;
                         font-size: .8em;
                         margin-bottom: 10px;
 
                         &:hover {
                             color: rgba(255, 255, 255, 1); 
-                            border-bottom: 1px solid rgba(255, 255, 255, .6);
+                            border-bottom: 1px solid #9FA2A8;
                         }
                     }
                 }
@@ -284,7 +284,7 @@ footer {
                 color: rgba(255, 255, 255, .7);
 
                 &:hover {
-                    color: $third;
+                    color: #ffffff;
                 }
             }
         }
@@ -297,7 +297,7 @@ footer {
         text-align: center;
         width: 100%;
         font-size: 11px;
-        color: rgba(255,255,255,0.4);
+        color: #9DA1AA;
         padding: 10px 0;
 
         @include respond-to(large) {
@@ -305,7 +305,11 @@ footer {
         }
 
         a {
-            color: rgba(255,255,255,0.4);
+            color:#9DA1AA;
+
+            &:hover {
+                color: #ffffff;
+            }
         }
     }
 }
