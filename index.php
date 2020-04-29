@@ -14,28 +14,50 @@
  */
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
-	<section class="page-content">
-		<div class="central_container"> 
-			<?php if ( have_posts() ): ?>
-			<h2>Latest News</h2>	
-			<ol class="news">
-			<?php while ( have_posts() ) : the_post(); ?>
-				<li>
-					<article>
-						<h3><a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
-						<div class="post-meta">
-							<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time> <?php comments_popup_link('Leave a Comment', '1 Comment', '% Comments'); ?>
-						</div>
-						<div class="post-content">
-							<?php the_excerpt(); ?>
-						</div>
-					</article>
-				</li>
-			<?php endwhile; ?>
-			</ol>
-			<?php else: ?>
-			<h2>No posts to display</h2>
-			<?php endif; ?>
+	<main class="blog">
+		<div class="page-template">
+			
+			<div class="central_container"> 
+			<div class="title"><h2>Blog</h2></div>
+				<?php if ( have_posts() ): ?>
+				
+				<ol class="news">
+				<?php while ( have_posts() ) : the_post(); ?>
+					<li>
+						<article>
+							<?php /* if (has_post_thumbnail( $post->ID ) ): ?>
+								<?php $featuredImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'portfolio-thumb' ); ?>
+								<?php $landscapeImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'landscape-image' ); ?>
+								<div class="article__thumbnail">
+							  		
+									<picture>
+									    <source srcset="<?php echo $landscapeImage[0]; ?>" media="(max width: 479px)">
+									    <source srcset="<?php echo $featuredImage[0]; ?>" media="(min-width: 480px)">
+									    <img class="post-featured-image" src="<?php echo $landscapeImage[0]; ?>" alt="My default image">
+									</picture>
+								</div>
+							<?php endif; */ ?>
+							<div class="article__content">
+								<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><h2><?php the_title(); ?></h2></a>
+								
+								<div class="post-content">
+									<?php the_excerpt(); ?>
+								</div>
+								<div class="meta-container">
+									<div class="post-meta">
+										This blog post was created on the <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?></time> 
+									</div>
+								</div>
+							</div>
+						</article>
+					</li>
+				<?php endwhile; ?>
+				</ol>
+				<?php else: ?>
+				<h2>No posts to display</h2>
+				<?php endif; ?>
+			</div>
+			
 		</div>
-		<?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer') ); ?>
-	</section>
+</main>
+<?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer') ); ?>

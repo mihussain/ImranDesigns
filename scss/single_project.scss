@@ -1,0 +1,276 @@
+.hero-image {
+    height: 50vh;
+    width: 100%;
+    top: 0;
+    z-index: 4;
+    overflow: hidden;
+    position: relative;
+
+    .portfolio &,
+    .blog &,
+    .contact & {
+        height: 30vh;
+    }
+
+    .move-image {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center center;
+        opacity: 1;
+        
+      //-webkit-animation: 40s linear 0s normal none infinite moveHeroImage;
+      //-moz-animation: 40s linear 0s normal none infinite moveHeroImage;
+      //-ms-animation: 40s linear 0s normal none infinite moveHeroImage;
+      //-o-animation: 40s linear 0s normal none infinite moveHeroImage;
+      //animation: 40s linear 0s normal none infinite moveHeroImage;
+
+        &:after {
+  
+            // animation: grain 8s steps(10) infinite;
+            // background-image: url("images/grain.png");
+            // content: "";
+            // height: 300%;
+            // left: -50%;
+            // opacity: 0.2;
+            // position: absolute;
+            // top: -100%;
+            // width: 300%;
+        }
+    }
+
+    .page-image {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-position: center center;
+        opacity: 1;
+
+        &:after {
+  
+            // animation: grain 8s steps(10) infinite;
+            // background-image: url("images/grain.png");
+            // content: "";
+            // height: 300%;
+            // left: -50%;
+            // opacity: 0.1;
+            // position: absolute;
+            // top: -100%;
+            // width: 300%;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.hero_title {
+    color: $white;
+}
+
+.built_by,
+.made_by {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform:translate3d(0,0,0);
+    font-weight: 200;
+}
+
+//Grain animation
+@keyframes grain {
+    0%, 100% { transform:translate(0, 0) }
+    10% { transform:translate(-5%, -10%) }
+    20% { transform:translate(-15%, 5%) }
+    30% { transform:translate(7%, -25%) }
+    40% { transform:translate(-5%, 25%) }
+    50% { transform:translate(-15%, 10%) }
+    60% { transform:translate(15%, 0%) }
+    70% { transform:translate(0%, 15%) }
+    80% { transform:translate(3%, 35%) }
+    90% { transform:translate(-10%, 10%) }
+}
+
+.left {
+
+    .v-top {
+        align-items: flex-start;
+    }
+
+    .v-centre {
+        align-items: center;
+    }
+
+    .vbottom {
+        align-items: flex-end;
+    }
+
+    .split_content {
+        display: flex; 
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 1em;
+
+        @include respond-to(medium) {
+            flex-direction: row;
+        }
+
+        .image {
+            width: 100%;
+
+            @include respond-to(medium) {
+                width: 50%;
+            }
+
+            img {
+                display: block;
+                width: 100%;
+                height: auto
+            }
+        }
+
+        .content {
+            width: 100%;
+
+            @include respond-to(medium) {
+                width: 50%;
+            }
+
+            h3 {
+                margin-top: 0;
+            }
+
+            &.text-left {
+                text-align: left;
+            }
+
+            &.text-centre {
+                text-align: center;
+            }
+
+            &.text-right {
+                text-align: right;
+            }
+        }
+    }
+    
+
+    .left-aligned {
+       
+        .image {
+            order: 1;
+
+            @include respond-to(medium) {
+                order: 0;
+            }
+        }
+
+        .content {
+            order: 0;
+
+            @include respond-to(medium) {
+                order: 1;
+                padding-left: 1em;
+            }
+        }
+    }
+
+    .right-aligned {
+      
+        .image {
+            order: 1;
+        }
+
+        .content {
+            order: 0;
+
+            @include respond-to(medium) {
+                padding-right: 1em; 
+            }
+        }
+    }
+
+    .centre-aligned {
+        flex-direction: column;
+        
+        .content {
+            padding-top: 1em;
+        }
+    }
+    
+    .wp-caption-text {
+
+        color:  #1B2735;
+        font-size: 12px;
+        padding: 5px 10px;
+        display: inline-block;
+        vertical-align: middle;
+        width: calc(100% - 2px);
+        margin-left: 1px;
+        -webkit-box-shadow: 0 0 2px 0px rgba(0,0,0,0.4);
+        -moz-box-shadow: 0 0 2px 0px rgba(0,0,0,0.4);
+        box-shadow: 0 0 2px 0px rgba(0,0,0,0.4);
+
+        &:before {
+            /* use !important to prevent issues with browser extensions that change fonts */
+            font-family: 'IcoMoon' !important;
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            
+            /* Enable Ligatures ================ */
+            letter-spacing: 0;
+            -webkit-font-feature-settings: "liga";
+            -moz-font-feature-settings: "liga=1";
+            -moz-font-feature-settings: "liga";
+            -ms-font-feature-settings: "liga" 1;
+            -o-font-feature-settings: "liga";
+            font-feature-settings: "liga";
+
+            /* Better Font Rendering =========== */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+
+            content: '\e90d';
+            margin-right: 8px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    
+    img[class^='wp-image'], img[class*=' wp-image']{
+        width: 100%;
+        height: auto;
+    }
+
+    div[id^='attachment'], div[id*=' attachment']{
+        width: 80% !important;
+        margin: 30px auto;
+
+        .wp-caption-text {
+            margin: 0;
+        }
+
+        &.alignleft {
+            float: left;
+            margin-right: 1em;
+            width: 50% !important;
+        }
+
+        &.alignright {
+            float: right;
+            margin-left: 1em;
+            width: 50% !important;
+        }
+
+        &.aligncenter {
+            margin: 0 auto;
+            width: 50% !important;
+        }
+    }
+}

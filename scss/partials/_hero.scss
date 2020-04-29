@@ -1,0 +1,377 @@
+.hero {
+    text-align: center;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $color-primary;
+    position: relative;
+    
+
+    .portfolio &,
+    .blog &,
+    .contact & {
+        height: 30vh;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: radial-gradient(ellipse at left bottom, $color-primary 0%, #090A0F 100%);
+        z-index: 11;
+        opacity: 0;
+    }
+
+    .single-project & {
+        background: transparent;
+    }
+
+    .home & {
+        height: 100vh;
+        background: transparent;
+
+        @include respond-to(smallHeight) {
+            height: 480px;
+        }
+    }
+
+    #logo {
+            
+        display: block;
+        position: relative;
+        z-index: 10;
+        float: left;
+        width: 250px;
+        margin-top: -130px;
+        transition: all 1s ease-in-out;
+
+        opacity:0; 
+        animation:fadeIn 1s ease-in 0.5s 1 forwards, Floating 12s ease-in-out infinite;
+        will-change: transform;
+        @include respond-to(medium) {
+            width: 500px;
+
+            .shrink & {
+                //width: 100px;
+            }
+        }
+
+        @include respond-to(mediumAndHeight) {
+            width: 300px;
+        }
+    }
+
+    @-webkit-keyframes Floating{
+        from{transform:translate(0, 0);}
+        25% {transform:translate(0, -15px);}
+        50% {transform:translate(-15px, 0);}
+        75% {transform:translate(0, 15px);}
+        to  {-webkit-transform:translate(0, 0);}    
+    }
+        
+
+    //scene
+
+    .scene {
+        position: absolute;
+        top: 0px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        overflow: hidden;
+        background: $color-primary;
+        animation:fadeIn .2s ease-in 0s 1 forwards;
+        opacity: 0;
+    }
+
+    .noite {
+        background: radial-gradient(ellipse at left bottom, $color-primary 0%, #090A0F 100%);
+        //background: linear-gradient(to bottom, #00000c 80%,#000000 100%);
+        transition: all 1s ease-in;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        display: none;
+        
+        .home & {
+            display: block;
+        }
+    }
+    
+    .constelacao {
+        position: absolute;
+        left: -25%;
+        top: -25%;
+        width: 100%;
+        height: 100%;
+        animation: rotate 600s infinite linear;
+        display: none;
+        
+        .home & {
+            display: block;
+        }
+    }
+    
+    .estrela {
+        background-color: white;
+        border-radius: 50%;
+        position: absolute;
+        animation-name: estrela;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        display: none;
+        
+        .home & {
+            display: block;
+        }
+    }
+    
+    .estrela.style1 { animation-duration: 0.5s; animation-name: estrela; }
+    .estrela.style2 { animation-duration: 1s; animation-name: estrela; }
+    .estrela.style3 { animation-duration: 1.5s; animation-name: estrela; }
+    .estrela.style4 { animation-duration: 2s; animation-name: estrelaDestacada; }
+    
+    .estrela.tam1 { width: 1px; height: 1px; }
+    .estrela.tam2 { width: 2px; height: 2px; }
+    .estrela.tam3 { width: 3px; height: 3px; }
+    
+    .estrela.opacity1 { opacity:  1; }
+    .estrela.opacity2 { opacity: .5; }
+    .estrela.opacity3 { opacity: .1; }
+    
+    .meteoro {
+        position: absolute;
+        background-color: #fff;
+        width: 2px;
+        height: 2px;
+        border-radius: 50%;
+        transform: rotate(-35deg);
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-duration: 1s;
+        display: none;
+        
+        .home & {
+            display: block;
+        }
+    }
+    
+    .meteoro:before {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        width: 0;
+        height: 0;
+        border-top: 1px solid transparent;
+        border-bottom: 1px solid transparent;
+        border-left: 85px solid white;
+        position: absolute;
+        left: 2px;
+        top: 0;
+    }
+    
+    .meteoro.style1 { animation-name: meteoroStyle1; }
+    .meteoro.style2 { animation-name: meteoroStyle2; }
+    .meteoro.style3 { animation-name: meteoroStyle3; }
+    .meteoro.style4 { animation-name: meteoroStyle4; }
+    
+    
+    @keyframes escurecer {
+        0%   { top: 0; }
+        100% { top: 100%; }
+    }
+    
+    @keyframes estrela {
+        0% {
+        box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.05);
+        }
+        50% {
+        box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
+        }
+        100% {
+        box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.05);
+        }
+    }
+    
+    @keyframes estrelaDestacada {
+        0% {
+        background-color: #FFFFFF;
+        box-shadow: 0 0 10px 0px rgba(255, 255, 255, 1);
+        }
+        20% {
+        background-color: #FFC4C4;
+        box-shadow: 0 0 10px 0px rgba(255, 196, 196, 1);
+        }
+        80% {
+        background-color: #C4CFFF;
+        box-shadow: 0 0 10px 0px rgba(196, 207, 255, 1);
+        }
+        100% {
+        background-color: #FFFFFF;
+        box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.2);
+        }
+    }
+    
+    @keyframes meteoroStyle1 {
+        0% { opacity: 0; right: 300px; top: 100px; }
+        30% { opacity: .3; }
+        60% { opacity: .3; }
+        100% { opacity: 0; right: 1000px; top: 600px; }
+    }
+    
+    @keyframes meteoroStyle2 {
+        0% { opacity: 0; right: 700px; top: 100px; }
+        30% { opacity: 1; }
+        60% { opacity: 1; }
+        100% { opacity: 0; right: 1400px; top: 600px; }
+    }
+    
+    @keyframes meteoroStyle3 {
+        0% { opacity: 0; right: 300px; top: 300px; }
+        30% { opacity: 1; }
+        60% { opacity: 1; }
+        100% { opacity: 0; right: 1000px; top: 800px; }
+    }
+    
+    @keyframes meteoroStyle4 {
+        0% { opacity: 0; right: 700px; top: 300px; }
+        30% { opacity: 1; }
+        60% { opacity: 1; }
+        100% { opacity: 0; right: 1400px; top: 800px; }
+    }
+    
+    @keyframes lua {
+        0%{
+        box-shadow: 0 0 160px 0px #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);
+        }
+        50% {
+        box-shadow: 0 0 80px 0px #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);
+        }
+        100% {
+        box-shadow: 0 0 160px 0px #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);
+        }
+    }
+    
+    @keyframes rotate {
+        0% {
+        -webkit-transform: rotate(0deg);
+        transform-origin: center;
+        }
+        100% {
+        -webkit-transform: rotate(360deg);
+        transform-origin: center;
+        }
+    }
+
+
+    .hero-text {
+        position: relative;
+
+        .hero_title {
+    
+            z-index: 10;
+            font-size: 3em;
+            text-transform: uppercase;
+            text-align: left;
+            display: inline-block;
+        // text-shadow: 
+                //0px 15px 10px rgba(0, 0, 0, .6);
+                //0px 30px 25px rgba(0, 0, 0, .4),
+                //0px 45px 40px rgba(0, 0, 0, .4);
+            padding: 20px 30px;
+            vertical-align: middle;
+            //max-width: 800px;
+            margin: 0 !important;
+            //width: auto !important;
+        }
+        
+        .built_by {
+            position: absolute;
+            transform: rotate(-90deg);
+            right: 196px;
+            text-align: center;
+            top: 115px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 11px;
+            color: rgba(255,255,255,.5);
+        }
+        
+        
+        .made_by {
+            border-left: 2px solid $white;
+            margin-left: 30px;
+            padding: 30px;
+
+            &:after {
+                content: "Proudly built by";
+                transform: rotate(90deg);
+                color: $white;
+                
+            }
+        }
+    }
+
+    .box-border {
+    
+
+        //background: rgba(13, 19, 26, .95);
+        //border: 1px solid rgba(255, 255, 255, 0.5);
+        padding: 20px;
+
+        .hero_title {
+        
+            color: #fff;
+        }
+
+        }
+
+
+
+    .scroll-down-arrow {
+        position: absolute;
+        bottom: 80px;
+        left: 50%;
+        cursor: pointer;
+        margin-left: -20px;
+        width: 20px;
+        height: 20px;
+        padding: 20px;
+        z-index: 99;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 50em;
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGRkZGRkYiIGQ9Ik0yOTMuNzUxLDQ1NS44NjhjLTIwLjE4MSwyMC4xNzktNTMuMTY1LDE5LjkxMy03My42NzMtMC41OTVsMCwwYy0yMC41MDgtMjAuNTA4LTIwLjc3My01My40OTMtMC41OTQtNzMuNjcyICBsMTg5Ljk5OS0xOTBjMjAuMTc4LTIwLjE3OCw1My4xNjQtMTkuOTEzLDczLjY3MiwwLjU5NWwwLDBjMjAuNTA4LDIwLjUwOSwyMC43NzIsNTMuNDkyLDAuNTk1LDczLjY3MUwyOTMuNzUxLDQ1NS44Njh6Ii8+DQo8cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMjIwLjI0OSw0NTUuODY4YzIwLjE4LDIwLjE3OSw1My4xNjQsMTkuOTEzLDczLjY3Mi0wLjU5NWwwLDBjMjAuNTA5LTIwLjUwOCwyMC43NzQtNTMuNDkzLDAuNTk2LTczLjY3MiAgbC0xOTAtMTkwYy0yMC4xNzgtMjAuMTc4LTUzLjE2NC0xOS45MTMtNzMuNjcxLDAuNTk1bDAsMGMtMjAuNTA4LDIwLjUwOS0yMC43NzIsNTMuNDkyLTAuNTk1LDczLjY3MUwyMjAuMjQ5LDQ1NS44Njh6Ii8+DQo8L3N2Zz4=);
+        background-size: 20px 15px;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: 3px solid transparent;
+        opacity: 0;
+        animation:fadeIn 1s ease-in 2.5s 1 forwards, bounce 2s infinite;
+        z-index: 11;
+
+        @include easeAnimation;
+
+        &:hover {
+            animation-play-state: paused;
+            border-color: rgba(255, 255, 255, .5);
+        }
+
+        span{
+            position: absolute;
+            left: -9999px;
+        }
+    }
+}
+
+.hero-image {
+    .move-image {
+        transform: scale(1.1);
+    }
+}

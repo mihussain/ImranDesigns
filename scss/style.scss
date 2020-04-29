@@ -1,1 +1,22 @@
+
+@import 'helpers/reset';
+@import 'helpers/utilities';
+@import 'helpers/typography';
+@import 'helpers/colours';
+@import 'helpers/variables';
+@import 'helpers/animation';
+@import 'helpers/icons';
+
+@import 'partials/hero';
+@import 'partials/breadcrumbs';
+@import 'partials/sidebar';
+
+@import 'header';
 @import 'screen';
+@import 'portfolio';
+@import 'dynamic';
+@import 'blog';
+@import 'contact_form';
+@import 'footer';
+@import 'single_project';
+

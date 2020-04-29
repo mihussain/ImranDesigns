@@ -1,0 +1,59 @@
+.nf-form-fields-required {
+font-size: .8em;
+margin-bottom: 2em;
+}
+
+.form_element input {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.name_container {
+    width: 100%;
+    margin-right: 5%;
+
+    @include respond-to(small) {
+        width: 45%;
+        float: left;
+        clear:none !important;
+    }
+}
+
+.email_container {
+    width: 100%;
+
+    @include respond-to(small) {
+        width: 50%;
+        float: left;
+        clear:none !important;
+    }
+}
+
+.message_container {
+    textarea {
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 1em;
+    }
+}
+
+.form_element input, .form_element textarea {
+    @include easeAnimation;
+    border: 1px solid $color-primary;
+
+    &:focus {
+     
+        box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+        border: 1px solid rgba(0, 0, 0, 1);
+        outline:none;
+    }
+}
+
+.form_element {
+    .submit_button {
+        &:hover {
+            background-color: $third;
+        }
+    }
+}

@@ -1,7 +1,9 @@
 
 			<?php wp_footer(); ?>
 		</div>
-	</body>
 
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+		<!-- Loading require.js -->
+		<script async data-main="<?php echo get_stylesheet_directory_uri() ?>/js/main.min.js" src="<?php echo get_stylesheet_directory_uri() ?>/js/vendor/require.js"></script>
+	
+	</body>
 </html>

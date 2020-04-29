@@ -10,34 +10,49 @@
  */
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
-	<section class="page-content">
-		<div class="central_container"> 
+	<main class="blog" role="main">
+
 			<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 
-			<div class="container">
+			
 				<div class="central_container"> 
-					<article>
-						<div class="left">
-							<h2><?php the_title(); ?></h2>
-							<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> <?php the_time(); ?></time> <?php //comments_popup_link('Leave a Comment', '1 Comment', '% Comments'); ?>
-							<?php the_content(); ?>			
+				
+						<div class="title">
+						<h2><?php the_title(); ?></h2>
+						</div>
+						<div class="bar">
+			<div class="breadcrumb">
+				<a class="step" href="<?php echo bloginfo('url'); ?>"><span class="icon icon-home"></span></a><a class="step" href="<?php echo bloginfo('url'); ?>blog">Blog</a><span class="current step"><?php the_title(); ?></span>
+			</div>
+			<div class="meta">This blog post was created on the <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?></time></div>
+		</div>
 
-							<?php if ( get_the_author_meta( 'description' ) ) : ?>
-							<?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?>
-							<h3>About <?php echo get_the_author() ; ?></h3>
-							<?php the_author_meta( 'description' ); ?>
-							<?php endif; ?>
+				
+						<?php /* if (has_post_thumbnail( $post->ID ) ): ?>
+								<?php $featuredImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'featured-image' ); ?>
+						  		<div class="article-featured-image">
+									<img src="<?php echo $featuredImage[0]; ?>" />
+								</div>
+						<?php endif; */ ?>
+					
+						<article>
+						<div class="main-content">
+							<div class="left" role="article">
+								<?php the_content(); ?>
+							</div>
 						</div>
-						<div class="sidebar">
-						</div>
+						<?php if ( get_the_author_meta( 'description' ) ) : ?>
+						<?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?>
+						<h3>About <?php echo get_the_author() ; ?></h3>
+						<?php the_author_meta( 'description' ); ?>
+						<?php endif; ?>
+					
 					</article>
 				</div>
-			</div>
 
-				<?php// comments_template( '', true ); ?>
 
 			</article>
 			<?php endwhile; ?>
-		</div>
-	</section>
+
+	</main>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer' ) ); ?>

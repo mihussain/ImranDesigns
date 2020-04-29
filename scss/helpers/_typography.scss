@@ -1,0 +1,311 @@
+// Typography
+//
+// We use the 62.5% reset thing to set our base typography to ~10px
+//
+// Styleguide 1.0
+
+// styleguide:ignore:start
+@import 'helpers/variables';
+@import 'helpers/colours';
+
+
+@font-face {
+    font-family: 'IcoMoon';
+    src: url('fonts/IcoMoon.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    font-style: normal;
+    font-weight: 700;
+    font-display: block;
+    src: url('fonts/heebo-v3-latin-700.eot'); /* IE9 Compat Modes */
+    src: local('Heebo Bold'), local('Heebo-Bold'),
+         url('fonts/heebo-v3-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('fonts/heebo-v3-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+         url('fonts/heebo-v3-latin-700.woff') format('woff'), /* Modern Browsers */
+         url('fonts/heebo-v3-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('fonts/heebo-v3-latin-700.svg#Heebo') format('svg'); /* Legacy iOS */
+  }
+
+@font-face {
+    font-family: 'handleeregular';
+    src: url('fonts/handlee-regular-webfont.woff2') format('woff2'),
+         url('fonts/handlee-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url('fonts/roboto-v18-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local('Roboto'), local('Roboto-Regular'),
+         url('fonts/roboto-v18-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('fonts/roboto-v18-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('fonts/roboto-v18-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('fonts/roboto-v18-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('fonts/roboto-v18-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+  }
+
+html, .sg-html {
+    font-size: 62.5%; /* render at ~10px for our baseline */
+    line-height: 1.4;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+h1 { 
+    font-family: 'Heebo';
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    font-family: 'Heebo';
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    //text-transform: uppercase;
+    color: $color__text;
+}
+
+h2.hero_title{
+    font-family: 'Heebo';
+    font-weight: 900;
+}
+
+h3 {
+    margin: 1.5em 0 .5em 0;
+    padding: 0;
+    font-family: 'Heebo';
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    //text-transform: uppercase;
+    color: $color__text;
+    clear: both; 
+}
+
+h6 {
+    margin: 0 0 1em;
+    font-family: 'handleeregular';
+    background-color: #3b516f;
+    color: #fff;
+    padding: 8px 8px 4px;
+    display: inline-block;
+    margin-top: -3px;
+    font-weight: 400;
+    //text-transform: uppercase;
+    font-size: 26px;
+
+    .single-project & {
+        margin: 15px 0 1em;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+h4, h5 {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+p {
+    margin: 0 0 1em 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    line-height: 1.8;
+
+    @include respond-to(large) {
+        line-height: 1.5;
+    }
+    
+}
+
+ul, ol {
+    margin: 0 0 1em 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;   
+}
+
+li {
+    margin: 0 0 .5em 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;   
+}
+
+.main-content{
+    h1, h2, h3, h4, h5, h6 {
+        //font-family: 'Lato', sans-serif;
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-top: 0;
+        margin-bottom: .8em;
+        padding: 0;
+    }
+    
+    h1 {
+       font-size: 2em;
+    } 
+
+    h2 {
+       font-size: 1.8em;
+    } 
+
+    h3 {
+       font-size: 1.6em;
+    } 
+
+    h4 {
+       font-size: 1.4em;
+    } 
+
+    h5 {
+        font-size: 1.2em
+    }
+
+    h6 {
+        font-size: 1em;
+    }
+
+}
+
+blockquote {
+    margin-left: 15px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-right: 20px;
+    border-right: 4px solid #ccc;
+    //border-bottom: 1px solid #1B2735;
+    padding:15px 20px 0px 20px;
+    font-style: italic;
+    font-size: 16px;
+    text-align: right;
+    color: rgba($color: #000000, $alpha: .6);
+    position: relative;
+
+    @include respond-to(medium) {
+        margin-left: 50px;
+    }
+}
+
+blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 80px;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    color: #7a7a7a;
+}
+ 
+// styleguide:ignore:end
+
+
+
+// Base typography
+//
+// markup:
+// <div class="sg-html">
+//      <div class="sg-type-wrapper">
+//          <h1>Heading 1</h1>
+//          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+//          
+//     </div>
+// </div>
+//
+// Styleguide 1.1
+
+
+
+$base-font-size: 16;
+
+body, .sg-type-wrapper {
+    @include relativetype(10, $base-font-size, 22);
+
+    font-family: 'Lato', sans-serif;
+}
+
+// Type Definitions
+//
+// In the style of type-setting of old, we use terms from Moveable Type to define a typographic hierarchy that doesn't impose intent of purpose or tags to be implemented. Ref: http://en.wikipedia.org/wiki/Point_(typography)#Traditional_point-size_names
+//
+// .trafalgar - top level heading
+// .double-pica - 2nd level
+// .paragon - 3rd level
+// .great-primer - 4th level
+// .long-primer - smaller than body copy
+//
+// markup:
+// <div class="sg-html">
+//     <div class="sg-type-wrapper">
+//         <p class="{$modifiers}">{$modifiers}</p>
+//     </div>
+// </div>
+//
+// Styleguide 1.2
+
+.trafalgar {
+    @media (max-width: 50em) {
+        @include relativetype($base-font-size, 38, 45);
+    }
+    @media (min-width: 50em) {
+        @include relativetype($base-font-size, 53, 62);
+    }
+}
+
+.double-pica {
+    @include relativetype($base-font-size, 30, 36);
+}
+
+.paragon {
+    @include relativetype($base-font-size, 24, 28);
+}
+
+.great-primer {
+    @include relativetype($base-font-size, 20, 28);
+}
+
+.long-primer {
+    @include relativetype($base-font-size, 12, 16);
+}
+
+
+/* case */
+.trafalgar, .double-pica, .paragon, .long-primer {
+    text-transform: uppercase;
+}
+
+
+/* tracking */
+.trafalgar, .double-pica, .paragon {
+    letter-spacing: .06em;
+}
+
+
+ /* weights */
+.trafalgar, .double-pica {
+    font-weight: normal;
+}
+
+.pica {
+    font-weight: bold;
+}
+
+
+.text-center {
+    text-align: center;
+}

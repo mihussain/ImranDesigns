@@ -9,7 +9,7 @@
  	 * @since 		Starkers 4.0
 	 */
 
-	/* ========================================================================================================================
+	/* ======================================================e ==================================================================
 	
 	Required external files
 	
@@ -27,9 +27,14 @@
 
 	add_theme_support('post-thumbnails');
 
-	add_image_size( 'portfolio-thumb', 600, 600, true ); //
-	add_image_size( 'sidebar-thumb', 120, 120, true ); // Hard Crop Mode
+	add_image_size( 'portfolio-thumb', 300, 300, true ); 
+	add_image_size( 'portfolio-thumb-retina', 600, 600, true );
+	add_image_size( 'portfolio-thumb-large', 400, 400, true );
+	add_image_size( 'portfolio-thumb-large-retina', 800, 800, true );
+	add_image_size( 'project-featured', 750, 191, true );
+	add_image_size( 'project-featured-retina', 1500, 382, true );
 	add_image_size( 'featured-image', 1024, 768, true ); // 
+
 
 	/* ========================================================================================================================
 	
@@ -41,6 +46,28 @@
 
 	add_filter( 'body_class', array( 'Starkers_Utilities', 'add_slug_to_body_class' ) );
 
+	/* SCRIPTS */
+
+
+	add_action( 'wp_default_scripts', 'move_jquery_into_footer' );
+
+	function move_jquery_into_footer( $wp_scripts ) {
+
+	    if( is_admin() ) {
+	        return;
+	    }
+
+	    $wp_scripts->add_data( 'jquery', 'group', 1 );
+	    $wp_scripts->add_data( 'jquery-core', 'group', 1 );
+	    $wp_scripts->add_data( 'jquery-migrate', 'group', 1 );
+	}
+
+	function my_theme_scripts() {
+	    //wp_enqueue_script( 'jquery-script', get_template_directory_uri() . '/js/vendor/jquery-3.1.1.min.js', array( 'jquery' ), '3.1.1', true );
+	}
+
+	add_action( 'wp_enqueue_scripts', 'my_theme_scripts' );
+
 	/* ========================================================================================================================
 	
 	Custom Post Types - include custom post types and taxonimies here e.g.
@@ -48,9 +75,6 @@
 	e.g. require_once( 'custom-post-types/your-custom-post-type.php' );
 	
 	======================================================================================================================== */
-
-
-
 	/* ========================================================================================================================
 	
 	Scripts
@@ -67,18 +91,25 @@
 	function starkers_script_enqueuer() {
 
 
-		wp_register_script( 'transit', get_template_directory_uri().'/js/vendor/jquery.transit.min.js', array( 'jquery' ), '', true );
-		wp_enqueue_script( 'transit' );
+		//wp_register_script( 'transit', get_template_directory_uri().'/js/vendor/jquery.transit.min.js', array( 'jquery' ), '', true );
+		//wp_enqueue_script( 'transit' );
 
-		wp_register_script( 'mixitup', get_template_directory_uri().'/js/vendor/jquery.mixitup.min.js', array( 'jquery' ), '', true );
-		wp_enqueue_script( 'mixitup' );
+		//wp_register_script( 'rgbaster', get_template_directory_uri().'/js/vendor/rgbaster.min.js', array( 'jquery' ), '', true );
+		//wp_enqueue_script( 'rgbaster' );
 
-		wp_register_script( 'site', get_template_directory_uri().'/js/main.js', array( 'jquery' ), '', true );
-		wp_enqueue_script( 'site' );
+		//wp_register_script( 'mixitup', get_template_directory_uri().'/js/vendor/jquery.mixitup.min.js', array( 'jquery' ), '', true );
+		//wp_enqueue_script( 'mixitup' );
 
-		wp_register_style( 'screen', get_stylesheet_directory_uri().'/style.css', '', '', 'screen' );
+		//wp_register_script( 'require', get_template_directory_uri().'/js/vendor/require.js', array(), null, true );
+		//wp_enqueue_script( 'require' );
+
+		//wp_register_script( 'site', get_template_directory_uri().'/js/main.min.js', array( 'jquery' ), '', true );
+		//wp_enqueue_script( 'site' );
+
+		wp_register_style( 'screen', get_stylesheet_directory_uri().'/style.min.css', '', '', 'screen' );
         wp_enqueue_style( 'screen' );
 	}	
+
 
 	/* ========================================================================================================================
 	
@@ -113,7 +144,10 @@
 	======================================================================================================================== */
 
 	function menu() {
-		register_nav_menu('header-menu',__( 'Header Menu' ));
+		register_nav_menu('header-menu--left',__( 'Header Menu Left' ));
+		register_nav_menu('header-menu--right',__( 'Header Menu Right' ));
+		register_nav_menu('header-menu--mobile',__( 'Header Mobile Menu' ));
+		register_nav_menu('footer-menu',__( 'Footer Menu' ));
 	}
 
 	add_action( 'init', 'menu' );
@@ -173,3 +207,99 @@
    return '… <a href="'. get_permalink($post->ID) . '">' . 'Read More &raquo;' . '</a>';
    }
    add_filter('excerpt_more', 'new_excerpt_more');
+
+   /*
+	get categories without the hyperlink 
+   */
+
+	function user_the_categories() {
+	    // get all categories for this post
+	    global $cats;
+	    $cats = get_the_category();
+	    // echo the first category
+	    echo $cats[0]->cat_name;
+	    // echo the remaining categories, appending separator
+	    for ($i = 1; $i < count($cats); $i++) {echo ', ' . $cats[$i]->cat_name ;}
+	}
+
+// Custom wysiwyg formatting 
+
+function add_style_select_buttons( $buttons ) {
+    array_unshift( $buttons, 'styleselect' );
+    return $buttons;
+}
+// Register our callback to the appropriate filter
+add_filter( 'mce_buttons_2', 'add_style_select_buttons' );
+
+//add custom styles to the WordPress editor
+function my_custom_styles( $init_array ) {  
+
+    $style_formats = array(  
+        // These are the custom styles
+        array(  
+            'title' => 'Left Aligned Image Block',  
+            'block' => 'div',  
+            'classes' => 'left-aligned',
+            'wrapper' => true,
+        ),  
+        array(  
+            'title' => 'Right Aligned Image Block',  
+            'block' => 'div',  
+            'classes' => 'right-aligned',
+            'wrapper' => true,
+        ),
+        array(  
+            'title' => 'Highlighter',  
+            'block' => 'span',  
+            'classes' => 'highlighter',
+            'wrapper' => true,
+        ),
+    );  
+    // Insert the array, JSON ENCODED, into 'style_formats'
+    $init_array['style_formats'] = json_encode( $style_formats );  
+    
+    return $init_array;  
+  
+} 
+// Attach callback to 'tiny_mce_before_init' 
+add_filter( 'tiny_mce_before_init', 'my_custom_styles' );
+
+
+/****************************************************
+* XML Sitemap in WordPress
+*****************************************************/
+
+function xml_sitemap() {
+	$postsForSitemap = get_posts(array(
+	  'numberposts' => -1,
+	  'orderby' => 'modified',
+	  'post_type'  => array('post','page','project'),
+	  'order'    => 'DESC'
+	));
+  
+	$sitemap = '<?xml version="1.0" encoding="UTF-8"?>';
+	$sitemap .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+  
+	foreach($postsForSitemap as $post) {
+	  setup_postdata($post);
+  
+	  $postdate = explode(" ", $post->post_modified);
+  
+	  $sitemap .= '<url>'.
+		'<loc>'. get_permalink($post->ID) .'</loc>'.
+		'<lastmod>'. $postdate[0] .'</lastmod>'.
+		'<changefreq>monthly</changefreq>'.
+	  '</url>';
+	}
+  
+	$sitemap .= '</urlset>';
+  
+	$fp = fopen(ABSPATH . "sitemap.xml", 'w');
+	fwrite($fp, $sitemap);
+	fclose($fp);
+  }
+  
+  add_action("publish_post", "xml_sitemap");
+  add_action("publish_page", "xml_sitemap");
+  add_action("publish_project", "xml_sitemap");
+  ?>
