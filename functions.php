@@ -302,4 +302,44 @@ function xml_sitemap() {
   add_action("publish_post", "xml_sitemap");
   add_action("publish_page", "xml_sitemap");
   add_action("publish_project", "xml_sitemap");
-  ?>
+  
+
+/****************************************************
+* MetaData
+*****************************************************/
+
+function _set_meta_tag() {
+
+	if(is_home()) {
+		$output .= '<meta name="description" content="Welcome to the ImranDesigns blog page, The home to all things related to front-end web development and digital design" />';
+	} else {
+
+		if(get_field('meta_description')){
+			$output .= '<meta name="description" content="'.get_field('meta_description').'" />';
+		}else {
+			$output .= '<meta name="description" content="Welcome to ImranDesigns" />';
+		}
+	}
+
+ 	echo $output;
+
+}
+
+add_action('wp_head', '_set_meta_tag');
+
+
+/****************************************************
+* homepage title
+*****************************************************/
+
+add_filter( 'wp_title', 'baw_hack_wp_title_for_home' );
+
+function baw_hack_wp_title_for_home( $title )
+{
+  if( empty( $title ) && ( is_home() || is_front_page() ) ) {
+    return __( ' | Home', 'theme_domain' );
+  }
+  return $title;
+}
+
+?>

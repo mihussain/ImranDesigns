@@ -18,11 +18,11 @@
 				<div class="central_container"> 
 				
 						<div class="title">
-						<h2><?php the_title(); ?></h2>
+						<h1><?php the_title(); ?></h1>
 						</div>
 						<div class="bar">
 			<div class="breadcrumb">
-				<a class="step" href="<?php echo bloginfo('url'); ?>"><span class="icon icon-home"></span></a><a class="step" href="<?php echo bloginfo('url'); ?>blog">Blog</a><span class="current step"><?php the_title(); ?></span>
+				<a class="step" href="<?php echo bloginfo('url'); ?>"><span class="icon icon-home"></span></a><a class="step" href="<?php echo bloginfo('url'); ?>/blog">Blog</a><span class="current step"><?php the_title(); ?></span>
 			</div>
 			<div class="meta">This blog post was created on the <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?></time></div>
 		</div>
