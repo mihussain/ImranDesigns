@@ -4,7 +4,10 @@
 			<div class="col_container">
 				<div class="col_1">
 					<div class="footer_logo_social">
-						<a class="footer_logo" href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/imrandesigns_logo.svg" width="100" height="auto" alt="ImranDesigns logo, small" /></a>
+						<a class="footer_logo" href="<?php echo home_url(); ?>">
+							<img class="lazy" data-src="<?php echo get_template_directory_uri(); ?>/images/imrandesigns_logo.svg" width="100" height="auto" alt="ImranDesigns logo, small" />
+							<noscript><img src="<?php echo get_template_directory_uri(); ?>/images/imrandesigns_logo.svg" width="100" height="auto" alt="ImranDesigns logo, small" /></noscript>
+						</a>
 						<div class="social">
 							<a href="https://www.facebook.com/ImranDesigns/" aria-label="Facebook" target="_blank" rel="noreferrer"><span class="icon icon-facebook2"></span></a>
 							<a href="https://twitter.com/imrandesigns" aria-label="Twitter" target="_blank" rel="noreferrer"><span class="icon icon-twitter"></span></a>

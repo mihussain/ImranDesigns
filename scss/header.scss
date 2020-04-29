@@ -12,6 +12,10 @@ header {
 
     @include easeAnimation;
 
+    .admin-bar & {
+        top: 32px;
+    }
+
     &.header-up {
         transform: translateY(-75px);
     }
@@ -50,7 +54,7 @@ header {
 
     img {
         display:inline-block !important;
-        margin-top: 9px;
+        margin-top: 0;
         @include easeAnimation;
         
 

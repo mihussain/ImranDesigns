@@ -8,6 +8,13 @@
     background: $color-primary;
     position: relative;
     
+
+    .portfolio &,
+    .blog &,
+    .contact & {
+        height: 30vh;
+    }
+
     .overlay {
         position: absolute;
         top: 0;
@@ -26,6 +33,10 @@
     .home & {
         height: 100vh;
         background: transparent;
+
+        @include respond-to(smallHeight) {
+            height: 480px;
+        }
     }
 
     #logo {
@@ -43,12 +54,14 @@
         will-change: transform;
         @include respond-to(medium) {
             width: 500px;
-        
-        
 
             .shrink & {
                 //width: 100px;
             }
+        }
+
+        @include respond-to(mediumAndHeight) {
+            width: 300px;
         }
     }
 

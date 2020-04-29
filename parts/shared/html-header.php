@@ -16,16 +16,16 @@
 		
 		<?php wp_head(); ?>
 
-		<!-- Hotjar Tracking Code for http://test.imrandesigns.co.uk -->
+		<!-- Hotjar Tracking Code for www.imrandesigns.co.uk -->
 		<script>
-		    (function(h,o,t,j,a,r){
-		        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-		        h._hjSettings={hjid:331974,hjsv:5};
-		        a=o.getElementsByTagName('head')[0];
-		        r=o.createElement('script');r.async=1;
-		        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-		        a.appendChild(r);
-		    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+			(function(h,o,t,j,a,r){
+				h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+				h._hjSettings={hjid:324063,hjsv:6};
+				a=o.getElementsByTagName('head')[0];
+				r=o.createElement('script');r.async=1;
+				r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+				a.appendChild(r);
+			})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 		</script>
 
 		<!-- Google Analytics -->
@@ -35,7 +35,7 @@
 		  	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		  	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-		  	ga('create', 'UA-87180319-1', 'auto');
+		  	ga('create', 'UA-21113493-2', 'auto');
 		  	ga('send', 'pageview');
 		</script>
 	</head>

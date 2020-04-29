@@ -6,7 +6,7 @@
     margin-bottom: 1em;
     border-radius: 3px;
     clear: both;
-    font-size: 12px;
+    font-size: 14px;
 
   &:after {
       content: '';
@@ -22,6 +22,7 @@
         a, .current {
             color:  $color-primary;
             display: inline-block;
+            text-decoration: none;
 
             &:not(:last-child) {
                 cursor: pointer;
@@ -30,7 +31,7 @@
             &.step {
                 border-left: 1px solid #ccc;
                 padding: 7px 14px;
-
+                vertical-align: center;
 
                 &:first-child {
                     border-left: 0;

@@ -24,6 +24,14 @@ $break-extralarge: 1500px;
   @else if $media == extralarge {
     @media only screen and (min-width: $break-extralarge) { @content; }
   }
+
+  @else if $media == mediumAndHeight {
+    @media only screen and (min-width: $break-medium) and (max-height: $break-medium) { @content; }
+  }
+
+  @else if $media == smallHeight {
+    @media only screen and (max-height: $break-small) { @content; }
+  }
 }
 
 // How to use 

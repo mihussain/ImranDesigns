@@ -222,3 +222,84 @@
 	    for ($i = 1; $i < count($cats); $i++) {echo ', ' . $cats[$i]->cat_name ;}
 	}
 
+// Custom wysiwyg formatting 
+
+function add_style_select_buttons( $buttons ) {
+    array_unshift( $buttons, 'styleselect' );
+    return $buttons;
+}
+// Register our callback to the appropriate filter
+add_filter( 'mce_buttons_2', 'add_style_select_buttons' );
+
+//add custom styles to the WordPress editor
+function my_custom_styles( $init_array ) {  
+
+    $style_formats = array(  
+        // These are the custom styles
+        array(  
+            'title' => 'Left Aligned Image Block',  
+            'block' => 'div',  
+            'classes' => 'left-aligned',
+            'wrapper' => true,
+        ),  
+        array(  
+            'title' => 'Right Aligned Image Block',  
+            'block' => 'div',  
+            'classes' => 'right-aligned',
+            'wrapper' => true,
+        ),
+        array(  
+            'title' => 'Highlighter',  
+            'block' => 'span',  
+            'classes' => 'highlighter',
+            'wrapper' => true,
+        ),
+    );  
+    // Insert the array, JSON ENCODED, into 'style_formats'
+    $init_array['style_formats'] = json_encode( $style_formats );  
+    
+    return $init_array;  
+  
+} 
+// Attach callback to 'tiny_mce_before_init' 
+add_filter( 'tiny_mce_before_init', 'my_custom_styles' );
+
+
+/****************************************************
+* XML Sitemap in WordPress
+*****************************************************/
+
+function xml_sitemap() {
+	$postsForSitemap = get_posts(array(
+	  'numberposts' => -1,
+	  'orderby' => 'modified',
+	  'post_type'  => array('post','page','project'),
+	  'order'    => 'DESC'
+	));
+  
+	$sitemap = '<?xml version="1.0" encoding="UTF-8"?>';
+	$sitemap .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+  
+	foreach($postsForSitemap as $post) {
+	  setup_postdata($post);
+  
+	  $postdate = explode(" ", $post->post_modified);
+  
+	  $sitemap .= '<url>'.
+		'<loc>'. get_permalink($post->ID) .'</loc>'.
+		'<lastmod>'. $postdate[0] .'</lastmod>'.
+		'<changefreq>monthly</changefreq>'.
+	  '</url>';
+	}
+  
+	$sitemap .= '</urlset>';
+  
+	$fp = fopen(ABSPATH . "sitemap.xml", 'w');
+	fwrite($fp, $sitemap);
+	fclose($fp);
+  }
+  
+  add_action("publish_post", "xml_sitemap");
+  add_action("publish_page", "xml_sitemap");
+  add_action("publish_project", "xml_sitemap");
+  ?>

@@ -16,7 +16,7 @@
 
 			
 				<div class="central_container"> 
-					<article>
+				
 						<div class="title">
 						<h2><?php the_title(); ?></h2>
 						</div>
@@ -24,18 +24,23 @@
 			<div class="breadcrumb">
 				<a class="step" href="<?php echo bloginfo('url'); ?>"><span class="icon icon-home"></span></a><a class="step" href="<?php echo bloginfo('url'); ?>blog">Blog</a><span class="current step"><?php the_title(); ?></span>
 			</div>
-			<div class="meta">This blog post was created on the <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> at <?php the_time(); ?></time></div>
+			<div class="meta">This blog post was created on the <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?></time></div>
 		</div>
 
 				
-						<?php if (has_post_thumbnail( $post->ID ) ): ?>
+						<?php /* if (has_post_thumbnail( $post->ID ) ): ?>
 								<?php $featuredImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'featured-image' ); ?>
 						  		<div class="article-featured-image">
 									<img src="<?php echo $featuredImage[0]; ?>" />
 								</div>
-						<?php endif; ?>
-						<div class="main-content"><?php the_content(); ?></div>
-
+						<?php endif; */ ?>
+					
+						<article>
+						<div class="main-content">
+							<div class="left" role="article">
+								<?php the_content(); ?>
+							</div>
+						</div>
 						<?php if ( get_the_author_meta( 'description' ) ) : ?>
 						<?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?>
 						<h3>About <?php echo get_the_author() ; ?></h3>
@@ -44,8 +49,7 @@
 					
 					</article>
 				</div>
-	
-				<?php// comments_template( '', true ); ?>
+
 
 			</article>
 			<?php endwhile; ?>

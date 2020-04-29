@@ -21,7 +21,10 @@
 			<div class="breadcrumb">
 				<a class="step" href="<?php echo bloginfo('url'); ?>"><span class="icon icon-home"></span></a><a class="step" href="<?php echo bloginfo('url'); ?>/portfolio">Portfolio</a><span class="current step"><?php the_title(); ?></span>
 			</div>
-			<a class="project_link" href="<?php the_field('url'); ?>" target="_blank">View Website</a> 
+			
+			<?php if (get_field('url')) : ?>
+				<a class="project_link" href="<?php the_field('url'); ?>" target="_blank">View Website</a> 
+			<?php endif; ?>
 		</div>
 			<article>
 				<div class="left" role="article">
@@ -32,13 +35,34 @@
 						    // split content into array
 						    $content = split_content();
 						    // output first content section in column1
-						    echo '<div id="column1">', array_shift($content), '</div>';
+						    echo '<div id="column1" class="fade">', array_shift($content), '</div>';
 						?>						
 
 						<?php
 							if( have_rows('images') ): ?>
 
-								<div class="image_section">
+								<?php 
+									$img_counter = 0; 
+									$isLimited = false;
+									$limted = '';
+								?>
+
+								<?php while ( have_rows('images') ) : the_row(); 
+
+								$image = get_sub_field('image');
+									if( !empty($image) ): 
+										$img_counter ++;
+									endif;
+								endwhile; ?>
+
+								<?php 
+									if( $img_counter > 15) {
+										$isLimited = true;
+										$limited = ' limited';
+									} 
+								?>
+
+								<div class="image_section fade <?php echo $limited ?>">
 
 							    <?php while ( have_rows('images') ) : the_row(); 
 
@@ -49,7 +73,7 @@
 										$url = $image['url'];
 										$title = $image['title'];
 										$alt = $image['alt'];
-										$caption = $image['caption'];
+										//$caption = $image['caption'];
 
 										// thumbnail
 										$size = 'thumbnail';
@@ -62,7 +86,8 @@
 										<?php endif; ?>
 
 										<a href="<?php echo $url; ?>" title="<?php echo $title; ?>">
-											<img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" />
+											<img class="lazy" data-src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" />
+											<noscript><img src="<?php echo $thumb; ?>" alt="<?php echo $alt; ?>" width="<?php echo $width; ?>" height="<?php echo $height; ?>" /></noscript>
 										</a>
 
 										<?php if( $caption ): ?>
@@ -71,7 +96,16 @@
 										<?php endif; ?>
 									<?php endif; ?>
 								<?php endwhile; ?>
-								
+
+								<?php 
+									if($isLimited) {
+										$hidden_images = $img_counter - 10;
+										echo '<span class="show_more">Show remaining images <span class="remaining_images">' . $hidden_images . '</span></span>';
+									}
+								?>
+
+									<span class="show_less">Hide images</span>
+
 								</div>
 
 							<?php else :
@@ -81,26 +115,68 @@
 
 						<?php
 							// output remaining content sections in column2
-						    echo '<div id="column2">', implode($content), '</div>';
+						    echo '<div id="column2" class="fade">', implode($content), '</div>';
 						?>
 
 
-					
-		
-				</div>
+						<?php 
+						// aligned content (if set)
 
-				<?php if ( !empty($value) || !empty($terms) || get_field('url')) : ?>
+							// check if the repeater field has rows of data
+							if( have_rows('aligned_image_text') ):
+
+								// loop through the rows of data
+							while ( have_rows('aligned_image_text') ) : the_row();
+
+								$alignment_image = get_sub_field('alignment_image');
+								$image_url = esc_url($alignment_image['url']);
+								$image_alt = esc_attr($alignment_image['alt']);
+								$image_caption = esc_html($alignment_image['caption']);
+
+
+								?>
+
+								<div class="split_content fade <?php the_sub_field('image_alignment_options'); ?> <?php the_sub_field('vertical_alignment'); ?>">
+									<?php if (!empty($alignment_image)): ?>
+										<div class="image wp-caption">
+											<img class="lazy" data-src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>" />
+											<noscript><img src="<?php echo $image_url; ?>" alt="<?php echo $image_alt; ?>" /></noscript>
+											<p class="wp-caption-text"><?php echo $image_caption; ?></p>
+										</div>
+									<?php endif ?>
+
+									<div class="content <?php the_sub_field('text_alignment_options'); ?>">
+										<?php the_sub_field('text'); ?>
+									</div>
+								</div>
+								<?php 
+
+							endwhile;
+
+							else :
+
+							// no rows found
+
+							endif;
+
+						?>
+		
+					</div>
+
+				<?php 
+				$field = get_field_object('features');
+				$value = $field['value'];
+				$choices = $field['choices'];
+				
+				if ( !empty($value) || !empty($terms) || get_field('url')) : ?>
 				<div class="sidebar" role="complementary">
 					
 					<div class="details">
 						<?php 
-						$field = get_field_object('features');
-						$value = $field['value'];
-						$choices = $field['choices'];
 
 						if( $value ): ?>
 							<div class="section">
-								<span class="section__heading"><span class="icon icon-stack"></span> This website uses:</span>
+								<span class="section__heading"><span class="icon icon-stack"></span> This project uses:</span>
 								<span class="section__body">
 									<ul class="features">
 										<?php foreach( $value as $v ): ?>

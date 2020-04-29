@@ -1,21 +1,67 @@
-define([], function($) {
+define(['jquery'], function($) {
 	
 	var lazyLoad = {
 		init: function() {
-			
-			window.addEventListener('load', function(){
-				var allimages= document.getElementsByTagName('img');
-				for (var i=0; i<allimages.length; i++) {
-						if (allimages[i].getAttribute('data-src')) {
-								allimages[i].setAttribute('src', allimages[i].getAttribute('data-src'));
-						}
+					
+			lazy_load();
+	
+			$(window).on('scroll', function()
+			{	
+				lazy_load();
+			});
 
-						if (allimages[i].getAttribute('data-srcset')) {
-							allimages[i].setAttribute('srcset', allimages[i].getAttribute('data-srcset'));
-					}
+
+			function lazy_load()
+			{
+
+				if ( ($('.lazy').length == 0) && ($('.lazy_bg').length == 0) ) {
+					return;
+					
 				}
-			}, false)
-
+			
+				var currOffset 	= 0,
+					smargin = 50,
+					win_scroll 	= $(window).scrollTop();
+			
+				if ( $(window).width() < 767 ) smargin = 150;
+			
+				if ( $('.lazy').length != 0 )
+				{
+					$('.lazy').each(function(index)
+					{
+						currOffset = ( $(this).offset().top - ( $(window).height() + smargin ) );
+			
+						if ( win_scroll > currOffset )
+						{
+							var img = $(this).attr('data-src');
+			
+							if (img != '')
+							{
+								$(this).attr('src',img);
+							}
+						}
+					});
+				}
+			
+				if ( $('.lazy_bg').length != 0 )
+				{
+					$('.lazy_bg').each(function(index)
+					{
+						currOffset = ( $(this).offset().top - ( $(window).height() + smargin ) );
+			
+						if ( win_scroll > currOffset )
+						{
+							var bg = $(this).attr('data-src');
+			
+							if (bg != '')
+							{
+								$(this).css('background-image','url('+bg+')');
+							}
+						}
+					});
+				}
+			}
+			
 		}
 	};
 

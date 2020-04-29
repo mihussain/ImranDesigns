@@ -45,7 +45,7 @@
 								</div>
 								<div class="meta-container">
 									<div class="post-meta">
-										This blog post was created on the <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?> at <?php the_time(); ?></time> 
+										This blog post was created on the <time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate><?php the_date(); ?></time> 
 									</div>
 								</div>
 							</div>

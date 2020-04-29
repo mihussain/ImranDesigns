@@ -32,6 +32,15 @@
   }
 
 @font-face {
+    font-family: 'handleeregular';
+    src: url('fonts/handlee-regular-webfont.woff2') format('woff2'),
+         url('fonts/handlee-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -56,7 +65,7 @@ body {
 }
 
 h1 { 
-    font-family: 'Lato', sans-serif;
+    font-family: 'Heebo';
     font-weight: 300;
     text-transform: uppercase;
 }
@@ -64,7 +73,7 @@ h1 {
 h2 {
     margin: 0;
     padding: 0;
-    font-family: 'Heebo', sans-serif;
+    font-family: 'Heebo';
     font-size: 40px;
     font-weight: 700;
     letter-spacing: -1px;
@@ -73,21 +82,33 @@ h2 {
 }
 
 h2.hero_title{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Heebo';
     font-weight: 900;
 }
 
-
 h3 {
+    margin: 1.5em 0 .5em 0;
+    padding: 0;
+    font-family: 'Heebo';
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    //text-transform: uppercase;
+    color: $color__text;
+    clear: both; 
+}
+
+h6 {
     margin: 0 0 1em;
-    font-family: 'Roboto', sans-serif;  
+    font-family: 'handleeregular';
     background-color: #3b516f;
     color: #fff;
-    padding: 4px 8px;
+    padding: 8px 8px 4px;
     display: inline-block;
     margin-top: -3px;
     font-weight: 400;
     //text-transform: uppercase;
+    font-size: 26px;
 
     .single-project & {
         margin: 15px 0 1em;
@@ -98,7 +119,7 @@ h3 {
 
 h4, h5 {
     margin: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
 }
 
@@ -114,9 +135,15 @@ p {
     
 }
 
-ul, ol, li {
-    margin: 0 0 .3em 0;
-    font-family: 'Lato', sans-serif;
+ul, ol {
+    margin: 0 0 1em 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;   
+}
+
+li {
+    margin: 0 0 .5em 0;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;   
 }
 
@@ -183,61 +210,6 @@ blockquote:before {
     left: -10px;
     top: -10px;
     color: #7a7a7a;
-}
-
-.left {
-
-    
-    div[id^='attachment'], div[id*=' attachment']{
-        width: 100% !important;
-
-        .wp-caption-text {
-            background-color: #1B2735;
-            color: #fff;
-            font-size: 12px;
-            padding: 5px 10px;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            display: inline-block;
-            vertical-align: middle;
-            width: 100%;
-
-            &:before {
-                /* use !important to prevent issues with browser extensions that change fonts */
-                font-family: 'IcoMoon' !important;
-                speak: none;
-                font-style: normal;
-                font-weight: normal;
-                font-variant: normal;
-                text-transform: none;
-                line-height: 1;
-                
-                /* Enable Ligatures ================ */
-                letter-spacing: 0;
-                -webkit-font-feature-settings: "liga";
-                -moz-font-feature-settings: "liga=1";
-                -moz-font-feature-settings: "liga";
-                -ms-font-feature-settings: "liga" 1;
-                -o-font-feature-settings: "liga";
-                font-feature-settings: "liga";
-
-                /* Better Font Rendering =========== */
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-
-                content: '\e90d';
-                margin-right: 8px;
-                display: inline-block;
-                vertical-align: middle;
-            }
-        }
-
-    }
-
-    img[class^='wp-image'], img[class*=' wp-image']{
-        width: 100%;
-        height: auto;
-    }
 }
  
 // styleguide:ignore:end

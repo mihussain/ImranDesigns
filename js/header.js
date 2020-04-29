@@ -41,7 +41,7 @@ define(['jquery'], function($) {
 			var didScroll;
 			var lastScrollTop = 0;
 			var delta = 5;
-			var navbarHeight = $('header').outerHeight();
+			var navbarHeight = $('header').outerHeight() + 100;
 
 			// on scroll, let the interval function know the user has scrolled
 			$(window).scroll(function(event){
@@ -57,23 +57,30 @@ define(['jquery'], function($) {
 
 			function hasScrolled() {
 				var st = $(this).scrollTop();
+				
+
 
 				if(Math.abs(lastScrollTop - st) <= delta) {
 					return;
 				}
-    
 
 				// If current position > last position AND scrolled past navbar...
 				if (st > lastScrollTop && st > navbarHeight){
 					// Scroll Down
 					$('header').removeClass('header-down').addClass('header-up');
 					$('.scroll-up-arrow').removeClass('show');
+
+					
 				} else {
 					// Scroll Up
 					// If did not scroll past the document (possible on mac)...
 					if(st + $(window).height() < $(document).height()) { 
 						$('header').removeClass('header-up').addClass('header-down');
 						$('.scroll-up-arrow').addClass('show');
+
+						if (st < navbarHeight) {
+							$('.scroll-up-arrow').removeClass('show');
+						}
 					}
 				}
 				

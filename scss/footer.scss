@@ -42,6 +42,7 @@ footer {
             a {
                 margin-right: .5em;
                 display: inline-block;
+                text-decoration: none;
 
                 &:last-child {
                     margin-right: 0;
@@ -212,7 +213,7 @@ footer {
                         text-decoration: none;
                         display: block;
                         border-bottom: 1px solid transparent;
-                        font-size: .8em;
+                        font-size: .9em;
                         margin-bottom: 10px;
 
                         &:hover {

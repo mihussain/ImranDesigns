@@ -20,7 +20,7 @@
 
 	<main id="content" class="home" role="main">
 
-		<section class="section__text text" role="article">
+		<section class="section__text text fade" role="article">
 			<div class="central_container">
 				<div class="text__intro">
 					<?php while ( have_posts() ) : the_post(); ?>
@@ -38,7 +38,7 @@
 			</div>
 		</section>
 
-		<section class="project_portfolio" role="article">
+		<section class="project_portfolio fade" role="article">
 			<div class="central_container">
 				<div class="portfolio--container">
 					<?php $portfolio = new WP_Query(array(
@@ -61,7 +61,7 @@
 									
 									<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark">
 						
-											<img data-src="<?php echo $thumbImage[0]; ?>" data-srcset="<?php echo $thumbImage[0]; ?> 1x, <?php echo $thumbImageRetina[0]; ?> 2x" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="The featured image for the following project, <?php the_title(); ?>" />
+											<img class="lazy" data-src="<?php echo $thumbImage[0]; ?>" data-srcset="<?php echo $thumbImage[0]; ?> 1x, <?php echo $thumbImageRetina[0]; ?> 2x" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="The featured image for the following project, <?php the_title(); ?>" />
 											<noscript><img src="<?php echo $thumbImage[0]; ?>" srcset="<?php echo $thumbImage[0]; ?> 1x, <?php echo $thumbImageRetina[0]; ?> 2x" alt="The featured image for the following project, <?php the_title(); ?>"/></noscript>
 								
 
@@ -76,7 +76,7 @@
 			</div>
 		</section>
 
-		<section class="section__text" role="article">
+		<section class="section__text fade" role="article">
 			<div class="central_container">
 				<div class="text__contact">
 					<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>

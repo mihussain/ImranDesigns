@@ -11,7 +11,7 @@
 		
 		<div class="nav_bar">
 			<nav class="nav--left" role="navigation" aria-label="Left Navigation"><?php wp_nav_menu( array( 'theme_location' => 'header-menu--left' ) ); ?></nav>
-			<img data-src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="70" height="auto" alt="ImranDesigns logo" />
+			<a href="<?php echo home_url(); ?>"><img class="lazy" data-src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="70" height="auto" alt="ImranDesigns logo" /></a>
 			<noscript><img src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" width="70" height="auto" alt="ImranDesigns logo" /></noscript>
 			<nav class="nav--right" role="navigation" arial-label="Right Navigation"><?php wp_nav_menu( array( 'theme_location' => 'header-menu--right' ) ); ?></nav>
 		</div>
@@ -21,7 +21,7 @@
 <div class="hero" >
 	<div class="overlay"></div>
 	<?php if (is_page_template('homepage.php')) { ?>
-		<img id="logo" data-src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="500" height="auto" alt="ImranDesigns logo, header hero image" />
+		<img id="logo" class="lazy" data-src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="500" height="auto" alt="ImranDesigns logo, header hero image" />
 		<noscript><img id="logo" src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" width="100" height="auto" alt="ImranDesigns logo, header hero image" /></noscript>
 
 	<?php } else if ( basename($template) === 'index.php') { ?>

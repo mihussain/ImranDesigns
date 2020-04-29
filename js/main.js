@@ -1,8 +1,11 @@
-requirejs(['detectIE','nav','header', 'moveImage','filter', 'modal', 'scroll', 'portfolio','lazyLoad'], function (DetectIE, Nav, Header, moveImage, Filter, Modal, Scroll, Portfolio, LazyLoad) {
+requirejs(['detectIE','nav','header', 'moveImage','filter', 'modal', 'scroll', 'portfolio','lazyLoad', 'fadeTransition', 'showImages'], 
+function (DetectIE, Nav, Header, moveImage, Filter, Modal, Scroll, Portfolio, LazyLoad, FadeTransition, ShowImages) {
 
     DetectIE.init();
     LazyLoad.init();
+    FadeTransition.init();
     //Task.init();
+    ShowImages.init();
     Nav.init();
     Header.init();
     Scroll.init();
@@ -14,7 +17,7 @@ requirejs(['detectIE','nav','header', 'moveImage','filter', 'modal', 'scroll', '
         Filter.init();
     }
 
-    if ($('body').hasClass('portfolio') || $('Bbody').hasClass('blog')) {
+    if ($('body').hasClass('single-project') || $('body').hasClass('blog')) {
         Modal.init();    
         moveImage.init();
 
