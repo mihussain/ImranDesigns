@@ -60,6 +60,6 @@
 			</div>
 			
 		</div>
-		<div class="small">&copy; <?php echo date("Y"); ?> <?php bloginfo( 'name' ); ?>. All rights reserved. | <a href="<?php echo site_url('/sitemap/') ?>" title="Go to Sitemap" aria-label="Sitemap">Sitemap</a></div>
+		<div class="small">&copy; <?php echo date("Y"); ?> <?php bloginfo( 'name' ); ?>. All rights reserved. | <a href="<?php echo site_url('/sitemap-html/') ?>" title="Go to Sitemap" aria-label="Sitemap">Sitemap</a></div>
 	</footer>
 	<a class="scroll-up-arrow" href="" aria-label="Scroll back top top"><span>Scroll back to top</span></a>

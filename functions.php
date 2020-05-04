@@ -302,4 +302,105 @@ function xml_sitemap() {
   add_action("publish_post", "xml_sitemap");
   add_action("publish_page", "xml_sitemap");
   add_action("publish_project", "xml_sitemap");
-  ?>
+  
+
+/****************************************************
+* MetaData
+*****************************************************/
+
+function _set_meta_tag() {
+
+	if(is_home()) {
+		$output .= '<meta name="description" content="Welcome to the ImranDesigns blog page, The home to all things related to front-end web development and digital design" />';
+	} else {
+
+		if(get_field('meta_description')){
+			$output .= '<meta name="description" content="'.get_field('meta_description').'" />';
+		}else {
+			$output .= '<meta name="description" content="Welcome to ImranDesigns" />';
+		}
+	}
+
+ 	echo $output;
+
+}
+
+add_action('wp_head', '_set_meta_tag');
+
+
+/****************************************************
+* homepage title
+*****************************************************/
+
+add_filter( 'wp_title', 'baw_hack_wp_title_for_home' );
+
+function baw_hack_wp_title_for_home( $title )
+{
+  if( empty( $title ) && ( is_home() || is_front_page() ) ) {
+    return __( ' | Home', 'theme_domain' );
+  }
+  return $title;
+}
+
+/****************************************************
+* Open Graph
+*****************************************************/
+
+function add_opengraph_doctype($output) {
+    return $output . '
+    xmlns="https://www.w3.org/1999/xhtml"
+    xmlns:og="https://ogp.me/ns#" 
+    xmlns:fb="http://www.facebook.com/2008/fbml"';
+}
+add_filter('language_attributes', 'add_opengraph_doctype');
+
+
+
+function fc_opengraph() {
+
+	if( is_single() || is_page() ) {
+
+		$post_id = get_queried_object_id();
+
+		$url = get_permalink($post_id);
+		$title = get_the_title($post_id);
+		$site_name = get_bloginfo('name');
+
+		$description = wp_trim_words( get_post_field('post_content', $post_id), 25 );
+
+		if (is_front_page()) {
+			$image = get_stylesheet_directory_uri() . '/images/opengraph_image.jpg';
+		} else {
+			$image = get_the_post_thumbnail_url($post_id);
+		}
+		
+		
+		if( !empty( get_post_meta($post_id, 'og_image', true) ) ) $image = get_post_meta($post_id, 'og_image', true);
+
+		$locale = get_locale();
+
+		echo '<meta property="og:locale" content="' . esc_attr($locale) . '" />';
+		echo '<meta property="og:type" content="article" />';
+		echo '<meta property="og:title" content="' . esc_attr($title) . ' | ' . esc_attr($site_name) . '" />';
+		echo '<meta property="og:description" content="' . esc_attr($description) . '" />';
+		echo '<meta property="og:url" content="' . esc_url($url) . '" />';
+		echo '<meta property="og:site_name" content="' . esc_attr($site_name) . '" />';
+
+
+		if($image) {
+			echo '<meta property="og:image" content="' . esc_url($image) . '" />';
+		}
+
+		echo '<meta name="twitter:card" content="summary" />';
+		echo '<meta name="twitter:title" content="' . esc_attr($title) . ' | ' . esc_attr($site_name) . '" />';
+		echo '<meta name="twitter:description" content="' . esc_attr($description) . '" />';
+		echo '<meta name="twitter:url" content="' . esc_url($url) . '" />';
+
+		if($image) {
+			echo '<meta name="twitter:image" content="' . esc_url($image) . '" />';
+		}
+	}
+}
+add_action('wp_head', 'fc_opengraph');
+
+?>
