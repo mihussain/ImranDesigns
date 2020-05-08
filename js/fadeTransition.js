@@ -3,8 +3,6 @@ define(['jquery'], function($) {
 	var fadeTransition = {
 		init: function() {
         
-            console.log('Hello! Fade v2');
-
             $(window).on("load",function() {
                 $(window).scroll(function() {
                   
@@ -16,9 +14,6 @@ define(['jquery'], function($) {
                     /* Check the location of each desired element */
                     var objectTop = $(this).offset().top;
                     var objectBottom = objectTop + $(this).outerHeight();
-
-                    console.log( objectBottom + ' > ' + windowTop);
-                    console.log( objectTop + ' < ' + windowBottom);
                     
                     /* If the element is completely within bounds of the window, fade it in */
                     if (objectBottom > windowTop && objectTop < windowBottom) { //object comes into view (scrolling down)
@@ -29,6 +24,15 @@ define(['jquery'], function($) {
                   });
                 }).scroll(); //invoke scroll-handler on page-load
             });
+
+            $('a').hover( 
+              function() {
+                    $(this).attr("org_title", $(this).attr('title'));
+                    $(this).attr('title', '');
+              }, function() {
+                    $(this).attr('title', $(this).attr("org_title"));
+              }
+            )
 
 		}
 	};

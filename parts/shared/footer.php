@@ -4,15 +4,15 @@
 			<div class="col_container">
 				<div class="col_1">
 					<div class="footer_logo_social">
-						<a class="footer_logo" href="<?php echo home_url(); ?>">
+						<a class="footer_logo" href="<?php echo home_url(); ?>" title="Click here to go to Homepage">
 							<img class="lazy" data-src="<?php echo get_template_directory_uri(); ?>/images/imrandesigns_logo.svg" width="100" height="auto" alt="ImranDesigns logo, small" />
 							<noscript><img src="<?php echo get_template_directory_uri(); ?>/images/imrandesigns_logo.svg" width="100" height="auto" alt="ImranDesigns logo, small" /></noscript>
 						</a>
 						<div class="social">
-							<a href="https://www.facebook.com/ImranDesigns/" aria-label="Facebook" target="_blank" rel="noreferrer"><span class="icon icon-facebook2"></span></a>
-							<a href="https://twitter.com/imrandesigns" aria-label="Twitter" target="_blank" rel="noreferrer"><span class="icon icon-twitter"></span></a>
-							<a href="https://www.linkedin.com/in/mihussain/" aria-label="Linked In" target="_blank" rel="noreferrer"><span class="icon icon-linkedin"></span></a>
-							<a href="https://www.instagram.com/imran_designs/" aria-label="Instagram"  target="_blank" rel="noreferrer"><span class="icon icon-instagram"></span></a>
+							<a title="Click here to go to the <?php bloginfo('name'); ?> Facebook page" href="https://www.facebook.com/ImranDesigns/" aria-label="Facebook" target="_blank" rel="noreferrer"><span class="icon icon-facebook2"></span></a>
+							<a title="Click here to go to the <?php bloginfo('name'); ?> Twitter page" href="https://twitter.com/imrandesigns" aria-label="Twitter" target="_blank" rel="noreferrer"><span class="icon icon-twitter"></span></a>
+							<a title="Click here to go to the <?php bloginfo('name'); ?> LinkedIn page" href="https://www.linkedin.com/in/mihussain/" aria-label="Linked In" target="_blank" rel="noreferrer"><span class="icon icon-linkedin"></span></a>
+							<a title="Click here to go to the <?php bloginfo('name'); ?> Instagram page" href="https://www.instagram.com/imran_designs/" aria-label="Instagram"  target="_blank" rel="noreferrer"><span class="icon icon-instagram"></span></a>
 						</div>
 					</div>
 					<p>ImranDesigns is a digital design and web developemnt portfolio. Why not follow me on the following social media accounts to keep up to date with my latest work! Follow me on my journey through each project that I create. I'm on Facebook, Twitter, Linked In and Instagram.</p>
@@ -26,12 +26,12 @@
 
 						$recent_posts = wp_get_recent_posts($args);
 						foreach( $recent_posts as $recent ){
-							echo '<li><a href="' . get_permalink($recent["ID"]) . '">' .   $recent["post_title"].'</a> </li> ';
+							echo '<li><a href="' . get_permalink($recent["ID"]) . '" title="Click here to go to ' . $recent["post_title"] . '">' . $recent["post_title"] .'</a> </li> ';
 						}
 						wp_reset_query();
 					?>
 					</ul>
-					<a class="view_more" aria-label="View more blog posts" href="/portfolio">View More</a>
+					<a class="view_more" aria-label="View more blog posts" title="Click here to view more blog posts" href="/portfolio">View More</a>
 				</div>
 				<div class="col_3">
 					<div class="title">Latest Projects</div>
@@ -47,12 +47,12 @@
 						        $queryObject->the_post();
 						        ?>
 
-						        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+						        <li><a href="<?php the_permalink(); ?>" title="Click here to go to <?php the_title(); ?>"><?php the_title(); ?></a></li>
 						    <?php
 						    }
 						    ?>
 						    </ul>
-						    <a class="view_more" aria-label="View more projects" href="/portfolio">View More</a>
+						    <a class="view_more" aria-label="View more projects" title="Click here to view more projects" href="/portfolio">View More</a>
 						    <?php
 						}
 					?>
@@ -60,6 +60,6 @@
 			</div>
 			
 		</div>
-		<div class="small">&copy; <?php echo date("Y"); ?> <?php bloginfo( 'name' ); ?>. All rights reserved. | <a href="<?php echo site_url('/sitemap-html/') ?>" title="Go to Sitemap" aria-label="Sitemap">Sitemap</a></div>
+		<div class="small">&copy; <?php echo date("Y"); ?> <?php bloginfo( 'name' ); ?>. All rights reserved. | <a href="<?php echo site_url('/sitemap-html/') ?>" title="Click here to go to Sitemap" aria-label="Sitemap">Sitemap</a></div>
 	</footer>
-	<a class="scroll-up-arrow" href="" aria-label="Scroll back top top"><span>Scroll back to top</span></a>
+	<a class="scroll-up-arrow" href="" aria-label="Scroll back top top" title="Click here to scroll back to top"><span>Scroll back to top</span></a>

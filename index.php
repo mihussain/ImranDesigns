@@ -18,25 +18,30 @@
 		<div class="page-template">
 			
 			<div class="central_container"> 
-			<div class="title"><h2>Blog</h2></div>
+				<div class="title"><h2>Blog</h2></div>
 				<?php if ( have_posts() ): ?>
 				
 				<ol class="news">
 				<?php while ( have_posts() ) : the_post(); ?>
 					<li>
 						<article>
-							<?php /* if (has_post_thumbnail( $post->ID ) ): ?>
-								<?php $featuredImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'portfolio-thumb' ); ?>
-								<?php $landscapeImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'landscape-image' ); ?>
-								<div class="article__thumbnail">
-							  		
-									<picture>
-									    <source srcset="<?php echo $landscapeImage[0]; ?>" media="(max width: 479px)">
-									    <source srcset="<?php echo $featuredImage[0]; ?>" media="(min-width: 480px)">
-									    <img class="post-featured-image" src="<?php echo $landscapeImage[0]; ?>" alt="My default image">
-									</picture>
-								</div>
-							<?php endif; */ ?>
+
+						<script type="application/ld+json">
+						{
+							"@context": "http://schema.org",
+							"@type": "Blog",
+							"headline": "<?php the_title(); ?>",
+							"abstract": "<?php echo strip_tags( get_the_excerpt() ); ?>",
+							"datePublished": "<?php echo get_the_date('d-m-Y'); ?>",
+							"dateModified": "<?php echo get_the_date('d-m-Y'); ?>",
+							"author": {
+								"@type": "Person",
+								"name": "Imran"
+							},
+							"url": "<?php esc_url( the_permalink() ); ?>"
+						}
+						</script>
+
 							<div class="article__content">
 								<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark"><h2><?php the_title(); ?></h2></a>
 								
@@ -57,7 +62,6 @@
 				<h2>No posts to display</h2>
 				<?php endif; ?>
 			</div>
-			
 		</div>
-</main>
+	</main>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/footer','parts/shared/html-footer') ); ?>

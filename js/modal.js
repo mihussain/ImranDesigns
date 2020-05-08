@@ -72,43 +72,41 @@ define(['jquery'], function($) {
 				event.stopPropagation();
 			});
 
-			
-				$("body").keydown(function(e) {
+			$("body").keydown(function(e) {
 
+				if(e.keyCode == 37) { // left
+					
+					if($('.modal').css('display') == 'block') {
+						if (currentImageNo <= 0) { 
+						
+						} else {
+							var prevImage = currentImage.prev().attr('href');
+							var updateCurrent = currentImage.prev();
+							currentImage = updateCurrent;
+							$('#modal_img').attr('src', prevImage);
+							currentImageNo --;
+							updateButtons(currentImageNo);
+						}
+					}
+					
+				}
 				
+				else if(e.keyCode == 39) { // right
+					
+					if($('.modal').css('display') == 'block') {
+						if (currentImageNo >= totalImages) { 
 
-					if(e.keyCode == 37) { // left
-						
-						if($('.modal').css('display') == 'block') {
-							if (currentImageNo <= 0) { 
-							
-							} else {
-								var prevImage = currentImage.prev().attr('href');
-								var updateCurrent = currentImage.prev();
-								currentImage = updateCurrent;
-								$('#modal_img').attr('src', prevImage);
-								currentImageNo --;
-								updateButtons(currentImageNo);
-							}
-						}
-						
-					}
-					else if(e.keyCode == 39) { // right
-						
-						if($('.modal').css('display') == 'block') {
-							if (currentImageNo >= totalImages) { 
-
-							} else {
-								var nextImage = currentImage.next().attr('href');
-								var updateCurrent = currentImage.next();
-								currentImage = updateCurrent;
-								$('#modal_img').attr('src', nextImage);
-								currentImageNo ++;
-								updateButtons(currentImageNo);
-							}
+						} else {
+							var nextImage = currentImage.next().attr('href');
+							var updateCurrent = currentImage.next();
+							currentImage = updateCurrent;
+							$('#modal_img').attr('src', nextImage);
+							currentImageNo ++;
+							updateButtons(currentImageNo);
 						}
 					}
-				});
+				}
+			});
 			
 		}
 	};

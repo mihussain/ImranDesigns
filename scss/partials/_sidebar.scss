@@ -40,11 +40,13 @@
     .section {
         margin-bottom: 1em; 
 
-        .section__heading{
+        .section__author {
+            color: $default-text-colour;
             margin-top: 1.5em;
             display: block;
             width: 100%;
             border-bottom: 1px solid #f5f5f5;   
+            padding-bottom: 1em;
 
             &:first-child {
                 margin-top: 0;
@@ -53,6 +55,24 @@
             .icon {
                 padding-right: 5px;
                 color: $color-primary;
+            }
+        }
+
+        .section__heading{
+            margin-top: 1.5em;
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid #f5f5f5;   
+            padding-bottom: 5px;
+
+            &:first-child {
+                margin-top: 0;
+            }   
+
+            .icon {
+                padding-right: 10px;
+                color: $color-primary;
+                font-size: .8em;
             }
         }   
 

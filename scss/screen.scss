@@ -245,16 +245,10 @@ section.portfolio {
 
 //home specific END
 
-.project {
-    article {
-        @include respond-to(medium) {
-            display: flex;
-        }
-    }
-}
 
 article {
     //background: $white;
+    display: flex;
     position: relative;
     color: $black;
     padding: 0;
@@ -513,7 +507,7 @@ ul.tick {
         border-radius: 50em;
         position: fixed;
         transform: rotate(180deg) translateY(-48px);
-        right: 50px;
+        right: 32px;
         width: 20px;
         left: auto;
         height: 20px;
@@ -526,7 +520,7 @@ ul.tick {
 
         @include respond-to(medium) {
 
-            transform: rotate(180deg) translateY(60px);
+            transform: rotate(180deg) translateY(90px);
         }
     }
 

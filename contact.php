@@ -16,6 +16,16 @@
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "ContactPoint",
+        "email": "hello@imrandesigns.co.uk",
+        "telephone": "07540143107",
+        "areaServed": "Worldwide"
+    }
+    </script>
+
 	<main id="content" class="contact" role="main">
 		<div class="page-template">
 			<div class="central_container"> 

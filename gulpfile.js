@@ -29,7 +29,7 @@ gulp.task( 'scss', function() {
 });
 
 gulp.task('minifyjs', function () {
-	gulp.src('./js/main.js')
+	return gulp.src('./js/main.js')
 	.pipe(requirejsOptimize({
 		baseUrl: 'js',
     paths: {
@@ -44,13 +44,13 @@ gulp.task('minifyjs', function () {
 
 gulp.task( 'watch', function() {
   livereload.listen();
-  gulp.watch( './scss/**/*.scss', [ 'scss' ] );
-  gulp.watch( ['./js/*.js', '!./js/*.min.js'], [ 'minifyjs' ]);
+  gulp.watch( './scss/**/*.scss', gulp.series('scss') );
+  gulp.watch( ['./js/*.js', '!./js/*.min.js'], gulp.series('minifyjs'));
   gulp.watch( './**/*.php' ).on( 'change', function( file ) {
 	livereload.changed( file );
   } );
 });
 
-gulp.task( 'default', [ 'scss', 'minifyjs', 'watch' ], function() {
+gulp.task( 'default', gulp.series('scss', 'minifyjs', 'watch'), function() {
 
 });
