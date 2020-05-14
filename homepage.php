@@ -5,6 +5,20 @@
 ?>
 <?php Starkers_Utilities::get_template_parts( array( 'parts/shared/html-header', 'parts/shared/header' ) ); ?>
 
+
+	<script type="application/ld+json">
+	{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "<?php bloginfo( 'name' ); ?>",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg"
+		},
+		"url": "<?php echo home_url(); ?>"
+	}
+	</script>
+
 	<?php
 		//featured image 
 
@@ -27,7 +41,11 @@
 						<?php the_content(); ?>
 					<?php endwhile; ?>
 				</div>
+			</div>
+		</section>
 
+		<section class="project_portfolio fade" role="article">
+			<div class="central_container">
 				<div class="text__portfolio">
 					<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 						<?php if(get_field('before_dynamic')): ?>
@@ -36,11 +54,10 @@
 					<?php endwhile; ?>
 				</div>
 			</div>
-		</section>
 
-		<section class="project_portfolio fade" role="article">
-			<div class="central_container">
-				<div class="portfolio--container">
+
+			<div class="portfolio--container">
+				<div class="central_container">
 					<?php $portfolio = new WP_Query(array(
 						'post_type' => 'project'
 					)); ?>
@@ -59,7 +76,7 @@
 									<?php $thumbImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'portfolio-thumb' ); ?>
 									<?php $thumbImageRetina = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'portfolio-thumb-retina' ); ?>
 									
-									<a href="<?php esc_url( the_permalink() ); ?>" title="Permalink to <?php the_title(); ?>" rel="bookmark">
+									<a href="<?php esc_url( the_permalink() ); ?>" title="Click here to go to <?php the_title(); ?>" rel="bookmark">
 						
 											<img class="lazy" data-src="<?php echo $thumbImage[0]; ?>" data-srcset="<?php echo $thumbImage[0]; ?> 1x, <?php echo $thumbImageRetina[0]; ?> 2x" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="The featured image for the following project, <?php the_title(); ?>" />
 											<noscript><img src="<?php echo $thumbImage[0]; ?>" srcset="<?php echo $thumbImage[0]; ?> 1x, <?php echo $thumbImageRetina[0]; ?> 2x" alt="The featured image for the following project, <?php the_title(); ?>"/></noscript>
@@ -74,6 +91,7 @@
 					<?php $i++; endwhile; ?>
 				</div>
 			</div>
+		
 		</section>
 
 		<section class="section__text fade" role="article">

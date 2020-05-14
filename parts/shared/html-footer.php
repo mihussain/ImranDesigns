@@ -31,6 +31,7 @@
 			logged_in_greeting="Hi! Welcome to ImranDesigns, How can I help you?"
 			logged_out_greeting="Hi! Welcome to ImranDesigns, How can I help you?">
 		</div>
-	
+
+		<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5eb05e529fcd842d"></script>
 	</body>
 </html>

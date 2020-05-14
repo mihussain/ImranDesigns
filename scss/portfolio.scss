@@ -1,21 +1,18 @@
 .project_portfolio {
     z-index: 6;
 	position: relative;
-	opacity:0; 
-	animation:fadeIn ease-in 1;
-	animation-fill-mode:forwards;
-	animation-duration:1s;
-	animation-delay: 1s;
-	background-color: #f5f5f5;
 
 	.home & {
 		margin-bottom: 30px;
 	}
 
 	.portfolio--container {
-		
-		display: flex;
-		flex-wrap: wrap;
+		background-color: #f5f5f5;
+
+		.central_container {
+			display: flex;
+			flex-wrap: wrap;
+		}
 	}
 
     &.bg_image {

@@ -1,4 +1,5 @@
 
+
 @import 'helpers/reset';
 @import 'helpers/utilities';
 @import 'helpers/typography';
@@ -6,6 +7,9 @@
 @import 'helpers/variables';
 @import 'helpers/animation';
 @import 'helpers/icons';
+
+
+@import 'vendor/prism';
 
 @import 'partials/hero';
 @import 'partials/breadcrumbs';

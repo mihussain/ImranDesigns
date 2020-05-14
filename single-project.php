@@ -28,7 +28,66 @@
 		</div>
 			<article>
 				<div class="left" role="article">
+
+					<?php $primaryImage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'project-featured-retina' ); ?>
+					<?php
+						$field = get_field_object('features');
+						$value = $field['value'];
+						$choices = $field['choices'];
+						$keywords = '';
+
+						if( $value ): 
+							foreach( $value as $v ): 
+								$keywords .= $choices[ $v ] . ', '; 
+							endforeach; 
+						endif; 
+						
+						$taxonomy = 'project_type'; 
+						$terms = get_the_terms( $post->ID , $taxonomy ); 
+						
+						if ( !empty( $terms ) ) : 
+							foreach ( $terms as $term ) { 
+								if ( !is_wp_error( $link ) ) $keywords .= $term->name . ', '; 
+							} 
+						endif; 
+
+						$keywords = trim($keywords, ", ");
+					?>
 				
+					<script type="application/ld+json">
+					{
+						"@context": "http://schema.org",
+						"@type": "CreativeWork",
+						"headline": "<?php the_title(); ?>",
+						"abstract": "<?php echo strip_tags( get_the_excerpt() ); ?>",
+						"datePublished": "<?php echo get_the_date('d-m-Y'); ?>",
+						"dateModified": "<?php echo get_the_date('d-m-Y'); ?>",
+						"image": "<?php echo $primaryImage[0]; ?>",
+						"author": {
+							"@type": "Person",
+							"name": "Imran"
+						},
+						"url": "<?php esc_url( the_permalink() ); ?>",
+						"copyrightHolder": {
+							"@type": "Organization",
+							"name": "<?php bloginfo( 'name' ); ?>",
+							"logo": {
+								"@type": "ImageObject",
+								"url": "<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg"
+							}
+						},
+						"creator": {
+							"@type": "Organization",
+							"name": "<?php bloginfo( 'name' ); ?>",
+							"logo": {
+								"@type": "ImageObject",
+								"url": "<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg"
+							}
+						},
+						"keywords": "<?php echo $keywords ?>",
+						"isPartOf": "<?php echo get_permalink( get_page_by_path( 'Portfolio' ) ); ?>"
+					}
+					</script>
 					
 						
 						<?php
@@ -73,7 +132,7 @@
 										$url = $image['url'];
 										$title = $image['title'];
 										$alt = $image['alt'];
-										//$caption = $image['caption'];
+										$caption = $image['caption'];
 
 										// thumbnail
 										$size = 'thumbnail';
@@ -196,20 +255,24 @@
 							if ( !empty( $terms )) :
 						?>
 							<div class="section">
-								<span class="section__heading"><span class="icon icon-folder-open"></span> Category:</span>
+								<span class="section__heading"><span class="icon icon-list2"></span>Category:</span>
 								<span class="section__body">
-									<?php if ( !empty( $terms ) ) : foreach ( $terms as $term ) { if ( !is_wp_error( $link ) ) echo $term->name; } endif; ?>
+									<?php if ( !empty( $terms ) ) : foreach ( $terms as $term ) { if ( !is_wp_error( $link ) ) echo $term->name . ' '; } endif; ?>
 								</span>
 							</div>
 						<?php endif; ?>
 
 						<?php if (get_field('url')) : ?>
 							<div class="section">
-									<span class="section__heading"><span class="icon icon-link"></span> URL:</span>
+									<span class="section__heading"><span class="icon icon-link"></span>URL:</span>
 									<span class="section__body"><a class="url_link" href="<?php the_field('url'); ?>" target="_blank"><?php the_field('url'); ?></a></span>
 							</div>
 						<?php endif; ?>
-					
+
+						<div class="section">
+							<span class="section__heading"><span class="icon icon-share2"></span>Share:</span>
+							<span class="section__body"><div class="addthis_inline_share_toolbox"></div></span>
+						</div>					
 					</div>
 				</div>
 				<?php endif; ?>
@@ -219,11 +282,21 @@
 		
 
 		<div class="modal">
+			<div class="modal_close"></div>
 			<div class="modal_window">
+				<div class="modal_container">			
+					
+					<div class="image_container">
+						<img id="modal_img" src="" alt="" />
+					</div>
+
+				</div>
+			</div>
+			<div class="controls">
 				<div class="modal_previous">
 					<div class="icon icon-arrow-left"></div>
 				</div>
-				<img id="modal_img" src="" /> 
+		
 				<div class="modal_next">
 					<div class="icon icon-arrow-right"></div>
 				</div>

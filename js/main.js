@@ -1,5 +1,5 @@
-requirejs(['detectIE','nav','header', 'moveImage','filter', 'modal', 'scroll', 'portfolio','lazyLoad', 'fadeTransition', 'showImages'], 
-function (DetectIE, Nav, Header, moveImage, Filter, Modal, Scroll, Portfolio, LazyLoad, FadeTransition, ShowImages) {
+requirejs(['detectIE','nav','header', 'moveImage','filter', 'modal', 'scroll', 'portfolio','lazyLoad', 'fadeTransition', 'showImages', 'prism'], 
+function (DetectIE, Nav, Header, moveImage, Filter, Modal, Scroll, Portfolio, LazyLoad, FadeTransition, ShowImages, Prism) {
 
     DetectIE.init();
     LazyLoad.init();

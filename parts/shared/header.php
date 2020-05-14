@@ -11,7 +11,7 @@
 		
 		<div class="nav_bar">
 			<nav class="nav--left" role="navigation" aria-label="Left Navigation"><?php wp_nav_menu( array( 'theme_location' => 'header-menu--left' ) ); ?></nav>
-			<a href="<?php echo home_url(); ?>"><img class="lazy" data-src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="70" height="auto" alt="ImranDesigns logo" /></a>
+			<a href="<?php echo home_url(); ?>" title="Click here to go to the Homepage"><img class="lazy" data-src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="70" height="auto" alt="ImranDesigns logo" /></a>
 			<noscript><img src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" width="70" height="auto" alt="ImranDesigns logo" /></noscript>
 			<nav class="nav--right" role="navigation" arial-label="Right Navigation"><?php wp_nav_menu( array( 'theme_location' => 'header-menu--right' ) ); ?></nav>
 		</div>
@@ -24,7 +24,7 @@
 		<img id="logo" class="lazy" data-src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="500" height="auto" alt="ImranDesigns logo, header hero image" />
 		<noscript><img id="logo" src="<?php echo get_template_directory_uri() ?>/images/imrandesigns_logo.svg" width="100" height="auto" alt="ImranDesigns logo, header hero image" /></noscript>
 
-	<?php } else if ( basename($template) === 'index.php') { ?>
+	<?php } else if ( basename($template) === 'index.php' || basename($template) === 'category.php') { ?>
 		
 			<div class="hero-image">
 					<div class="page-image" style="background-image: url('<?php echo get_template_directory_uri() ?>/images/blog.jpg');"></div>		
@@ -61,7 +61,7 @@
 	<?php } ?>
 
 	<?php if ( basename($template) === 'homepage.php') { ?>
-		<a class="scroll-down-arrow animated bounce" href="#content"><span>Skip to content</span></a>
+		<a class="scroll-down-arrow animated bounce" title="Click here to move down to the content" href="#content"><span>Skip to content</span></a>
 	<?php } ?>
 	
 	<div class="scene">
@@ -91,7 +91,7 @@
 
 					$recent_posts = wp_get_recent_posts($args);
 					foreach( $recent_posts as $recent ){
-						echo '<li><a href="' . get_permalink($recent["ID"]) . '">' .   $recent["post_title"].'</a> </li> ';
+						echo '<li><a href="' . get_permalink($recent["ID"]) . ' " title="Click here to go to ' . $recent["post_title"]  . '">' .   $recent["post_title"].'</a> </li> ';
 					}
 					wp_reset_query();
 				?>
@@ -112,7 +112,7 @@
 							$queryObject->the_post();
 							?>
 
-							<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+							<li><a href="<?php the_permalink(); ?>" title="click here to go to <?php the_title(); ?>"><?php the_title(); ?></a></li>
 						<?php
 						}
 						?>
@@ -126,10 +126,10 @@
 
 
 <div class="social">
-	<a class="social__link" href="https://www.facebook.com/ImranDesigns/" aria-label="Facebook" target="_blank" rel="noreferrer"><span class="icon icon-facebook2"></span></a>
-	<a class="social__link" href="https://twitter.com/imrandesigns" aria-label="Twitter" target="_blank" rel="noreferrer"><span class="icon icon-twitter"></span></a>
-	<a class="social__link" href="https://www.linkedin.com/in/mihussain/" aria-label="Linked In" target="_blank" rel="noreferrer"><span class="icon icon-linkedin"></span></a>
-	<a class="social__link" href="https://www.instagram.com/imran_designs/" aria-label="Instagram" target="_blank" rel="noreferrer"><span class="icon icon-instagram"></span></a>
+	<a class="social__link" title="Click here to go to the <?php bloginfo('name'); ?> Facebook page" href="https://www.facebook.com/ImranDesigns/" aria-label="Facebook" target="_blank" rel="noreferrer"><span class="icon icon-facebook2"></span></a>
+	<a class="social__link" title="Click here to go to the <?php bloginfo('name'); ?> Twitter page" href="https://twitter.com/imrandesigns" aria-label="Twitter" target="_blank" rel="noreferrer"><span class="icon icon-twitter"></span></a>
+	<a class="social__link" title="Click here to go to the <?php bloginfo('name'); ?> LinkedIn page" href="https://www.linkedin.com/in/mihussain/" aria-label="Linked In" target="_blank" rel="noreferrer"><span class="icon icon-linkedin"></span></a>
+	<a class="social__link" title="Click here to go to the <?php bloginfo('name'); ?> Instagram page" href="https://www.instagram.com/imran_designs/" aria-label="Instagram" target="_blank" rel="noreferrer"><span class="icon icon-instagram"></span></a>
 			
 </div>
 </nav>

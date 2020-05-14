@@ -12,6 +12,10 @@ define(['jquery'], function($) {
 				if( $('nav.nav--mobile').hasClass('open')){
 					$('body').css('overflow','hidden');
 
+					if(!$('header').hasClass('background') && $('header').hasClass('on_hero')) {
+						$('header').addClass('background');
+					}
+
 					if ( $(window).height() >= 525 ){
 					 	$('nav.nav--mobile .dynamic_posts').css('display','block');
 					} 
@@ -22,6 +26,10 @@ define(['jquery'], function($) {
 
 				} else {
 					$('body').css('overflow','auto');
+					
+					if($('header').hasClass('on_hero')) {
+						$('header').removeClass('background');
+					}
 				}
 			});
 

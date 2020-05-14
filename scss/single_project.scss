@@ -273,4 +273,12 @@
             width: 50% !important;
         }
     }
+
+    .image_section {
+        .wp-caption {
+            .wp-caption-text {
+                display: none;
+            }
+        }
+    }
 }

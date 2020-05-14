@@ -24,10 +24,12 @@ define(['jquery'], function($) {
 
 			 		if ($(this).scrollTop() >= headerBottom ) {
 						 $('header').addClass('background');
+						 $('header').removeClass('on_hero');
 						 //$('.scroll-up-arrow').addClass('show');
 						 //$('body').css({'padding-top': bodyPadding });
 				
 					} else {
+						$('header').addClass('on_hero');
 						$('header').removeClass('background');
 						//$('.scroll-up-arrow').removeClass('show');			
 						//$('body').css({'padding-top': 0 });	
