@@ -229,11 +229,6 @@ main {
 
 //homepage specific
 .text {
-
-    .text__intro {
-        margin-bottom: 40px;
-    }
-
     .text__portfolio {
         margin-bottom: 30px;
     }
@@ -245,16 +240,14 @@ section.portfolio {
 
 //home specific END
 
-
 article {
-    //background: $white;
-    display: flex;
     position: relative;
     color: $black;
     padding: 0;
     width: 100%;
 
     @include respond-to(medium) {
+        display: flex;
         padding: 1em 0 4em 0;
     }
 
@@ -291,57 +284,233 @@ article {
     z-index: 20;
     overflow: hidden;
 
-    .modal_window {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        max-height: 600px;
-        background: #000;
-        max-width: 1200px;
-        margin: 0 auto;
-        z-index: 10;
-        padding: 10px;
+
+    .modal_close {
+        position: absolute;
+        right: 32px;
+        top: 32px;
+        width: 32px;
+        height: 32px;
+        opacity: 0.8;
+        z-index: 15;
+      }
+      .modal_close:hover {
+        opacity: 1;
+      }
+      .modal_close:before, .modal_close:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 5px;
+        background-color: $white;
+      }
+      .modal_close:before {
+        transform: rotate(45deg);
+      }
+      .modal_close:after {
+        transform: rotate(-45deg);
+      }
+      
+
+
+
+
+
+    .controls {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9;
 
         @include respond-to(medium) {
-            height: 100%;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
-
         .modal_previous {
+            background-color: rgba($black, .5);
             position: absolute;
             color: #fff;
             font-size: 60px;
             z-index: 5;
-            bottom: -125px;
-            left: 25%;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            width: 50%;
 
             @include respond-to(medium) {
-                top: 50%;
-                left: -75px;
+                bottom: 10px;
+                left: 10px;
+                top: 10px;
+                width: 49%;
+            }
+
+            &:hover, &:active {
+                background-color: rgba($black, .8);
+
+                .icon-arrow-left {
+                    opacity: .8;
+                }
+            }
+
+            .icon-arrow-left {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 60px;
+                opacity: .5;
+
+                @include respond-to(medium) {
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: 150px;
+                    bottom: auto;
+                    opacity: .2;
+                    left: 20px;
+                }
             }
         }
 
         .modal_next {
+            background-color: rgba($black, .5);
             position: absolute;
             color: #fff;
             font-size: 60px;
             z-index: 5;
-            bottom: -125px;
-            right: 25%;
+            bottom: 0;
+            top: 0;
+            right: 0;
+            width: 50%;
 
             @include respond-to(medium) {
-                top: 50%;
-                right: -75px;
+                bottom: 10px;
+                top: 10px;
+                right: 10px;
+                width: 49%;
+            }
+
+            &:hover, &:active {
+                background-color: rgba($black, .8);
+
+                .icon-arrow-right {
+                    opacity: .8;
+                }
+            }
+
+            .icon-arrow-right {
+                position: absolute;
+                bottom: 20px;
+                transform: translateX(50%);
+                right: 50%;
+                font-size: 60px;
+                opacity: .5;
+                text-align: right;
+
+                @include respond-to(medium) {
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: 150px;
+                    bottom: auto;
+                    opacity: .2;
+                    right: 20px;
+                }
             }
         }
 
-        img#modal_img {
-            display: block;
-            margin: 0 auto;
+    }
+
+    .modal_window {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        height: auto;
+        transform: translateY(-50%) translateX(-50%);
+        background: #000;
+        z-index: 10;
+        -webkit-box-shadow: 0px 0px 56px 5px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 56px 5px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 56px 5px rgba(0,0,0,0.75);
+
+        .modal_container {
             position: relative;
-            max-width: 100%;
-            max-height: 100%;
+        }
+
+        img#modal_img {
+            // display: block;
+            // margin: 0 auto;
+            // position: relative;
+            // max-width: 100%;
+            // width: 100%;
+            // height: auto;
+            // z-index: 10;
+            max-width: 90vw;
+            max-height: 70vh;
+
+            @include respond-to(large) {
+                max-width: 80vw;
+                max-height: 80vh;
+            }
+        }
+
+
+        .image_container {
+            max-width: 90vw;
+            max-height: 70vh;
+
+            @include respond-to(large) {
+                max-width: 80vw;
+                max-height: 80vh;
+            }
+
+            overflow: hidden;
+        }
+
+        #modal_caption {
+
+            color:  $white;
+            font-size: 12px;
+            padding: 5px 10px;
+            display: inline-block;
+            vertical-align: middle;
+            width: calc(100% - 2px);
+            margin-left: 1px;
+            -webkit-box-shadow: 0 0 2px 0px rgba(0,0,0,0.4);
+            -moz-box-shadow: 0 0 2px 0px rgba(0,0,0,0.4);
+            box-shadow: 0 0 2px 0px rgba(0,0,0,0.4);
             z-index: 10;
+            margin: 0 !important;
+    
+            &:before {
+                /* use !important to prevent issues with browser extensions that change fonts */
+                font-family: 'IcoMoon' !important;
+                speak: none;
+                font-style: normal;
+                font-weight: normal;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                
+                /* Enable Ligatures ================ */
+                letter-spacing: 0;
+                -webkit-font-feature-settings: "liga";
+                -moz-font-feature-settings: "liga=1";
+                -moz-font-feature-settings: "liga";
+                -ms-font-feature-settings: "liga" 1;
+                -o-font-feature-settings: "liga";
+                font-feature-settings: "liga";
+    
+                /* Better Font Rendering =========== */
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+    
+                content: '\e90d';
+                margin-right: 8px;
+                display: inline-block;
+                vertical-align: middle;
+            }
         }
     }
 }

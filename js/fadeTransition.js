@@ -1,41 +1,47 @@
-define(['jquery'], function($) {
-	
-	var fadeTransition = {
-		init: function() {
-        
-            $(window).on("load",function() {
-                $(window).scroll(function() {
-                  
+define(['jquery'], function ($) {
+
+    var fadeTransition = {
+        init: function () {
+
+            $(window).on("load", function () {
+                $(window).scroll(function () {
+
                     var windowTop = $(this).scrollTop();
                     var windowBottom = windowTop + $(this).innerHeight();
-                  
-                  $(".fade").each(function() {
-                    
-                    /* Check the location of each desired element */
-                    var objectTop = $(this).offset().top;
-                    var objectBottom = objectTop + $(this).outerHeight();
-                    
-                    /* If the element is completely within bounds of the window, fade it in */
-                    if (objectBottom > windowTop && objectTop < windowBottom) { //object comes into view (scrolling down)
-                      if ($(this).css("opacity")==0) {$(this).fadeTo(300,1);}
-                    } else { //object goes out of view (scrolling up)
-                      //if ($(this).css("opacity")==1) {$(this).fadeTo(300,0);}
-                    }
-                  });
+
+                    $(".fade").each(function () {
+
+                        /* Check the location of each desired element */
+                        var objectTop = $(this).offset().top;
+                        var objectBottom = objectTop + $(this).outerHeight();
+
+                        /* If the element is completely within bounds of the window, fade it in */
+                        if (objectTop < (windowBottom - 100)) { //object comes into view (scrolling down)
+                                
+         
+                                $(this).addClass('fade-in'); 
+                            
+                        
+                        } else { //object goes out of view (scrolling up)
+                   
+                                $(this).removeClass('fade-in'); 
+                     
+                        }
+                    });
                 }).scroll(); //invoke scroll-handler on page-load
             });
 
-            $('a').hover( 
-              function() {
+            $('a').hover(
+                function () {
                     $(this).attr("org_title", $(this).attr('title'));
                     $(this).attr('title', '');
-              }, function() {
+                }, function () {
                     $(this).attr('title', $(this).attr("org_title"));
-              }
+                }
             )
 
-		}
-	};
+        }
+    };
 
-	return fadeTransition;
+    return fadeTransition;
 });

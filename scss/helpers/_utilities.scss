@@ -131,7 +131,14 @@ $elements: 8;
 }
 
 .fade {
-    opacity: 1;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all .5s ease-in;
+
+    &.fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
   }
 
   .fb_reset {

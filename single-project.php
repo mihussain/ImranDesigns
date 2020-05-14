@@ -132,7 +132,7 @@
 										$url = $image['url'];
 										$title = $image['title'];
 										$alt = $image['alt'];
-										//$caption = $image['caption'];
+										$caption = $image['caption'];
 
 										// thumbnail
 										$size = 'thumbnail';
@@ -282,11 +282,21 @@
 		
 
 		<div class="modal">
+			<div class="modal_close"></div>
 			<div class="modal_window">
+				<div class="modal_container">			
+					
+					<div class="image_container">
+						<img id="modal_img" src="" alt="" />
+					</div>
+
+				</div>
+			</div>
+			<div class="controls">
 				<div class="modal_previous">
 					<div class="icon icon-arrow-left"></div>
 				</div>
-				<img id="modal_img" src="" /> 
+		
 				<div class="modal_next">
 					<div class="icon icon-arrow-right"></div>
 				</div>

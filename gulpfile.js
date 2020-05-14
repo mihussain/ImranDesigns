@@ -32,11 +32,12 @@ gulp.task('minifyjs', function () {
 	return gulp.src('./js/main.js')
 	.pipe(requirejsOptimize({
 		baseUrl: 'js',
-    paths: {
-        'jquery': 'vendor/jquery-3.1.1.min',
-        'mixItUp': 'vendor/jquery.mixitup.min',
-        'transit': 'vendor/jquery.transit.min'
-    }
+		paths: {
+			'jquery': 'vendor/jquery-3.1.1.min',
+			'mixItUp': 'vendor/jquery.mixitup.min',
+			'transit': 'vendor/jquery.transit.min',
+			'prism': 'vendor/prism'
+		}
 	}))
 	.pipe(rename({ suffix: '.min' }))
 	.pipe(gulp.dest('./js/'))

@@ -102,10 +102,10 @@
 					</ul>
 
 					<div class="project_portfolio" role="article">
-					<div class="central_container">	
+					
 					<div class="portfolio--container">
 								
-							
+					<div class="central_container">	
 								<?php while($portfolio->have_posts()) : $portfolio->the_post(); ?>
 									<?php 
 										$taxonomy = 'project_type';

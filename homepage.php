@@ -41,7 +41,11 @@
 						<?php the_content(); ?>
 					<?php endwhile; ?>
 				</div>
+			</div>
+		</section>
 
+		<section class="project_portfolio fade" role="article">
+			<div class="central_container">
 				<div class="text__portfolio">
 					<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 						<?php if(get_field('before_dynamic')): ?>
@@ -50,11 +54,10 @@
 					<?php endwhile; ?>
 				</div>
 			</div>
-		</section>
 
-		<section class="project_portfolio fade" role="article">
-			<div class="central_container">
-				<div class="portfolio--container">
+
+			<div class="portfolio--container">
+				<div class="central_container">
 					<?php $portfolio = new WP_Query(array(
 						'post_type' => 'project'
 					)); ?>
@@ -88,6 +91,7 @@
 					<?php $i++; endwhile; ?>
 				</div>
 			</div>
+		
 		</section>
 
 		<section class="section__text fade" role="article">
